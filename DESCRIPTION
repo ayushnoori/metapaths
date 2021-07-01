@@ -1,0 +1,37 @@
+Package: metapaths
+Type: Package
+Title: Meta-Path Based Network Similarity
+Version: 0.1.0
+Authors@R: 
+  c(person(given = "Ayush",
+           family = "Noori",
+           role = c("aut", "cre"),
+           email = "anoori@college.harvard.edu",
+           comment = c(ORCID = "0000-0003-1420-1236")),
+    person(given = "Amelia",
+           family = "Tan",
+           role = "aut",
+           email = "amelia_tan@hms.harvard.edu"),
+    person(given = "Michelle M.",
+           family = "Li",
+           role = "aut",
+           email = "michelleli@g.harvard.edu"),
+    person(given = "Marinka",
+           family = "Zitnik",
+           role = c("aut", "rth"),
+           email = "marinka@hms.harvard.edu"))
+Description: Compute meta-path based network similarity metrics in R.
+URL: https://www.ayushnoori.com/metapaths, https://github.com/ayushnoori/metapaths
+BugReports: https://github.com/ayushnoori/metapaths/issues
+Imports:
+    data.table,
+    purrr,
+    magrittr,
+    igraph
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr
+Suggests: 
+    rmarkdown

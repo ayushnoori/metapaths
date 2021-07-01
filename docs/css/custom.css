@@ -1,0 +1,49 @@
+/* CODE OUTPUT */
+
+div.sourceCode {
+  margin-bottom: 0;
+}
+
+div.sourceCode ~ pre {
+  margin-bottom: 1.2em;
+  background-color: white;
+  font-size: 0.7em;
+}
+
+
+/* TABLE OF CONTENTS */
+
+div.toc-box {
+  margin-top: 1rem;
+}
+
+div.toc::before {
+  content: "Table of Contents";
+  margin-top: 2rem;
+  font-weight: 400;
+  color: #159957;
+  font-size: 1.5em;
+}
+
+div.toc {
+  padding-top: 4rem;
+}
+
+
+/* H1 HEADER */
+
+h1 {
+  padding-top: 2rem;
+}
+
+#dependencies h1 {
+  padding-top: 0.2rem;
+}
+
+
+/* SUBTITLE */
+
+h3.project-tagline {
+  margin-top: 0rem;
+  padding-bottom: 1.5rem;
+}

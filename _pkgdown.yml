@@ -1,0 +1,8 @@
+template:
+  package: preferably
+  params:
+    toggle: manual
+
+# template:
+#   params:
+#     bootswatch: cosmo
