@@ -16,7 +16,7 @@ Ayush Noori \email{anoori@college.harvard.edu}
 
 Amelia Tan \email{amelia_tan@hms.harvard.edu}
 
-Michelle M. Li \email{amichelleli@g.harvard.edu}
+Michelle M. Li \email{michelleli@g.harvard.edu}
 
 Marinka Zitnik \email{marinka@hms.harvard.edu}
 }

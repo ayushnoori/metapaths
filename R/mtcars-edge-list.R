@@ -1,0 +1,43 @@
+#' Edge list constructed from \code{mtcars} dataset.
+#'
+#' This example edge list was constructed from the \code{mtcars} dataset using the example code below. The original data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).
+#'
+#' @format A \code{data.table} with 100 rows (representing 100 edges) and 4 columns:
+#' \describe{
+#'   \item{Origin}{The origin node of the edge in the graph. In an undirected graph, the distinction between \code{Origin} and \code{Destination} is arbitrary.}
+#'   \item{Destination}{The destination node of the edge in the graph.}
+#'   \item{OriginType}{The type of the origin node.}
+#'   \item{DestinationType}{The type of the destination node.}
+#'   ...
+#' }
+#'
+#' @examples
+#' library(data.table)
+#' library(magrittr)
+#' library(igraph)
+#' set.seed(1234)
+#'
+#' # subset data
+#' data(mtcars)
+#' mtcars  = mtcars %>%
+#'   as.data.table(keep.rownames = "Car") %>%
+#'   .[, Gear := factor(gear, levels = 3:5, labels = c("Three", "Four", "Five"))] %>%
+#'   .[, .(Car, Gear)] %>%
+#'   setkey(Car)
+#'
+#' # create edge list
+#' mtcars_edge_list = data.table(
+#'   Origin = sample(mtcars[, Car], 100, T),
+#'   Destination = sample(mtcars[, Car], 100, T)) %>%
+#'   .[, OriginType := mtcars[.$Origin, Gear]] %>%
+#'   .[, DestinationType := mtcars[.$Destination, Gear]]
+#'
+#' # inspect edge list
+#' head(mtcars_edge_list)
+#'
+#' # plot graph
+#' mtcars_graph = graph.data.frame(mtcars_edge_list, vertices = mtcars, directed = T)
+#' mtcars_col = factor(V(mtcars_graph)$Gear)
+#' plot(mtcars_graph, vertex.size = 15, vertex.label = NA, edge.arrow.size = .25, vertex.color = mtcars_col)
+#'
+"mtcars_edge_list"

@@ -35,3 +35,17 @@ RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 Suggests: 
     rmarkdown
+Collate: 
+    'all-nodes.R'
+    'get-neighbors.R'
+    'get-neighbor-list.R'
+    'get-similarity.R'
+    'search-neighbors.R'
+    'map-neighbors.R'
+    'metapaths-package.R'
+    'mtcars-edge-list.R'
+    'node-types.R'
+    'search-degrees.R'
+    'similarity-metrics.R'
+Depends: 
+    R (>= 2.10)

@@ -7,11 +7,11 @@
 #' @docType package
 #' @author Ayush Noori \email{anoori@@college.harvard.edu}
 #' @author Amelia Tan \email{amelia_tan@@hms.harvard.edu}
-#' @author Michelle M. Li \email{amichelleli@@g.harvard.edu}
+#' @author Michelle M. Li \email{michelleli@@g.harvard.edu}
 #' @author Marinka Zitnik \email{marinka@@hms.harvard.edu}
 #' @references
 #' \url{https://www.ayushnoori.com/metapaths}
 #' @import data.table
-#' @import purrr
+#' @importFrom purrr map map_dbl map_chr map_lgl map2_dfr pmap pmap_dfr
 #' @importFrom magrittr %>%
 NULL

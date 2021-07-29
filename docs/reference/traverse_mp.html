@@ -22,7 +22,7 @@
   }
 </script>
 
-<title>Get node neighbors of specified type using edge list. — get_neighbors • metapaths</title>
+<title>Step along meta-path to get all conforming paths from root node. — traverse_mp • metapaths</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -73,8 +73,9 @@
 
 
 
-<meta property="og:title" content="Get node neighbors of specified type using edge list. — get_neighbors" />
-<meta property="og:description" content="Retrieve the neighbors of a given node which are of a given type." />
+<meta property="og:title" content="Step along meta-path to get all conforming paths from root node. — traverse_mp" />
+<meta property="og:description" content="Recursive function to traverse the meta-path until is is expounded. The variable mp is a list of node types (i.e., a meta-path),
+which is shortened on each call of traverse_mp()." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -157,38 +158,62 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get node neighbors of specified type using edge list.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ayushnoori/metapaths/blob/master/R/get-neighbors.R'><code>R/get-neighbors.R</code></a></small>
-    <div class="hidden name"><code>get_neighbors.Rd</code></div>
+    <h1>Step along meta-path to get all conforming paths from root node.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ayushnoori/metapaths/blob/master/R/map-neighbors.R'><code>R/map-neighbors.R</code></a></small>
+    <div class="hidden name"><code>traverse_mp.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Retrieve the neighbors of a given node which are of a given type.</p>
+    <p>Recursive function to traverse the meta-path until is is expounded. The variable <code>mp</code> is a list of node types (i.e., a meta-path),
+which is shortened on each call of <code>traverse_mp()</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_neighbors</span><span class='op'>(</span><span class='va'>root</span>, <span class='va'>type</span>, <span class='va'>edge_list</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>traverse_mp</span><span class='op'>(</span>
+  <span class='va'>roots</span>,
+  <span class='va'>mp</span>,
+  step <span class='op'>=</span> <span class='fl'>1</span>,
+  <span class='va'>reference_list</span>,
+  list_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"edge"</span>, <span class='st'>"neighbor"</span><span class='op'>)</span>,
+  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>root</th>
-      <td><p>ID of the root node.</p></td>
+      <th>roots</th>
+      <td><p>ID of the root node on the first iteration, otherwise, <code>data.table</code> of growing paths.</p></td>
     </tr>
     <tr>
-      <th>type</th>
-      <td><p>Desired type of the neighbors.</p></td>
+      <th>mp</th>
+      <td><p>List of node types (i.e., a meta-path).</p></td>
     </tr>
     <tr>
-      <th>edge_list</th>
-      <td><p>Edge list as a <code>data.table</code> which must contain the columns <code>Origin</code>,
-<code>Destination</code>, <code>OriginType</code>, and <code>DestinationType</code>.</p></td>
+      <th>step</th>
+      <td><p>Counter for recursive function.</p></td>
+    </tr>
+    <tr>
+      <th>reference_list</th>
+      <td><p>Either an edge list as a <code>data.table</code> which must contain the columns <code>Origin</code>,
+<code>Destination</code>, <code>OriginType</code>, and <code>DestinationType</code>, or a neighbor reference object constructed
+by <code><a href='get_neighbor_list.html'>get_neighbor_list()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>list_type</th>
+      <td><p>If an edge list is provided, specify <code>"edge"</code>. If a neighbor list is provided, specify <code>"neighbor"</code>.</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>Should intermediate calculations be printed to console?</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Vector of neighbors of a given type.</p>
+    <p>List of all meta-paths from the root node following a specific meta-path, as a <code>data.table</code>.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='get_neighbor_list.html'>get_neighbor_list()</a></code> for neighbor reference object construction.</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

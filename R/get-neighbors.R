@@ -1,19 +1,34 @@
-#' Get node neighbors of specified type.
+#' Get node neighbors of specified type using edge list.
 #'
 #' Retrieve the neighbors of a given node which are of a given type.
 #'
-#' @param root ID of the root node.
-#' @param type Desired type of the neighbors.
-#' @param eslist Edge list as a \code{data.table} which must contain the columns \code{subject},
-#' \code{object}, \code{subject_type}, and \code{object_type}.
-#' @return List of neighbors.
-#' @author Ayush Noori
+#' @template root-type
+#' @template edge-list
+#' @return Vector of neighbors of a given type.
 #' @export
-get_neighbors = function(root, type, eslist) {
+get_neighbors = function(root, type, edge_list) {
 
-  neighbors_object = eslist[subject == root & object_type == type]
-  neighbors_subject = eslist[object == root & subject_type == type]
-  neighbors = c(neighbors_object[, object], neighbors_subject[, subject])
+  # get neighbors for origin and destination nodes
+  neighbors_destination = edge_list[Origin == root & DestinationType == type]
+  neighbors_origin = edge_list[Destination == root & OriginType == type]
+
+  # collapse origin and destination
+  neighbors = unique(c(neighbors_origin[, Origin],
+                       neighbors_destination[, Destination]))
   if(identical(neighbors, character(0))) return(NA) else return(neighbors)
 
+}
+
+
+#' Get all node neighbors by type.
+#'
+#' Retrieve all neighbors of a given node, stratified by specified node types.
+#'
+#' @template root
+#' @param edge_list_types Specified node types to stratify by.
+#' @template edge-list
+#' @return Nested list of neighbors grouped by type.
+#' @export
+get_neighbors_type = function(root, edge_list_types, edge_list) {
+  map(edge_list_types, ~get_neighbors(root, .x, edge_list))
 }
