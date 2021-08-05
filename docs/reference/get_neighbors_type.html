@@ -181,8 +181,12 @@
     </tr>
     <tr>
       <th>edge_list</th>
-      <td><p>Edge list as a <code>data.table</code> which must contain the columns <code>Origin</code>,
-<code>Destination</code>, <code>OriginType</code>, and <code>DestinationType</code>.</p></td>
+      <td><p>Edge list as a <code>data.table</code> which must contain the following columns:</p><dl>
+  <dt><code>Origin</code></dt><dd><p>IDs of the origin nodes for each edge.</p></dd>
+  <dt><code>Destination</code></dt><dd><p>IDs of the destination nodes for each edge.</p></dd>
+  <dt><code>OriginType</code></dt><dd><p>Types of the origin node for each edge.</p></dd>
+  <dt><code>DestinationType</code></dt><dd><p>Types of the destination node for each edge.</p></dd>
+</dl></td>
     </tr>
     </table>
 

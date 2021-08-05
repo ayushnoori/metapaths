@@ -7,8 +7,12 @@
 node_types(edge_list, verbose = F)
 }
 \arguments{
-\item{edge_list}{Edge list as a \code{data.table} which must contain the columns \code{Origin},
-\code{Destination}, \code{OriginType}, and \code{DestinationType}.}
+\item{edge_list}{Edge list as a \code{data.table} which must contain the following columns:
+\describe{
+  \item{\code{Origin}}{IDs of the origin nodes for each edge.}
+  \item{\code{Destination}}{IDs of the destination nodes for each edge.}
+  \item{\code{OriginType}}{Types of the origin node for each edge.}
+  \item{\code{DestinationType}}{Types of the destination node for each edge.}}}
 
 \item{verbose}{Should node types be printed to the console?}
 }

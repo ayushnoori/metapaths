@@ -29,18 +29,23 @@ get_similarity(
   \item{Degree-Weighted Path Count}{Use \code{"dwpc"}.}
   \item{PathSim}{Use \code{"pathsim"}.}}}
 
-\item{node_list}{Node list as a \code{data.table} which must contain the columns \code{Node}
-(corresponding to either \code{Origin} or \code{Destination} in the edge list), and \code{Node Type}
-(corresponding to either \code{OriginType} or \code{DestinationType} in the edge list). To disable type checking,
-set \code{node_list} to \code{"NoChecking"}.}
+\item{node_list}{Node list as a \code{data.table} which must contain the following columns:
+\describe{
+  \item{\code{Node}}{Node IDs (corresponding to either \code{Origin} or \code{Destination} in the edge list).}
+  \item{\code{NodeType}}{Node types (corresponding to either \code{OriginType} or
+  \code{DestinationType} in the edge list).}}}
 
 \item{neighbor_list}{Neighbor reference object constructed by \code{get_neighbor_list()}.}
 
 \item{verbose}{Should the intermediate calculations be printed to the console?}
 
-\item{reference_list}{Either an edge list as a \code{data.table} which must contain the columns \code{Origin},
-\code{Destination}, \code{OriginType}, and \code{DestinationType}, or a neighbor reference object constructed
-by \code{get_neighbor_list()}.}
+\item{reference_list}{Either an edge list as a \code{data.table} or a neighbor reference object constructed
+by \code{get_neighbor_list()}. If an edge list is provided, the \code{data.table} must contain the following columns:
+\describe{
+  \item{\code{Origin}}{IDs of the origin nodes for each edge.}
+  \item{\code{Destination}}{IDs of the destination nodes for each edge.}
+  \item{\code{OriginType}}{Types of the origin node for each edge.}
+  \item{\code{DestinationType}}{Types of the destination node for each edge.}}}
 
 \item{list_type}{If an edge list is provided, specify \code{"edge"}. If a neighbor list is provided, specify \code{"neighbor"}.}
 }

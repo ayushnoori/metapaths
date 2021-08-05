@@ -195,9 +195,13 @@ neighbor lists).</p>
     </tr>
     <tr>
       <th>reference_list</th>
-      <td><p>Either an edge list as a <code>data.table</code> which must contain the columns <code>Origin</code>,
-<code>Destination</code>, <code>OriginType</code>, and <code>DestinationType</code>, or a neighbor reference object constructed
-by <code><a href='get_neighbor_list.html'>get_neighbor_list()</a></code>.</p></td>
+      <td><p>Either an edge list as a <code>data.table</code> or a neighbor reference object constructed
+by <code><a href='get_neighbor_list.html'>get_neighbor_list()</a></code>. If an edge list is provided, the <code>data.table</code> must contain the following columns:</p><dl>
+  <dt><code>Origin</code></dt><dd><p>IDs of the origin nodes for each edge.</p></dd>
+  <dt><code>Destination</code></dt><dd><p>IDs of the destination nodes for each edge.</p></dd>
+  <dt><code>OriginType</code></dt><dd><p>Types of the origin node for each edge.</p></dd>
+  <dt><code>DestinationType</code></dt><dd><p>Types of the destination node for each edge.</p></dd>
+</dl></td>
     </tr>
     <tr>
       <th>list_type</th>
