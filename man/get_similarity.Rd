@@ -2,29 +2,67 @@
 % Please edit documentation in R/get-similarity.R
 \name{get_similarity}
 \alias{get_similarity}
-\title{Get node neighbors of specified type using edge list.}
+\title{Compute meta-path based similarity scores between two nodes.}
 \usage{
 get_similarity(
   x,
   y,
   mp,
   metric = c("pc", "npc", "dwpc", "pathsim"),
+  node_list,
   edge_list = NULL,
   neighbor_list = NULL,
   verbose = TRUE
 )
 }
 \arguments{
-\item{edge_list}{Edge list as a \code{data.table} which must contain the columns \code{Origin},
-\code{Destination}, \code{OriginType}, and \code{DestinationType}.}
+\item{x}{ID of the origin node.}
 
-\item{root}{ID of the root node.}
+\item{y}{ID of the destination node.}
 
-\item{type}{Desired type of the neighbors.}
+\item{mp}{Meta-path as a vector of node types (e.g., \code{c("TypeA", "TypeB", "TypeC")}).}
+
+\item{metric}{A vector of permissible similarity metrics (e.g., \code{c("npc", "dwpc")}), see defined metrics below:
+\describe{
+  \item{Path Count}{Use \code{"pc"}.}
+  \item{Normalized Path Count}{Use \code{"npc"}.}
+  \item{Degree-Weighted Count}{Use \code{"dwpc"}.}
+  \item{PathSim}{Use \code{"pathsim"}.}}}
+
+\item{node_list}{Node list as a \code{data.table} which must contain the columns \code{Node}
+(corresponding to either \code{Origin} or \code{Destination} in the edge list), and \code{Node Type}
+(corresponding to either \code{OriginType} or \code{DestinationType} in the edge list). To disable type checking,
+set \code{node_list} to \code{"NoChecking"}.}
+
+\item{neighbor_list}{Neighbor reference object constructed by \code{get_neighbor_list()}.}
+
+\item{verbose}{Should the intermediate calculations be printed to the console?}
+
+\item{reference_list}{Either an edge list as a \code{data.table} which must contain the columns \code{Origin},
+\code{Destination}, \code{OriginType}, and \code{DestinationType}, or a neighbor reference object constructed
+by \code{get_neighbor_list()}.}
+
+\item{list_type}{If an edge list is provided, specify \code{"edge"}. If a neighbor list is provided, specify \code{"neighbor"}.}
 }
 \value{
-Vector of neighbors of a given type.
+A list with six elements:
+\describe{
+  \item{Origin}{ID of the origin node provided (i.e., \code{x}).}
+  \item{Destination}{ID of the destination node provided (i.e., \code{y}).}
+  \item{MP}{Meta-path provided (i.e., \code{mp}).}
+  \item{OriginPaths}{Paths following the provided meta-path from the origin node (i.e., \code{x}) to all nodes of the
+  same type as the destination node (i.e., \code{y}) as a \code{data.table}.}
+  \item{OriginPaths}{Paths following the REVERSE of the provided meta-path from the destination node (i.e., \code{y}) to all nodes of the
+  same type as the origin node (i.e., \code{x}) as a \code{data.table}.}
+  \item{Similarity}{Computed meta-path based similarity scores by metric as a \code{data.table}.}}
 }
 \description{
 Retrieve the neighbors of a given node which are of a given type.
+}
+\seealso{
+\code{get_neighbor_list()} for neighbor reference object construction and \code{get_similarity_function()} for similarity metrics.
+
+\code{get_neighbor_list()} for neighbor reference object construction.
+
+\code{get_neighbor_list()} for neighbor reference object construction.
 }

@@ -3,7 +3,8 @@ NULL
 
 #' Compute PathSim similarity.
 #'
-#' Use the PathSim metric to compute a meta-path based similarity score.
+#' Use the PathSim metric to compute a meta-path based similarity score. Please note that PathSim can ONLY
+#' be used for symmetric meta-paths.
 #'
 #' @template similarity-metrics
 #' @return A list with two elements:
@@ -97,7 +98,8 @@ get_npc = function(x, y, paths_x, paths_y, reference_list = NULL,
 
 #' Compute degree-weighted path count similarity.
 #'
-#' Use the degree-weighted path count metric to compute a meta-path based similarity score.
+#' Use the degree-weighted path count metric to compute a meta-path based similarity score. Node that, in this implementation,
+#' type-specific degrees are used (except for the last step of the meta-path).
 #'
 #' @template similarity-metrics
 #' @return A list with two elements:

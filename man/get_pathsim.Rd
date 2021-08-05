@@ -38,7 +38,8 @@ A list with two elements:
   \item{Similarity}{The PathSim similarity score.}}
 }
 \description{
-Use the PathSim metric to compute a meta-path based similarity score.
+Use the PathSim metric to compute a meta-path based similarity score. Please note that PathSim can ONLY
+be used for symmetric meta-paths.
 }
 \references{
 \cite{Sun, Y., Han, J., Yan, X., Yu, P. S. & Wu, T. PathSim: meta path-based top-K similarity search in heterogeneous information networks. Proc. VLDB Endow. 4, 992–1003 (2011).}

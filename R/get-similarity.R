@@ -1,28 +1,48 @@
-#' Get node neighbors of specified type using edge list.
+#' @include map-neighbors.R similarity-metrics.R
+NULL
+
+#' Compute meta-path based similarity scores between two nodes.
 #'
 #' Retrieve the neighbors of a given node which are of a given type.
 #'
-#' @template root-type
-#' @template edge-list
-#' @return Vector of neighbors of a given type.
+#' @template get-similarity
+#' @template node-list
+#' @template neighbor-list
+#' @template reference-list
+#' @param verbose Should the intermediate calculations be printed to the console?
+#' @return A list with six elements:
+#' \describe{
+#'   \item{Origin}{ID of the origin node provided (i.e., \code{x}).}
+#'   \item{Destination}{ID of the destination node provided (i.e., \code{y}).}
+#'   \item{MP}{Meta-path provided (i.e., \code{mp}).}
+#'   \item{OriginPaths}{Paths following the provided meta-path from the origin node (i.e., \code{x}) to all nodes of the
+#'   same type as the destination node (i.e., \code{y}) as a \code{data.table}.}
+#'   \item{OriginPaths}{Paths following the REVERSE of the provided meta-path from the destination node (i.e., \code{y}) to all nodes of the
+#'   same type as the origin node (i.e., \code{x}) as a \code{data.table}.}
+#'   \item{Similarity}{Computed meta-path based similarity scores by metric as a \code{data.table}.}}
 #' @export
 get_similarity = function(x, y, mp,
                           metric = c("pc", "npc", "dwpc", "pathsim"),
-                          edge_list = NULL, neighbor_list = NULL,
+                          node_list, edge_list = NULL, neighbor_list = NULL,
                           verbose = TRUE) {
 
-  # get types
-  type_x = mp[1]; type_y = mp %>% .[length(.)]
+  # unless type checking has been disabled
+  if(node_list != "No Checking") {
 
-  # check that origin node is of type specified by meta-path
-  type_x %>% { if(nlist[node == x, node_bioentity] != .) stop("Origin node must be of type ", ., ".", call. = FALSE)}
+    # get types
+    type_x = mp[1]; type_y = mp %>% .[length(.)]
 
-  # check that destination node is of type specified by meta-path
-  type_y %>% .[length(.)] %>% { if(nlist[node == y, node_bioentity] != .) stop("Destination node must be of type ", ., ".", call. = FALSE)}
+    # check that origin node is of type specified by meta-path
+    type_x %>% { if(node_list[Node == x, NodeType] != .) stop("Origin node must be of type ", ., ".")}
+
+    # check that destination node is of type specified by meta-path
+    type_y %>% .[length(.)] %>% { if(node_list[Node == y, NodeType] != .) stop("Destination node must be of type ", ., ".")}
+
+  }
 
   # check that either an edge list OR a neighbor list are provided, but NOT both
   null_e = is.null(edge_list); null_n = is.null(neighbor_list)
-  if((null_e + null_n) != 1) stop("Must specify either an edge list or a list of neighbors by type.", call. = FALSE)
+  if((null_e + null_n) != 1) stop("Must specify either an edge list or a list of neighbors by type.")
 
   # if edge list is specified
   if(!null_e) {
@@ -38,9 +58,9 @@ get_similarity = function(x, y, mp,
   paths_x = traverse_mp(x, mp, reference_list = reference_list,
                         list_type = list_type, verbose = verbose)
 
-  # get all paths from destination following specified meta-path
+  # get all paths from destination following REVERSE of specified meta-path
   if(verbose) message("\n>>> Computing Paths from Destination (", y, ")")
-  paths_y = traverse_mp(y, mp, reference_list = reference_list,
+  paths_y = traverse_mp(y, rev(mp), reference_list = reference_list,
                         list_type = list_type, verbose = verbose)
 
   # compute similarity

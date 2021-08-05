@@ -39,7 +39,8 @@ A list with two elements:
   \item{Similarity}{The degree-weighted path count similarity score.}}
 }
 \description{
-Use the degree-weighted path count metric to compute a meta-path based similarity score.
+Use the degree-weighted path count metric to compute a meta-path based similarity score. Node that, in this implementation,
+type-specific degrees are used (except for the last step of the meta-path).
 }
 \references{
 \cite{Himmelstein, D. S. & Baranzini, S. E. Heterogeneous Network Edge Prediction: A Data Integration Approach to Prioritize Disease-Associated Genes. PLOS Computational Biology 11, e1004259 (2015).}
