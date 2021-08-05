@@ -46,7 +46,7 @@ get_pathsim = function(x, y, paths_x, paths_y, reference_list = NULL,
 #'   \item{Similarity}{The path count similarity score.}}
 #' @references \cite{Himmelstein, D. S. & Baranzini, S. E. Heterogeneous Network Edge Prediction: A Data Integration Approach to Prioritize Disease-Associated Genes. PLOS Computational Biology 11, e1004259 (2015).}
 #' @export
-get_pc = function(x, y, paths_x, paths_y, reference_list = NULL,
+get_pc = function(x, y, paths_x, paths_y = NULL, reference_list = NULL,
                   list_type = NULL, verbose = TRUE) {
 
   x_y = sum(paths_x[[ncol(paths_x)]] == y)
@@ -108,7 +108,7 @@ get_npc = function(x, y, paths_x, paths_y, reference_list = NULL,
 #'   \item{Similarity}{The degree-weighted path count similarity score.}}
 #' @references \cite{Himmelstein, D. S. & Baranzini, S. E. Heterogeneous Network Edge Prediction: A Data Integration Approach to Prioritize Disease-Associated Genes. PLOS Computational Biology 11, e1004259 (2015).}
 #' @export
-get_dwpc = function(x, y, paths_x, paths_y, reference_list,
+get_dwpc = function(x, y, paths_x, paths_y = NULL, reference_list,
                     list_type = c("edge", "neighbor"), verbose = TRUE, w = 0.4) {
 
   # get paths from origin to destination
@@ -147,7 +147,7 @@ get_dwpc = function(x, y, paths_x, paths_y, reference_list,
 #' \describe{
 #'   \item{Path Count}{Use \code{"pc"}.}
 #'   \item{Normalized Path Count}{Use \code{"npc"}.}
-#'   \item{Degree-Weighted Count}{Use \code{"dwpc"}.}
+#'   \item{Degree-Weighted Path Count}{Use \code{"dwpc"}.}
 #'   \item{PathSim}{Use \code{"pathsim"}.}}
 #' @param get_verbose Should output be printed to console?
 #' @param ... Other arguments to pass to appropriate meta-path similarity function.
@@ -159,7 +159,7 @@ get_dwpc = function(x, y, paths_x, paths_y, reference_list,
 #' \describe{
 #'   \item{Path Count}{\code{get_pc()}}
 #'   \item{Normalized Path Count}{\code{get_npc()}}
-#'   \item{Degree-Weighted Count}{\code{get_dwpc()}}
+#'   \item{Degree-Weighted Path Count}{\code{get_dwpc()}}
 #'   \item{PathSim}{\code{get_pathsim()}}}
 #' @export
 get_similarity_function = function(metric_name, get_verbose, ...) {

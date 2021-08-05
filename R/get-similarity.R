@@ -58,10 +58,13 @@ get_similarity = function(x, y, mp,
   paths_x = traverse_mp(x, mp, reference_list = reference_list,
                         list_type = list_type, verbose = verbose)
 
-  # get all paths from destination following REVERSE of specified meta-path
-  if(verbose) message("\n>>> Computing Paths from Destination (", y, ")")
-  paths_y = traverse_mp(y, rev(mp), reference_list = reference_list,
-                        list_type = list_type, verbose = verbose)
+  # only PathSim and NPC require paths_y to be computed
+  if(sum(c("pathsim", "npc") %in% metric) > 0) {
+    # get all paths from destination following REVERSE of specified meta-path
+    if(verbose) message("\n>>> Computing Paths from Destination (", y, ")")
+    paths_y = traverse_mp(y, rev(mp), reference_list = reference_list,
+                          list_type = list_type, verbose = verbose)
+  } else { paths_y = NULL }
 
   # compute similarity
   if(verbose) message("\n>>> Computing Similarity")

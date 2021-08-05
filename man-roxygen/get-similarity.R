@@ -5,6 +5,6 @@
 #' \describe{
 #'   \item{Path Count}{Use \code{"pc"}.}
 #'   \item{Normalized Path Count}{Use \code{"npc"}.}
-#'   \item{Degree-Weighted Count}{Use \code{"dwpc"}.}
+#'   \item{Degree-Weighted Path Count}{Use \code{"dwpc"}.}
 #'   \item{PathSim}{Use \code{"pathsim"}.}}
 #' @seealso \code{get_neighbor_list()} for neighbor reference object construction and \code{get_similarity_function()} for similarity metrics.
