@@ -127,10 +127,11 @@ get_dwpc = function(x, y, paths_x, paths_y = NULL, reference_list,
   if(x_y == 0) dwpc = 0 else dwpc = sum(pdp)
 
   if(verbose) {
+    if(length(pdp) > 1) sd_msg = paste0(" [", sd(pdp), "]") else sd_msg = ""
     message("Similarity Metric: Degree-Weighted Path Count")
     message("X -> Y Paths: ", x_y)
     message("Damping Exponent: ", w)
-    message("PDP (Mean/SD): ", mean(pdp), " [", sd(pdp), "]")
+    message("PDP (Mean/SD): ", mean(pdp), sd_msg)
     message("Similarity: ", dwpc)
   }
 

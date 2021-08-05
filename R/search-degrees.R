@@ -18,7 +18,7 @@ search_degrees = function(root, type = NA, reference_list, list_type = c("edge",
     # otherwise, return number of neighbors of that type
     if(is.na(type)) {
 
-      unlist(reference_list[root, !c("Node")]) %>% {.[!is.na(.)]} %>%
+      unlist(reference_list[Node == root, !c("Node")]) %>% {.[!is.na(.)]} %>%
         length() %>% return()
 
     } else {
