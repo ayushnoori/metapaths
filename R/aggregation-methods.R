@@ -1,5 +1,3 @@
-
-
 #' Use shortest aggregation.
 #'
 #' Use the shortest aggregation method to aggregate meta-path based similarity scores.
@@ -9,7 +7,7 @@
 #' @return A \code{data.table} with multiple columns, including:
 #' \describe{
 #'   \item{Metric}{The name of the similarity metric used (e.g., \code{"PathSim"}).}
-#'   \item{Method}{The name of the aggregation method used.}
+#'   \item{Method}{The name of the aggregation method used (i.e., \code{"Shortest"}).}
 #'   \item{SetSimilarity}{The aggregate set similarity score.}}
 #' @references \cite{Guney, E., Menche, J., Vidal, M. & Barábasi, A.-L. Network-based in silico drug efficacy screening. Nat Commun 7, 10331 (2016).}
 #' @seealso \code{get_similarity()} for pairwise meta-path based similarity calculation.

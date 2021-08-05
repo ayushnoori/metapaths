@@ -1,4 +1,4 @@
-#' @param mp Meta-path as a vector of node types (e.g., \code{c("TypeA", "TypeB", "TypeC")}).
+#' @param mps List of meta-paths, where each meta-path is a vector of node types (e.g., \code{c("TypeA", "TypeB", "TypeC")}).
 #' @param metric A vector of permissible similarity metrics (e.g., \code{c("npc", "dwpc")}), see defined metrics below:
 #' \describe{
 #'   \item{Path Count}{Specify \code{"pc"}, corresponding to \code{get_pc()}.}

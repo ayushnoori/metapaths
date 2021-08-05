@@ -24,10 +24,10 @@ get_similarity(
 
 \item{metric}{A vector of permissible similarity metrics (e.g., \code{c("npc", "dwpc")}), see defined metrics below:
 \describe{
-  \item{Path Count}{Use \code{"pc"}.}
-  \item{Normalized Path Count}{Use \code{"npc"}.}
-  \item{Degree-Weighted Path Count}{Use \code{"dwpc"}.}
-  \item{PathSim}{Use \code{"pathsim"}.}}}
+  \item{Path Count}{Specify \code{"pc"}, corresponding to \code{get_pc()}.}
+  \item{Normalized Path Count}{Specify \code{"npc"}, corresponding to \code{get_npc()}.}
+  \item{Degree-Weighted Path Count}{Specify \code{"dwpc"}, corresponding to \code{get_dwpc()}.}
+  \item{PathSim}{Specify \code{"pathsim"}, corresponding to \code{get_pathsim()}.}}}
 
 \item{node_list}{Node list as a \code{data.table} which must contain the following columns:
 \describe{

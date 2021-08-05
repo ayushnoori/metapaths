@@ -15,7 +15,7 @@ aggregate_shortest(sim_dt, verbose)
 A \code{data.table} with multiple columns, including:
 \describe{
   \item{Metric}{The name of the similarity metric used (e.g., \code{"PathSim"}).}
-  \item{Method}{The name of the aggregation method used.}
+  \item{Method}{The name of the aggregation method used (i.e., \code{"Shortest"}).}
   \item{SetSimilarity}{The aggregate set similarity score.}}
 }
 \description{

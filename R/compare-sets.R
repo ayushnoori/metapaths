@@ -45,14 +45,13 @@ map_log = function(res, verbose) {
 #' @param set2 IDs of node set #2 as a vector.
 #' @template mp-metric
 #' @template node-list
+#' @template edge-list
 #' @template neighbor-list
-#' @template reference-list
 #' @param verbose Should the intermediate calculations be printed to the console?
 #' @return A list with six elements:
 #' \describe{
 #'   \item{Set1}{IDs of node set #1 provided (i.e., \code{set1}).}
 #'   \item{Set2}{ID of node set #2 provided (i.e., \code{set2}).}
-#'   \item{MP}{Meta-path provided (i.e., \code{mp}).}
 #'   \item{Comparisons}{List of pairwise comparisons.}
 #'   \item{Details}{Intermediate computations produced by \code{get_similarity()}.}
 #'   \item{Similarities}{Pairwise similarity scores.}
@@ -91,5 +90,46 @@ compare_sets = function(set1, set2, mp,
   return(list(Set1 = set1, Set2 = set2,
               Comparisons = pairs, Details = pair_sims,
               Similarities = sim_dt, SetSimilarity = set_similarity))
+
+}
+
+
+#' Compute meta-path based similarity scores between two sets of nodes using various meta-paths.
+#'
+#' Given a series of specified meta-path(s), similarity metric(s), and aggregation method(s), compute the meta-path based similarity score between two nodes.
+#'
+#' @param set1 IDs of node set #1 as a vector.
+#' @param set2 IDs of node set #2 as a vector.
+#' @template mps-metric
+#' @template method
+#' @template node-list
+#' @template edge-list
+#' @template neighbor-list
+#' @param verbose Should the intermediate calculations be printed to the console?
+#' @return A list with six elements:
+#' \describe{
+#'   \item{Set1}{IDs of node set #1 provided (i.e., \code{set1}).}
+#'   \item{Set2}{ID of node set #2 provided (i.e., \code{set2}).}
+#'   \item{Details}{Intermediate computations produced by \code{get_similarity()} and \code{compare_sets()}.}
+#'   \item{SetSimilarity}{Aggregate set similarity score(s).}}
+#' @seealso \code{get_neighbor_list()} for neighbor reference object construction,
+#' \code{get_similarity_function()} for similarity metrics, and
+#' \code{get_aggregation_function()} for aggregation methods. This function is a
+#' wrapper around \code{compare_sets()}, which in turn is a wrapper around \code{get_similarity()}.
+#' @export
+compare_mps = function(set1, set2, mps,
+                       metric = c("pc", "pathsim", "npc", "dwpc"),
+                       method = c("shortest"), node_list,
+                       edge_list = NULL, neighbor_list = NULL,
+                       verbose = TRUE) {
+
+  # compare meta-paths
+  comp_mps = map(mps, ~compare_sets(set1, set2, mp = .x, metric, method, node_list,
+                                    edge_list, neighbor_list, verbose))
+  set_similarity = map(comp_mps, ~.$SetSimilarity) %>% rbindlist()
+
+  # return similarity
+  return(list(Set1 = set1, Set2 = set2,
+              Details = comp_mps, SetSimilarity = set_similarity))
 
 }
