@@ -6,6 +6,10 @@ The `metapaths` package facilitates the computation of meta-path based network s
 
 `metapaths` is designed for the [R](https://www.r-project.org/) programming language and statistical computing environment. To install the latest version of this package, please run the following line in your R console:
 
+## Documentation
+
+Please visit [our website](https://www.ayushnoori.com/metapaths) for the latest documentation.
+
 ```{r}
 devtools::install_github("ayushnoori/metapaths")
 ```
