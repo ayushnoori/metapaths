@@ -30,32 +30,37 @@ extract_sim = function(x) {
 #'
 #' @param res An intermediate value of an iterable function (e.g., \code{purrr::map}).
 #' @param verbose Should dividers be printed to the console?
-#' @return \code{res} is returned as is.
+#' @return After printing to the console if \code{verbose} is \code{TRUE}, \code{res} is returned as is.
 #' @export
 map_log = function(res, verbose) {
   if(verbose) message("\n", rep("_", 80), "\n")
   return(res)
 }
 
-#' Compute meta-path based similarity scores between two nodes.
+#' Compute meta-path based similarity scores between two sets of nodes.
 #'
-#' Retrieve the neighbors of a given node which are of a given type.
+#' Given a specified meta-path, similarity metric(s), and aggregation method(s), compute the meta-path based similarity score between two nodes.
 #'
-#' @template get-similarity
+#' @param set1 IDs of node set #1 as a vector.
+#' @param set2 IDs of node set #2 as a vector.
+#' @template mp-metric
 #' @template node-list
 #' @template neighbor-list
 #' @template reference-list
 #' @param verbose Should the intermediate calculations be printed to the console?
 #' @return A list with six elements:
 #' \describe{
-#'   \item{Origin}{ID of the origin node provided (i.e., \code{x}).}
-#'   \item{Destination}{ID of the destination node provided (i.e., \code{y}).}
+#'   \item{Set1}{IDs of node set #1 provided (i.e., \code{set1}).}
+#'   \item{Set2}{ID of node set #2 provided (i.e., \code{set2}).}
 #'   \item{MP}{Meta-path provided (i.e., \code{mp}).}
-#'   \item{OriginPaths}{Paths following the provided meta-path from the origin node (i.e., \code{x}) to all nodes of the
-#'   same type as the destination node (i.e., \code{y}) as a \code{data.table}.}
-#'   \item{OriginPaths}{Paths following the REVERSE of the provided meta-path from the destination node (i.e., \code{y}) to all nodes of the
-#'   same type as the origin node (i.e., \code{x}) as a \code{data.table}.}
-#'   \item{Similarity}{Computed meta-path based similarity scores by metric as a \code{data.table}.}}
+#'   \item{Comparisons}{List of pairwise comparisons.}
+#'   \item{Details}{Intermediate computations produced by \code{get_similarity()}.}
+#'   \item{Similarities}{Pairwise similarity scores.}
+#'   \item{SetSimilarity}{Aggregate set similarity score(s).}}
+#' @seealso \code{get_neighbor_list()} for neighbor reference object construction,
+#' \code{get_similarity_function()} for similarity metrics, and
+#' \code{get_aggregation_function()} for aggregation methods. This function is a
+#' wrapper around \code{get_similarity()}.
 #' @export
 compare_sets = function(set1, set2, mp,
                         metric = c("pc", "pathsim", "npc", "dwpc"),

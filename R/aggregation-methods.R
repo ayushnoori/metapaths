@@ -1,10 +1,12 @@
+
+
 #' Use shortest aggregation.
 #'
 #' Use the shortest aggregation method to aggregate meta-path based similarity scores.
 #'
 #' @param sim_dt A \code{data.table} containing the collapsed output of multiple \code{get_similarity()$Similarity} calls extracted by \code{extract_sim()}.
 #' @param verbose Should aggregation method be printed to the console?
-#' @return A \code{data.table} with multiple columns:
+#' @return A \code{data.table} with multiple columns, including:
 #' \describe{
 #'   \item{Metric}{The name of the similarity metric used (e.g., \code{"PathSim"}).}
 #'   \item{Method}{The name of the aggregation method used.}
@@ -25,7 +27,7 @@ aggregate_shortest = function(sim_dt, verbose) {
 
 #' Retrieve aggregation method.
 #'
-#' For a desired aggregation method, retrieve the function which aggregates the meta-path based similarity scores.
+#' For a desired aggregation method, retrieve the function which aggregates the meta-path based similarity scores. This function is a wrapper around \code{get_similarity()}.
 #'
 #' @param method_name Readable description of the desired aggregation method:
 #' \describe{

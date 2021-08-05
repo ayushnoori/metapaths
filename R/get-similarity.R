@@ -1,11 +1,13 @@
 #' @include map-neighbors.R similarity-metrics.R
 NULL
 
-#' Compute meta-path based similarity scores between two nodes.
+#' Compute meta-path based similarity score between two nodes.
 #'
-#' Retrieve the neighbors of a given node which are of a given type.
+#' Given a specified meta-path and similarity metric(s), compute the meta-path based similarity score between two nodes.
 #'
-#' @template get-similarity
+#' @param x ID of the origin node.
+#' @param y ID of the destination node.
+#' @template mp-metric
 #' @template node-list
 #' @template neighbor-list
 #' @template reference-list
@@ -17,9 +19,10 @@ NULL
 #'   \item{MP}{Meta-path provided (i.e., \code{mp}).}
 #'   \item{OriginPaths}{Paths following the provided meta-path from the origin node (i.e., \code{x}) to all nodes of the
 #'   same type as the destination node (i.e., \code{y}) as a \code{data.table}.}
-#'   \item{OriginPaths}{Paths following the REVERSE of the provided meta-path from the destination node (i.e., \code{y}) to all nodes of the
+#'   \item{DestinationPaths}{Paths following the REVERSE of the provided meta-path from the destination node (i.e., \code{y}) to all nodes of the
 #'   same type as the origin node (i.e., \code{x}) as a \code{data.table}.}
 #'   \item{Similarity}{Computed meta-path based similarity scores by metric as a \code{data.table}.}}
+#' @seealso \code{get_neighbor_list()} for neighbor reference object construction and \code{get_similarity_function()} for similarity metrics.
 #' @export
 get_similarity = function(x, y, mp,
                           metric = c("pc", "npc", "dwpc", "pathsim"),

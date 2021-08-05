@@ -19,7 +19,7 @@ get_aggregation_function(method_name, get_verbose, ...)
 The output of the desired aggregation method.
 }
 \description{
-For a desired aggregation method, retrieve the function which aggregates the meta-path based similarity scores.
+For a desired aggregation method, retrieve the function which aggregates the meta-path based similarity scores. This function is a wrapper around \code{get_similarity()}.
 }
 \seealso{
 See the following aggregation functions:

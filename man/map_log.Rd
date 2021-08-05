@@ -12,7 +12,7 @@ map_log(res, verbose)
 \item{verbose}{Should dividers be printed to the console?}
 }
 \value{
-\code{res} is returned as is.
+After printing to the console if \code{verbose} is \code{TRUE}, \code{res} is returned as is.
 }
 \description{
 Print dividers to the console between analysis logs when \code{verbose} is \code{TRUE}.

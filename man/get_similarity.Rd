@@ -2,7 +2,7 @@
 % Please edit documentation in R/get-similarity.R
 \name{get_similarity}
 \alias{get_similarity}
-\title{Compute meta-path based similarity scores between two nodes.}
+\title{Compute meta-path based similarity score between two nodes.}
 \usage{
 get_similarity(
   x,
@@ -52,17 +52,17 @@ A list with six elements:
   \item{MP}{Meta-path provided (i.e., \code{mp}).}
   \item{OriginPaths}{Paths following the provided meta-path from the origin node (i.e., \code{x}) to all nodes of the
   same type as the destination node (i.e., \code{y}) as a \code{data.table}.}
-  \item{OriginPaths}{Paths following the REVERSE of the provided meta-path from the destination node (i.e., \code{y}) to all nodes of the
+  \item{DestinationPaths}{Paths following the REVERSE of the provided meta-path from the destination node (i.e., \code{y}) to all nodes of the
   same type as the origin node (i.e., \code{x}) as a \code{data.table}.}
   \item{Similarity}{Computed meta-path based similarity scores by metric as a \code{data.table}.}}
 }
 \description{
-Retrieve the neighbors of a given node which are of a given type.
+Given a specified meta-path and similarity metric(s), compute the meta-path based similarity score between two nodes.
 }
 \seealso{
+\code{get_neighbor_list()} for neighbor reference object construction.
+
+\code{get_neighbor_list()} for neighbor reference object construction.
+
 \code{get_neighbor_list()} for neighbor reference object construction and \code{get_similarity_function()} for similarity metrics.
-
-\code{get_neighbor_list()} for neighbor reference object construction.
-
-\code{get_neighbor_list()} for neighbor reference object construction.
 }

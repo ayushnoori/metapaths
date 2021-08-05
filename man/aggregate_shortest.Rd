@@ -12,7 +12,7 @@ aggregate_shortest(sim_dt, verbose)
 \item{verbose}{Should aggregation method be printed to the console?}
 }
 \value{
-A \code{data.table} with multiple columns:
+A \code{data.table} with multiple columns, including:
 \describe{
   \item{Metric}{The name of the similarity metric used (e.g., \code{"PathSim"}).}
   \item{Method}{The name of the aggregation method used.}
