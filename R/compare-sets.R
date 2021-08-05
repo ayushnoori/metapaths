@@ -12,7 +12,7 @@ NULL
 #'   \item{Origin}{The ID of the origin node.}
 #'   \item{Destination}{The ID of the destination node.}
 #'   \item{Metric}{The name of the similarity metric used (e.g., \code{"PathSim"}).}
-#'   \item{Method}{The name of the aggregation method used.}}
+#'   \item{Method}{The name of the aggregation method used.}
 #'   \item{Similarity}{The pairwise meta-path based similarity score.}}
 #' @seealso \code{get_similarity()} for pairwise meta-path based similarity calculation.
 #' @export

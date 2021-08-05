@@ -8,7 +8,7 @@ get_pc(
   x,
   y,
   paths_x,
-  paths_y,
+  paths_y = NULL,
   reference_list = NULL,
   list_type = NULL,
   verbose = TRUE

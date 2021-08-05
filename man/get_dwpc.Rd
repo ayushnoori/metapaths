@@ -8,7 +8,7 @@ get_dwpc(
   x,
   y,
   paths_x,
-  paths_y,
+  paths_y = NULL,
   reference_list,
   list_type = c("edge", "neighbor"),
   verbose = TRUE,

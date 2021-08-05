@@ -36,15 +36,17 @@ VignetteBuilder: knitr
 Suggests: 
     rmarkdown
 Collate: 
+    'aggregation-methods.R'
     'all-nodes.R'
-    'get-neighbors.R'
-    'get-neighbor-list.R'
     'search-neighbors.R'
+    'get-neighbors.R'
     'map-neighbors.R'
     'node-types.R'
     'search-degrees.R'
     'similarity-metrics.R'
     'get-similarity.R'
+    'compare-sets.R'
+    'get-neighbor-list.R'
     'metapaths-package.R'
     'mtcars-edge-list.R'
 Depends: 

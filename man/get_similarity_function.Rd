@@ -11,7 +11,7 @@ get_similarity_function(metric_name, get_verbose, ...)
 \describe{
   \item{Path Count}{Use \code{"pc"}.}
   \item{Normalized Path Count}{Use \code{"npc"}.}
-  \item{Degree-Weighted Count}{Use \code{"dwpc"}.}
+  \item{Degree-Weighted Path Count}{Use \code{"dwpc"}.}
   \item{PathSim}{Use \code{"pathsim"}.}}}
 
 \item{get_verbose}{Should output be printed to console?}
@@ -32,6 +32,6 @@ See the following functions to compute various similarity scores:
 \describe{
   \item{Path Count}{\code{get_pc()}}
   \item{Normalized Path Count}{\code{get_npc()}}
-  \item{Degree-Weighted Count}{\code{get_dwpc()}}
+  \item{Degree-Weighted Path Count}{\code{get_dwpc()}}
   \item{PathSim}{\code{get_pathsim()}}}
 }

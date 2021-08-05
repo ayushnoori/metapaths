@@ -22,7 +22,7 @@
   }
 </script>
 
-<title>Retrieve similarity score metric. — get_similarity_function • metapaths</title>
+<title>Extract similarity scores from pairwise comparisons. — extract_sim • metapaths</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -73,8 +73,8 @@
 
 
 
-<meta property="og:title" content="Retrieve similarity score metric. — get_similarity_function" />
-<meta property="og:description" content="For a desired meta-path based similarity metric, retrieve the function which computes the appropriate similarity score, then compute similarity." />
+<meta property="og:title" content="Extract similarity scores from pairwise comparisons. — extract_sim" />
+<meta property="og:description" content="During aggregation of meta-path based similarity, extract similarity scores from pairwise aggregations." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -157,55 +157,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Retrieve similarity score metric.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ayushnoori/metapaths/blob/master/R/similarity-metrics.R'><code>R/similarity-metrics.R</code></a></small>
-    <div class="hidden name"><code>get_similarity_function.Rd</code></div>
+    <h1>Extract similarity scores from pairwise comparisons.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ayushnoori/metapaths/blob/master/R/compare-sets.R'><code>R/compare-sets.R</code></a></small>
+    <div class="hidden name"><code>extract_sim.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>For a desired meta-path based similarity metric, retrieve the function which computes the appropriate similarity score, then compute similarity.</p>
+    <p>During aggregation of meta-path based similarity, extract similarity scores from pairwise aggregations.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_similarity_function</span><span class='op'>(</span><span class='va'>metric_name</span>, <span class='va'>get_verbose</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>extract_sim</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>metric_name</th>
-      <td><p>Readable description of the desired similarity score:</p><dl>
-  <dt>Path Count</dt><dd><p>Use <code>"pc"</code>.</p></dd>
-  <dt>Normalized Path Count</dt><dd><p>Use <code>"npc"</code>.</p></dd>
-  <dt>Degree-Weighted Path Count</dt><dd><p>Use <code>"dwpc"</code>.</p></dd>
-  <dt>PathSim</dt><dd><p>Use <code>"pathsim"</code>.</p></dd>
-</dl></td>
+      <th>x</th>
+      <td><p>A <code>data.table</code> containing the output of a <code>get_similarity()$Similarity</code> call.</p></td>
     </tr>
     <tr>
-      <th>get_verbose</th>
-      <td><p>Should output be printed to console?</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Other arguments to pass to appropriate meta-path similarity function.</p></td>
+      <th>verbose</th>
+      <td><p>Should aggregation method be printed to the console?</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list with two elements:</p><dl>
-  <dt>Metric</dt><dd><p>The human readable name of the similarity metric.</p></dd>
-  <dt>Similarity</dt><dd><p>The appropriate similarity score.</p></dd>
+    <p>A data.table with multiple columns elements:</p><dl>
+  <dt>Origin</dt><dd><p>The ID of the origin node.</p></dd>
+  <dt>Destination</dt><dd><p>The ID of the destination node.</p></dd>
+  <dt>Metric</dt><dd><p>The name of the similarity metric used (e.g., <code>"PathSim"</code>).</p></dd>
+  <dt>Method</dt><dd><p>The name of the aggregation method used.</p></dd>
+  <dt>Similarity</dt><dd><p>The pairwise meta-path based similarity score.</p></dd>
 </dl>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>See the following functions to compute various similarity scores:</p><dl>
-  <dt>Path Count</dt><dd><p><code><a href='get_pc.html'>get_pc()</a></code></p></dd>
-  <dt>Normalized Path Count</dt><dd><p><code><a href='get_npc.html'>get_npc()</a></code></p></dd>
-  <dt>Degree-Weighted Path Count</dt><dd><p><code><a href='get_dwpc.html'>get_dwpc()</a></code></p></dd>
-  <dt>PathSim</dt><dd><p><code><a href='get_pathsim.html'>get_pathsim()</a></code></p></dd>
-</dl>
-</div>
+    <div class='dont-index'><p><code><a href='get_similarity.html'>get_similarity()</a></code> for pairwise meta-path based similarity calculation.</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
