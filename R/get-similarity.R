@@ -9,8 +9,8 @@ NULL
 #' @param y ID of the destination node.
 #' @template mp-metric
 #' @template node-list
+#' @template edge-list
 #' @template neighbor-list
-#' @template reference-list
 #' @param verbose Should the intermediate calculations be printed to the console?
 #' @return A list with six elements:
 #' \describe{

@@ -20,7 +20,5 @@ Vector of neighbors of a given type.
 Retrieve the neighbors of a given node which are of a given type using the neighbors reference object.
 }
 \seealso{
-\code{get_neighbor_list()} for neighbor reference object construction.
-
 [get_neighbor_list()] for neighbor reference object construction.
 }

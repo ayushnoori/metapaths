@@ -61,8 +61,6 @@ A list with six elements:
 Given a specified meta-path, similarity metric(s), and aggregation method(s), compute the meta-path based similarity score between two nodes.
 }
 \seealso{
-\code{get_neighbor_list()} for neighbor reference object construction.
-
 \code{get_neighbor_list()} for neighbor reference object construction,
 \code{get_similarity_function()} for similarity metrics, and
 \code{get_aggregation_function()} for aggregation methods. This function is a
