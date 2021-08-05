@@ -47,6 +47,7 @@ map_log = function(res, verbose) {
 #' @template node-list
 #' @template edge-list
 #' @template neighbor-list
+#' @param check Should type checking be performed? Default is \code{TRUE}.
 #' @param verbose Should the intermediate calculations be printed to the console?
 #' @return A list with six elements:
 #' \describe{
@@ -65,7 +66,7 @@ compare_sets = function(set1, set2, mp,
                         metric = c("pc", "pathsim", "npc", "dwpc"),
                         method = c("shortest"), node_list,
                         edge_list = NULL, neighbor_list = NULL,
-                        verbose = TRUE) {
+                        check = TRUE, verbose = TRUE) {
 
   # first, make unique if not already
   set1 = unique(set1); set2 = unique(set2)
@@ -75,7 +76,7 @@ compare_sets = function(set1, set2, mp,
                      Set2 = rep(set2, length(set1)))
 
   # compute similarities
-  pair_sims = pmap(pairs, ~map_log(get_similarity(..1, ..2, mp, metric, node_list, edge_list, neighbor_list, verbose = verbose), verbose))
+  pair_sims = pmap(pairs, ~map_log(get_similarity(..1, ..2, mp, metric, node_list, edge_list, neighbor_list, check, verbose = verbose), verbose))
   names(pair_sims) = paste(pairs$Set1, pairs$Set2, sep = "-")
 
   # extract and label similarity scores for each comparison
@@ -105,6 +106,7 @@ compare_sets = function(set1, set2, mp,
 #' @template node-list
 #' @template edge-list
 #' @template neighbor-list
+#' @param check Should type checking be performed? Default is \code{TRUE}.
 #' @param verbose Should the intermediate calculations be printed to the console?
 #' @return A list with six elements:
 #' \describe{
@@ -121,11 +123,11 @@ compare_mps = function(set1, set2, mps,
                        metric = c("pc", "pathsim", "npc", "dwpc"),
                        method = c("shortest"), node_list,
                        edge_list = NULL, neighbor_list = NULL,
-                       verbose = TRUE) {
+                       check = TRUE, verbose = TRUE) {
 
   # compare meta-paths
   comp_mps = map(mps, ~compare_sets(set1, set2, mp = .x, metric, method, node_list,
-                                    edge_list, neighbor_list, verbose))
+                                    edge_list, neighbor_list, check, verbose))
   set_similarity = map(comp_mps, ~.$SetSimilarity) %>% rbindlist()
 
   # return similarity

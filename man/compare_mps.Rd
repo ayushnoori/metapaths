@@ -13,6 +13,7 @@ compare_mps(
   node_list,
   edge_list = NULL,
   neighbor_list = NULL,
+  check = TRUE,
   verbose = TRUE
 )
 }
@@ -48,6 +49,8 @@ compare_mps(
   \item{\code{DestinationType}}{Types of the destination node for each edge.}}}
 
 \item{neighbor_list}{Neighbor reference object constructed by \code{get_neighbor_list()}.}
+
+\item{check}{Should type checking be performed? Default is \code{TRUE}.}
 
 \item{verbose}{Should the intermediate calculations be printed to the console?}
 }

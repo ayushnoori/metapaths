@@ -11,6 +11,7 @@ NULL
 #' @template node-list
 #' @template edge-list
 #' @template neighbor-list
+#' @param check Should type checking be performed? Default is \code{TRUE}.
 #' @param verbose Should the intermediate calculations be printed to the console?
 #' @return A list with six elements:
 #' \describe{
@@ -27,25 +28,25 @@ NULL
 get_similarity = function(x, y, mp,
                           metric = c("pc", "npc", "dwpc", "pathsim"),
                           node_list, edge_list = NULL, neighbor_list = NULL,
-                          verbose = TRUE) {
+                          check = TRUE, verbose = TRUE) {
 
   # unless type checking has been disabled
-  if(node_list != "No Checking") {
+  if(check) {
 
     # get types
     type_x = mp[1]; type_y = mp %>% .[length(.)]
 
     # check that origin node is of type specified by meta-path
-    type_x %>% { if(node_list[Node == x, NodeType] != .) stop("Origin node must be of type ", ., ".")}
+    type_x %>% { if(node_list[Node == x, NodeType] != .) stop("Origin node must be of type ", ., ".", call. = FALSE, )}
 
     # check that destination node is of type specified by meta-path
-    type_y %>% .[length(.)] %>% { if(node_list[Node == y, NodeType] != .) stop("Destination node must be of type ", ., ".")}
+    type_y %>% .[length(.)] %>% { if(node_list[Node == y, NodeType] != .) stop("Destination node must be of type ", ., ".", call. = FALSE, )}
 
   }
 
   # check that either an edge list OR a neighbor list are provided, but NOT both
   null_e = is.null(edge_list); null_n = is.null(neighbor_list)
-  if((null_e + null_n) != 1) stop("Must specify either an edge list or a list of neighbors by type.")
+  if((null_e + null_n) != 1) stop("Must specify either an edge list or a list of neighbors by type.", call. = FALSE, )
 
   # if edge list is specified
   if(!null_e) {
