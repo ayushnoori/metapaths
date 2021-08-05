@@ -2,6 +2,7 @@
 
 export(aggregate_shortest)
 export(all_nodes)
+export(clean_mp)
 export(compare_mps)
 export(compare_sets)
 export(extract_sim)

@@ -15,7 +15,7 @@ get_neighbors = function(root, type, edge_list) {
   # collapse origin and destination
   neighbors = unique(c(neighbors_origin[, Origin],
                        neighbors_destination[, Destination]))
-  if(identical(neighbors, character(0))) return(NA) else return(neighbors)
+  if(length(neighbors) == 0) return(NA) else return(neighbors)
 
 }
 

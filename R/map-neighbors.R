@@ -11,6 +11,7 @@ NULL
 #'
 #' @param type Name of the type along any meta-path of interest.
 #' @return Cleaned type name.
+#' @export
 clean_mp = function(type) {
   return(gsub("[^A-Za-z]", "", type))
 }

@@ -5,8 +5,8 @@
 #' @template root-type
 #' @template neighbor-list
 #' @return Vector of neighbors of a given type.
-#' @seealso [get_neighbor_list()] for neighbor reference object construction.
+#' @seealso \code{get_neighbor_list()} for neighbor reference object construction.
 #' @export
 search_neighbors = function(root, type, neighbor_list)  {
-  neighbor_list[root, get(type)][[1]]
+  neighbor_list[Node == root, get(type)][[1]]
 }
