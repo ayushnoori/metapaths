@@ -22,7 +22,7 @@ Authors@R:
            family = "Zitnik",
            role = c("aut", "rth"),
            email = "marinka@hms.harvard.edu",
-           comment = c(ORCID = "0000-0001-8530-7228"))
+           comment = c(ORCID = "0000-0001-8530-7228")))
 Description: Compute meta-path based network similarity metrics in R.
 URL: https://www.ayushnoori.com/metapaths, https://github.com/ayushnoori/metapaths
 BugReports: https://github.com/ayushnoori/metapaths/issues
