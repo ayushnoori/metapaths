@@ -11,15 +11,18 @@ Authors@R:
     person(given = "Amelia",
            family = "Tan",
            role = "aut",
-           email = "amelia_tan@hms.harvard.edu"),
+           email = "amelia_tan@hms.harvard.edu",
+           comment = c(ORCID = "0000-0003-0623-6623")),
     person(given = "Michelle M.",
            family = "Li",
            role = "aut",
-           email = "michelleli@g.harvard.edu"),
+           email = "michelleli@g.harvard.edu",
+           comment = c(ORCID = "0000-0003-0223-7485")),
     person(given = "Marinka",
            family = "Zitnik",
            role = c("aut", "rth"),
-           email = "marinka@hms.harvard.edu"))
+           email = "marinka@hms.harvard.edu",
+           comment = c(ORCID = "0000-0001-8530-7228"))
 Description: Compute meta-path based network similarity metrics in R.
 URL: https://www.ayushnoori.com/metapaths, https://github.com/ayushnoori/metapaths
 BugReports: https://github.com/ayushnoori/metapaths/issues

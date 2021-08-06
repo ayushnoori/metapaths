@@ -12,6 +12,6 @@
 #' @references
 #' \url{https://www.ayushnoori.com/metapaths}
 #' @import data.table
-#' @importFrom purrr map map_dbl map_chr map_lgl map2_dfr pmap pmap_dfr
+#' @importFrom purrr map map_dbl map_chr map_lgl map2_dfr pmap pmap_dfr pmap_dbl
 #' @importFrom magrittr %>%
 NULL
