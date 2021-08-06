@@ -40,7 +40,7 @@ get_similarity = function(x, y, mp,
     type_x %>% { if(node_list[Node == x, NodeType] != .) stop("Origin node must be of type ", ., ".", call. = FALSE, )}
 
     # check that destination node is of type specified by meta-path
-    type_y %>% .[length(.)] %>% { if(node_list[Node == y, NodeType] != .) stop("Destination node must be of type ", ., ".", call. = FALSE, )}
+    type_y %>% { if(node_list[Node == y, NodeType] != .) stop("Destination node must be of type ", ., ".", call. = FALSE, )}
 
   }
 
