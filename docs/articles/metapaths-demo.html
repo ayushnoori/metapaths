@@ -167,9 +167,11 @@
 <span class="co">#&gt; 5:    Datsun 710 Toyota Corolla       Four            Four</span>
 <span class="co">#&gt; 6:   Honda Civic     Volvo 142E       Four            Four</span></code></pre></div>
 <p>Visualize the network as a graph.</p>
-<pre class="{plot-network}"><code>mtcars_graph = graph.data.frame(mtcars_edge_list, vertices = mtcars_node_list, directed = T)
-mtcars_col = factor(V(mtcars_graph)$NodeType)
-plot(mtcars_graph, vertex.size = 15, vertex.label = NA, edge.arrow.size = .25, vertex.color = mtcars_col)</code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars_graph</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html">graph.data.frame</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, vertices <span class="op">=</span> <span class="va">mtcars_node_list</span>, directed <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
+<span class="va">mtcars_col</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">mtcars_graph</span><span class="op">)</span><span class="op">$</span><span class="va">NodeType</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mtcars_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, vertex.label <span class="op">=</span> <span class="cn">NA</span>, edge.arrow.size <span class="op">=</span> <span class="fl">.25</span>, vertex.color <span class="op">=</span> <span class="va">mtcars_col</span><span class="op">)</span></code></pre></div>
+<p><img src="metapaths-demo_files/figure-html/plot-network-1.png" width="700"></p>
 <p>Get all node types.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mtcars_types</span> <span class="op">=</span> <span class="fu"><a href="../reference/node_types.html">node_types</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, verbose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
@@ -255,64 +257,81 @@ plot(mtcars_graph, vertex.size = 15, vertex.label = NA, edge.arrow.size = .25, v
 <div id="meta-path-based-similarity" class="section level1">
 <h1 class="hasAnchor">
 <a href="#meta-path-based-similarity" class="anchor"></a>Meta-Path Based Similarity</h1>
-<p>Compute similarity between two nodes using a sample meta-path: <code>Three-Three-Four-Five</code>.</p>
+<p>Compute similarity between two nodes using a sample meta-path: <code>Three-Four-Five</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_sim</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span><span class="st">"Cadillac Fleetwood"</span>, <span class="st">"Ferrari Dino"</span>,
-                            <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Three"</span>, <span class="st">"Three"</span>, <span class="st">"Four"</span>, <span class="st">"Five"</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="va">mtcars_sim</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span><span class="st">"Camaro Z28"</span>, <span class="st">"Ferrari Dino"</span>,
+                            <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Three"</span>, <span class="st">"Four"</span>, <span class="st">"Five"</span><span class="op">)</span>,
                             <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"pc"</span>, <span class="st">"npc"</span>, <span class="st">"dwpc"</span><span class="op">)</span>,
                             node_list <span class="op">=</span> <span class="va">mtcars_node_list</span>,
                             neighbor_list <span class="op">=</span> <span class="va">mtcars_neighbor_list</span><span class="op">)</span>
-<span class="co">#&gt; &gt;&gt;&gt; Computing Paths from Origin (Cadillac Fleetwood)</span>
+<span class="co">#&gt; &gt;&gt;&gt; Computing Paths from Origin (Camaro Z28)</span>
 <span class="co">#&gt; Step 1 (Three): 1 Path</span>
-<span class="co">#&gt; Step 2 (Three): 4 Paths</span>
-<span class="co">#&gt; Step 3 (Four): 9 Paths</span>
-<span class="co">#&gt; -  3 Path(s) Terminated</span>
-<span class="co">#&gt; Step 4 (Five): 9 Paths</span>
+<span class="co">#&gt; Step 2 (Four): 4 Paths</span>
+<span class="co">#&gt; Step 3 (Five): 6 Paths</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt;&gt;&gt; Computing Paths from Destination (Ferrari Dino)</span>
 <span class="co">#&gt; Step 1 (Five): 1 Path</span>
 <span class="co">#&gt; Step 2 (Four): 2 Paths</span>
 <span class="co">#&gt; Step 3 (Three): 7 Paths</span>
-<span class="co">#&gt; -  1 Path(s) Terminated</span>
-<span class="co">#&gt; Step 4 (Three): 13 Paths</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; &gt;&gt;&gt; Computing Similarity</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Similarity Metric: Path Count</span>
-<span class="co">#&gt; X -&gt; Y Paths: 1</span>
-<span class="co">#&gt; Similarity: 1</span>
+<span class="co">#&gt; X -&gt; Y Paths: 2</span>
+<span class="co">#&gt; Similarity: 2</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Similarity Metric: Normalized Path Count</span>
-<span class="co">#&gt; X -&gt; Y Paths: 1</span>
-<span class="co">#&gt; X -&gt; Type Y Paths: 9</span>
-<span class="co">#&gt; Y -&gt; Type X Paths: 13</span>
-<span class="co">#&gt; Similarity: 0.0454545454545455</span>
+<span class="co">#&gt; X -&gt; Y Paths: 2</span>
+<span class="co">#&gt; X -&gt; Type Y Paths: 6</span>
+<span class="co">#&gt; Y -&gt; Type X Paths: 7</span>
+<span class="co">#&gt; Similarity: 0.153846153846154</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Similarity Metric: Degree-Weighted Path Count</span>
-<span class="co">#&gt; X -&gt; Y Paths: 1</span>
+<span class="co">#&gt; X -&gt; Y Paths: 2</span>
 <span class="co">#&gt; Damping Exponent: 0.4</span>
-<span class="co">#&gt; PDP (Mean/SD): 0.1894645708138</span>
-<span class="co">#&gt; Similarity: 0.1894645708138</span></code></pre></div>
-<p>Let’s inspect the output of the <code><a href="../reference/get_similarity.html">get_similarity()</a></code> primitive. <code><a href="../reference/get_similarity.html">get_similarity()</a></code> returns a named list. <code>OriginPaths</code> contains the paths from the origin node (i.e., <code>Cadillac Fleetwood</code>) to the destination node (i.e., <code>Ferrari Dino</code>) following the specified meta-path.</p>
+<span class="co">#&gt; PDP (Mean/SD): 0.289938488846612 [0.056481552587565]</span>
+<span class="co">#&gt; Similarity: 0.579876977693223</span></code></pre></div>
+<p>Let’s inspect the output of the <code><a href="../reference/get_similarity.html">get_similarity()</a></code> primitive. <code><a href="../reference/get_similarity.html">get_similarity()</a></code> returns a named list. <code>OriginPaths</code> contains the paths from the origin node (i.e., <code>Camaro Z28</code>) to the destination node (i.e., <code>Ferrari Dino</code>) following the specified meta-path.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">OriginPaths</span><span class="op">)</span>
-<span class="co">#&gt;                 Three             Three.1          Four           Five</span>
-<span class="co">#&gt; 1: Cadillac Fleetwood         Merc 450SLC      Merc 230  Porsche 914-2</span>
-<span class="co">#&gt; 2: Cadillac Fleetwood         Merc 450SLC      Merc 230 Ford Pantera L</span>
-<span class="co">#&gt; 3: Cadillac Fleetwood Lincoln Continental Mazda RX4 Wag Ford Pantera L</span>
-<span class="co">#&gt; 4: Cadillac Fleetwood Lincoln Continental Mazda RX4 Wag  Maserati Bora</span>
-<span class="co">#&gt; 5: Cadillac Fleetwood    Dodge Challenger      Fiat 128   Lotus Europa</span>
-<span class="co">#&gt; 6: Cadillac Fleetwood    Dodge Challenger     Merc 240D   Ferrari Dino</span></code></pre></div>
+<code class="sourceCode R"><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">OriginPaths</span>
+<span class="co">#&gt;         Three          Four           Five</span>
+<span class="co">#&gt; 1: Camaro Z28     Merc 240D   Ferrari Dino</span>
+<span class="co">#&gt; 2: Camaro Z28 Mazda RX4 Wag Ford Pantera L</span>
+<span class="co">#&gt; 3: Camaro Z28 Mazda RX4 Wag  Maserati Bora</span>
+<span class="co">#&gt; 4: Camaro Z28      Fiat 128   Lotus Europa</span>
+<span class="co">#&gt; 5: Camaro Z28      Merc 280   Ferrari Dino</span>
+<span class="co">#&gt; 6: Camaro Z28      Merc 280  Porsche 914-2</span></code></pre></div>
 <p>Similarly, <code>DestinationPaths</code> contains the paths from the destination node to the origin node following the reverse of the specified meta-path.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">DestinationPaths</span><span class="op">)</span>
-<span class="co">#&gt;            Five      Four             Three             Three.1</span>
-<span class="co">#&gt; 1: Ferrari Dino  Merc 280        Camaro Z28          Camaro Z28</span>
-<span class="co">#&gt; 2: Ferrari Dino  Merc 280        Camaro Z28          Merc 450SE</span>
-<span class="co">#&gt; 3: Ferrari Dino  Merc 280  Pontiac Firebird Lincoln Continental</span>
-<span class="co">#&gt; 4: Ferrari Dino Merc 240D        Camaro Z28          Camaro Z28</span>
-<span class="co">#&gt; 5: Ferrari Dino Merc 240D        Camaro Z28          Merc 450SE</span>
-<span class="co">#&gt; 6: Ferrari Dino Merc 240D Chrysler Imperial    Dodge Challenger</span></code></pre></div>
+<code class="sourceCode R"><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">DestinationPaths</span>
+<span class="co">#&gt;            Five      Four              Three</span>
+<span class="co">#&gt; 1: Ferrari Dino  Merc 280         Camaro Z28</span>
+<span class="co">#&gt; 2: Ferrari Dino  Merc 280         Duster 360</span>
+<span class="co">#&gt; 3: Ferrari Dino  Merc 280   Pontiac Firebird</span>
+<span class="co">#&gt; 4: Ferrari Dino Merc 240D         Camaro Z28</span>
+<span class="co">#&gt; 5: Ferrari Dino Merc 240D  Chrysler Imperial</span>
+<span class="co">#&gt; 6: Ferrari Dino Merc 240D   Dodge Challenger</span>
+<span class="co">#&gt; 7: Ferrari Dino Merc 240D Cadillac Fleetwood</span></code></pre></div>
+<p>These tables are used to compute various meta-path based similarity metrics.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">Similarity</span><span class="op">)</span>
+<span class="co">#&gt;                        Metric Similarity</span>
+<span class="co">#&gt; 1:                 Path Count  2.0000000</span>
+<span class="co">#&gt; 2:      Normalized Path Count  0.1538462</span>
+<span class="co">#&gt; 3: Degree-Weighted Path Count  0.5798770</span></code></pre></div>
+<p>Indeed, there are two paths which connect <code>Camaro Z28</code> and <code>Ferrari Dino</code> via the meta-path <code>Three-Four-Five</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">OriginPaths</span><span class="op">[</span><span class="va">Five</span> <span class="op">==</span> <span class="st">"Ferrari Dino"</span><span class="op">]</span>
+<span class="co">#&gt;         Three      Four         Five</span>
+<span class="co">#&gt; 1: Camaro Z28 Merc 240D Ferrari Dino</span>
+<span class="co">#&gt; 2: Camaro Z28  Merc 280 Ferrari Dino</span></code></pre></div>
+<p>Those paths are shown on the graph below.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">keep</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">mtcars_graph</span><span class="op">)</span><span class="op">$</span><span class="va">name</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Camaro Z28"</span>, <span class="st">"Merc 240D"</span>, <span class="st">"Merc 280"</span>, <span class="st">"Ferrari Dino"</span><span class="op">)</span>
+<span class="va">mtcars_col_rem</span> <span class="op">=</span> <span class="va">mtcars_col</span>
+<span class="va">mtcars_col_rem</span><span class="op">[</span><span class="op">!</span><span class="va">keep</span><span class="op">]</span> <span class="op">=</span> <span class="cn">NA</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mtcars_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, vertex.label <span class="op">=</span> <span class="cn">NA</span>, edge.arrow.size <span class="op">=</span> <span class="fl">0</span>, vertex.color <span class="op">=</span> <span class="va">mtcars_col_rem</span><span class="op">)</span></code></pre></div>
+<p><img src="metapaths-demo_files/figure-html/plot-paths-1.png" width="700"></p>
 </div>
   </div>
 

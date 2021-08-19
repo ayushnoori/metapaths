@@ -7,16 +7,16 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+# Setup
+
+First, load the `metapaths` package, as well as other requisite packages.
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 ```
-
-# Setup
-
-First, load the `metapaths` package, as well as other requisite packages.
 
 ```{r setup}
 # load packages
@@ -42,7 +42,7 @@ head(mtcars_edge_list)
 
 Visualize the network as a graph.
 
-```{plot-network}
+```{r plot-network}
 mtcars_graph = graph.data.frame(mtcars_edge_list, vertices = mtcars_node_list, directed = T)
 mtcars_col = factor(V(mtcars_graph)$NodeType)
 plot(mtcars_graph, vertex.size = 15, vertex.label = NA, edge.arrow.size = .25, vertex.color = mtcars_col)
@@ -101,24 +101,45 @@ search_degrees("Cadillac Fleetwood", "Three", mtcars_neighbor_list, "neighbor") 
 
 # Meta-Path Based Similarity
 
-Compute similarity between two nodes using a sample meta-path: `Three-Three-Four-Five`.
+Compute similarity between two nodes using a sample meta-path: `Three-Four-Five`.
 
 ```{r get-similarity}
-mtcars_sim = get_similarity("Cadillac Fleetwood", "Ferrari Dino",
-                            c("Three", "Three", "Four", "Five"),
+mtcars_sim = get_similarity("Camaro Z28", "Ferrari Dino",
+                            c("Three", "Four", "Five"),
                             c("pc", "npc", "dwpc"),
                             node_list = mtcars_node_list,
                             neighbor_list = mtcars_neighbor_list)
 ```
 
-Let's inspect the output of the `get_similarity()` primitive. `get_similarity()` returns a named list. `OriginPaths` contains the paths from the origin node (i.e., `Cadillac Fleetwood`) to the destination node (i.e., `Ferrari Dino`) following the specified meta-path.
+Let's inspect the output of the `get_similarity()` primitive. `get_similarity()` returns a named list. `OriginPaths` contains the paths from the origin node (i.e., `Camaro Z28`) to the destination node (i.e., `Ferrari Dino`) following the specified meta-path.
 
 ```{r origin-paths}
-head(mtcars_sim$OriginPaths)
+mtcars_sim$OriginPaths
 ```
 
 Similarly, `DestinationPaths` contains the paths from the destination node to the origin node following the reverse of the specified meta-path.
 
 ```{r destination-paths}
-head(mtcars_sim$DestinationPaths)
+mtcars_sim$DestinationPaths
+```
+
+These tables are used to compute various meta-path based similarity metrics.
+
+```{r similarity}
+head(mtcars_sim$Similarity)
+```
+
+Indeed, there are two paths which connect `Camaro Z28` and `Ferrari Dino` via the meta-path `Three-Four-Five`. 
+
+```{r show-paths}
+mtcars_sim$OriginPaths[Five == "Ferrari Dino"]
+```
+
+Those paths are shown on the graph below.
+
+```{r plot-paths}
+keep = V(mtcars_graph)$name %in% c("Camaro Z28", "Merc 240D", "Merc 280", "Ferrari Dino")
+mtcars_col_rem = mtcars_col
+mtcars_col_rem[!keep] = NA
+plot(mtcars_graph, vertex.size = 15, vertex.label = NA, edge.arrow.size = 0, vertex.color = mtcars_col_rem)
 ```
