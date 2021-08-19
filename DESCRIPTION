@@ -51,6 +51,7 @@ Collate:
     'get-similarity.R'
     'compare-sets.R'
     'get-neighbor-list.R'
+    'get-node-list.R'
     'metapaths-package.R'
     'mtcars-edge-list.R'
 Depends: 

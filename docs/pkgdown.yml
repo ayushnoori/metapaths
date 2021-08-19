@@ -3,5 +3,6 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   metapaths-demo: metapaths-demo.html
-last_built: 2021-08-19T10:48Z
+  read-biokg: read-biokg.html
+last_built: 2021-08-19T16:56Z
 

@@ -1,0 +1,148 @@
+---
+title: "Read BioKG"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Read BioKG}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+# Download BioKG
+
+The following Python script downloads the BioKG knowledge graph from the [Open Graph Benchmark (OGB)](https://ogb.stanford.edu/docs/linkprop/#ogbl-biokg).
+
+```{python download-kg}
+import numpy as np
+import copy
+import json
+from ogb.linkproppred import LinkPropPredDataset
+
+dataset = LinkPropPredDataset(name = "ogbl-biokg")
+
+split_edge = dataset.get_edge_split()
+train_edge, valid_edge, test_edge = split_edge["train"], split_edge["valid"], split_edge["test"]
+graph = dataset[0] # graph: library-agnostic graph object
+```
+
+The edge index in the `graph` object is converted into JSON format to be read into R.
+
+```{python edge-types}
+print(graph.keys())
+edge_index = graph["edge_index_dict"].copy()
+```
+
+To make the conversion, the dictionary keys must be renamed (i.e., cannot be tuples).
+
+```{python rename-key}
+old_keys = list(edge_index.keys())
+for old_name in old_keys:
+    new_name = "--".join(old_name)
+    edge_index[new_name] = edge_index[old_name]
+    del edge_index[old_name]
+```
+
+A special numpy encoder is defined, borrowed from [this StackOverflow post](https://stackoverflow.com/questions/57269741/typeerror-object-of-type-ndarray-is-not-json-serializable).
+
+```{python numpy-encoder}
+class NumpyEncoder(json.JSONEncoder):
+    """ Special json encoder for numpy types """
+    def default(self, obj):
+        if isinstance(obj, (np.int_, np.intc, np.intp, np.int8,
+                            np.int16, np.int32, np.int64, np.uint8,
+                            np.uint16, np.uint32, np.uint64)):
+            return int(obj)
+        elif isinstance(obj, (np.float_, np.float16, np.float32,
+                              np.float64)):
+            return float(obj)
+        elif isinstance(obj, (np.ndarray,)):
+            return obj.tolist()
+        return json.JSONEncoder.default(self, obj)
+```
+
+Finally, we convert the edge index to JSON and write to a file.
+
+```{python convert-json}
+edge_index_json = json.dumps(edge_index, cls = NumpyEncoder)
+
+with open('inst//extdata//edge_index.json', 'a') as f:
+    f.write(edge_index_json + '\n') 
+```
+
+# Parse KG in R
+
+Read the JSON dataset saved previously.
+
+```{r read-kg}
+# load libraries
+library(data.table)
+library(purrr)
+library(magrittr)
+library(rjson)
+
+# load metapaths library
+library(metapaths)
+
+# read data
+biokg = fromJSON(file = "inst/extdata/edge_index.json")
+```
+
+Create a function to convert the edge list to a `data.table`. Note that the node IDs are specific to each type, so we must add a type-specific prefix.
+
+```{r convert-biokg}
+convert_biokg = function(sub_kg, sub_label) {
+  
+  # split label
+  split_label = strsplit(sub_label, "--")[[1]]
+  
+  # create data table
+  kg_dt = data.table(Origin = paste(split_label[1], sub_kg[[1]], sep = "_"),
+                     Destination =  paste(split_label[3], sub_kg[[2]], sep = "_"),
+                     OriginType = split_label[1], DestinationType = split_label[3],
+                     EdgeType = split_label[2])
+  
+}
+```
+
+Now, map the conversion function over the `biokg` list.
+
+```{r map-convert}
+biokg_edge_list = imap_dfr(biokg, convert_biokg)
+biokg_node_list = get_node_list(biokg_edge_list)
+head(biokg_edge_list)
+```
+Check that the counts of each node type conform with `graph["num_nodes_dict"]` from the Python script.
+
+| disease | drug | function | protein | sideeffect |
+| :-----: | :--: | :-------:| :------:| :--------: |
+| 10687   | 10533| 45085    | 17499   | 9969       |
+
+
+```{r check-types}
+
+table(biokg_node_list$NodeType)
+
+```
+
+Randomly sample the knowledge graph to generate a small test set.
+
+```{r sample-kg}
+biokg_graph = igraph::graph.data.frame(biokg_edge_list,
+                                       vertices = biokg_node_list,
+                                       directed = T)
+```
+
+Save node list and edge list to file.
+
+```{r save-file}
+biokg_graph = igraph::graph.data.frame(biokg_edge_list,
+                                       vertices = biokg_node_list,
+                                       directed = T)
+```

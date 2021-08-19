@@ -1,8 +1,8 @@
 ---
-title: "Package Demonstration"
+title: "mtcars Demonstration"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Package Demonstration}
+  %\VignetteIndexEntry{mtcars Demonstration}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -31,10 +31,7 @@ library(igraph)
 Print the example dataset.
 
 ```{r print-dataset}
-mtcars_node_list = mtcars_edge_list[, .(Origin, OriginType)] %>%
-  rbind(mtcars_edge_list[, .(Destination, DestinationType)], use.names = F) %>%
-  unique() %>%
-  setnames(c("Node", "NodeType"))
+mtcars_node_list = get_node_list(mtcars_edge_list)
 
 head(mtcars_node_list)
 head(mtcars_edge_list)
@@ -141,5 +138,5 @@ Those paths are shown on the graph below.
 keep = V(mtcars_graph)$name %in% c("Camaro Z28", "Merc 240D", "Merc 280", "Ferrari Dino")
 mtcars_col_rem = mtcars_col
 mtcars_col_rem[!keep] = NA
-plot(mtcars_graph, vertex.size = 15, vertex.label = NA, edge.arrow.size = 0, vertex.color = mtcars_col_rem)
+plot(mtcars_graph, vertex.size = 15, vertex.label = NA, edge.arrow.size = 0.25, vertex.color = mtcars_col_rem)
 ```
