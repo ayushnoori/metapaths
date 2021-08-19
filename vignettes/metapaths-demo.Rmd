@@ -1,0 +1,124 @@
+---
+title: "Package Demonstration"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Package Demonstration}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Setup
+
+First, load the `metapaths` package, as well as other requisite packages.
+
+```{r setup}
+# load packages
+library(metapaths)
+library(data.table)
+library(magrittr)
+
+# for comparison and visualization
+library(igraph)
+```
+
+Print the example dataset.
+
+```{r print-dataset}
+mtcars_node_list = mtcars_edge_list[, .(Origin, OriginType)] %>%
+  rbind(mtcars_edge_list[, .(Destination, DestinationType)], use.names = F) %>%
+  unique() %>%
+  setnames(c("Node", "NodeType"))
+
+head(mtcars_node_list)
+head(mtcars_edge_list)
+```
+
+Visualize the network as a graph.
+
+```{plot-network}
+mtcars_graph = graph.data.frame(mtcars_edge_list, vertices = mtcars_node_list, directed = T)
+mtcars_col = factor(V(mtcars_graph)$NodeType)
+plot(mtcars_graph, vertex.size = 15, vertex.label = NA, edge.arrow.size = .25, vertex.color = mtcars_col)
+```
+
+Get all node types.
+
+```{r node-types}
+mtcars_types = node_types(mtcars_edge_list, verbose = T)
+```
+
+Retrieve a list of unique nodes.
+
+```{r all-nodes}
+mtcars_nodes = all_nodes(mtcars_edge_list, verbose = T)
+```
+
+# Edge List
+
+For a given node, find all neighbors of a specified type.
+
+```{r get-neighbors}
+get_neighbors("Cadillac Fleetwood", "Three", mtcars_edge_list) %>%
+  cat(sep = "\n")
+```
+
+For a given node, find all neighbors of series of types.
+
+```{r get-neighbors-type}
+get_neighbors_type("Cadillac Fleetwood", c("Three", "Four"), mtcars_edge_list)
+```
+
+Construct the neighbor list.
+
+```{r get-neighbor-list}
+mtcars_neighbor_list = get_neighbor_list(mtcars_edge_list, verbose = T)
+head(mtcars_neighbor_list)
+```
+
+# Neighbor List
+
+Identify the neighbors using the constructed neighbor list rather than the edge list.
+
+```{r search-neighbors}
+search_neighbors("Cadillac Fleetwood", "Three", mtcars_neighbor_list)%>%
+  cat(sep = "\n")
+```
+
+Compute degree stratified by node type. Here, degree is defined as the number of adjacent nodes (rather than edges).
+
+```{r search-degrees}
+search_degrees("Cadillac Fleetwood", "Three", mtcars_neighbor_list, "neighbor") %>%
+  paste("Degree:", .) %>%
+  cat(sep = "\n")
+```
+
+# Meta-Path Based Similarity
+
+Compute similarity between two nodes using a sample meta-path: `Three-Three-Four-Five`.
+
+```{r get-similarity}
+mtcars_sim = get_similarity("Cadillac Fleetwood", "Ferrari Dino",
+                            c("Three", "Three", "Four", "Five"),
+                            c("pc", "npc", "dwpc"),
+                            node_list = mtcars_node_list,
+                            neighbor_list = mtcars_neighbor_list)
+```
+
+Let's inspect the output of the `get_similarity()` primitive. `get_similarity()` returns a named list. `OriginPaths` contains the paths from the origin node (i.e., `Cadillac Fleetwood`) to the destination node (i.e., `Ferrari Dino`) following the specified meta-path.
+
+```{r origin-paths}
+head(mtcars_sim$OriginPaths)
+```
+
+Similarly, `DestinationPaths` contains the paths from the destination node to the origin node following the reverse of the specified meta-path.
+
+```{r destination-paths}
+head(mtcars_sim$DestinationPaths)
+```
