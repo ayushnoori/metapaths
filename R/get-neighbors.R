@@ -12,7 +12,8 @@ get_neighbors = function(root, type, edge_list) {
   neighbors_destination = edge_list[Origin == root & DestinationType == type]
   neighbors_origin = edge_list[Destination == root & OriginType == type]
 
-  # collapse origin and destination
+  # collapse origin and destination, take unique with edge type
+  # THIS LINE IS NOT WORKING
   neighbors = unique(c(neighbors_origin[, Origin],
                        neighbors_destination[, Destination]))
   if(length(neighbors) == 0) return(NA) else return(neighbors)
@@ -22,7 +23,7 @@ get_neighbors = function(root, type, edge_list) {
 
 #' Get all node neighbors by type.
 #'
-#' Retrieve all neighbors of a given node, stratified by specified node types.
+#' Retrieve all neighbors of a given node, stratified by specific node types.
 #'
 #' @template root
 #' @param edge_list_types Specified node types to stratify by.

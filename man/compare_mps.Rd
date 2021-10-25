@@ -46,7 +46,8 @@ compare_mps(
   \item{\code{Origin}}{IDs of the origin nodes for each edge.}
   \item{\code{Destination}}{IDs of the destination nodes for each edge.}
   \item{\code{OriginType}}{Types of the origin node for each edge.}
-  \item{\code{DestinationType}}{Types of the destination node for each edge.}}}
+  \item{\code{DestinationType}}{Types of the destination node for each edge.}
+  \item{\code{EdgeType}}{Types of each edge.}}}
 
 \item{neighbor_list}{Neighbor reference object constructed by \code{get_neighbor_list()}.}
 

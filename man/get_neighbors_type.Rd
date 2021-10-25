@@ -16,11 +16,12 @@ get_neighbors_type(root, edge_list_types, edge_list)
   \item{\code{Origin}}{IDs of the origin nodes for each edge.}
   \item{\code{Destination}}{IDs of the destination nodes for each edge.}
   \item{\code{OriginType}}{Types of the origin node for each edge.}
-  \item{\code{DestinationType}}{Types of the destination node for each edge.}}}
+  \item{\code{DestinationType}}{Types of the destination node for each edge.}
+  \item{\code{EdgeType}}{Types of each edge.}}}
 }
 \value{
 Nested list of neighbors grouped by type.
 }
 \description{
-Retrieve all neighbors of a given node, stratified by specified node types.
+Retrieve all neighbors of a given node, stratified by specific node types.
 }

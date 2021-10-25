@@ -17,7 +17,8 @@ get_neighbor_list(
   \item{\code{Origin}}{IDs of the origin nodes for each edge.}
   \item{\code{Destination}}{IDs of the destination nodes for each edge.}
   \item{\code{OriginType}}{Types of the origin node for each edge.}
-  \item{\code{DestinationType}}{Types of the destination node for each edge.}}}
+  \item{\code{DestinationType}}{Types of the destination node for each edge.}
+  \item{\code{EdgeType}}{Types of each edge.}}}
 
 \item{file_path}{File path to save final \code{data.table} reference object. If no path is specified, the
 reference object is not saved.}
