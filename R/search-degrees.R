@@ -7,9 +7,11 @@ NULL
 #'
 #' @template root-type
 #' @template reference-list
+#' @param consider_edge_type Should \code{EdgeType} be considered in the degree calculation? Only possible when using a edge list (i.e., \code{list_type} is \code{"edge"}) rather than a neighbor list.
 #' @return Degree count stratified by type.
 #' @export
-search_degrees = function(root, type = NA, reference_list, list_type = c("edge", "neighbor")) {
+search_degrees = function(root, type = NA, reference_list, list_type = c("edge", "neighbor"),
+                          consider_edge_type = TRUE) {
 
   # if working with neighbor list
   if(list_type == "neighbor") {
@@ -25,8 +27,22 @@ search_degrees = function(root, type = NA, reference_list, list_type = c("edge",
       return(length(search_neighbors(root, type, reference_list)))
     }
 
-    # identical to above, except for edge list rather than neighbor list
-  } else if (list_type == "edge") {
+  # identical to above, except for edge list rather than neighbor list (considering edge type)
+  } else if (list_type == "edge" & consider_edge_type) {
+
+    if(is.na(type)) {
+
+      edge_list_types = node_types(reference_list, verbose = F)
+      neighbor_list = get_neighbors_type_with_edge(root, edge_list_types, reference_list)
+      unlist(neighbor_list) %>% {.[!is.na(.)]} %>%
+        length() %>% return()
+
+    } else {
+      return(length(get_neighbors_with_edge(root, type, reference_list)))
+    }
+
+  # for edge list NOT considering edge type
+  } else if (list_type == "edge" & !consider_edge_type) {
 
     if(is.na(type)) {
 

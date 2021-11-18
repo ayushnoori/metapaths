@@ -8,7 +8,8 @@ search_degrees(
   root,
   type = NA,
   reference_list,
-  list_type = c("edge", "neighbor")
+  list_type = c("edge", "neighbor"),
+  consider_edge_type = TRUE
 )
 }
 \arguments{
@@ -26,6 +27,8 @@ by \code{get_neighbor_list()}. If an edge list is provided, the \code{data.table
   \item{\code{EdgeType}}{Types of each edge.}}}
 
 \item{list_type}{If an edge list is provided, specify \code{"edge"}. If a neighbor list is provided, specify \code{"neighbor"}.}
+
+\item{consider_edge_type}{Should \code{EdgeType} be considered in the degree calculation? Only possible when using a edge list (i.e., \code{list_type} is \code{"edge"}) rather than a neighbor list.}
 }
 \value{
 Degree count stratified by type.
