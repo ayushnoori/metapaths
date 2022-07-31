@@ -49,7 +49,7 @@ map_neighbors = function(roots_subset, current_mp, next_mp,
 
 #' Step along meta-path to get all conforming paths from root node.
 #'
-#' Recursive function to traverse the meta-path until is is expounded. The variable \code{mp} is a list of node types (i.e., a meta-path),
+#' Recursive function to traverse the meta-path until it is expounded. The variable \code{mp} is a list of node types (i.e., a meta-path),
 #' which is shortened on each call of \code{traverse_mp()}.
 #'
 #' @param roots ID of the root node on the first iteration, otherwise, \code{data.table} of growing paths.

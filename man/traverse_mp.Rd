@@ -37,7 +37,7 @@ by \code{get_neighbor_list()}. If an edge list is provided, the \code{data.table
 List of all meta-paths from the root node following a specific meta-path, as a \code{data.table}.
 }
 \description{
-Recursive function to traverse the meta-path until is is expounded. The variable \code{mp} is a list of node types (i.e., a meta-path),
+Recursive function to traverse the meta-path until it is expounded. The variable \code{mp} is a list of node types (i.e., a meta-path),
 which is shortened on each call of \code{traverse_mp()}.
 }
 \seealso{

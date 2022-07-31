@@ -1,8 +1,8 @@
-pandoc: 2.11.4
+pandoc: '2.18'
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
+  biokg-demo: biokg-demo.html
   metapaths-demo: metapaths-demo.html
-  read-biokg: read-biokg.html
-last_built: 2021-11-18T16:13Z
+last_built: 2022-07-31T05:22Z
 

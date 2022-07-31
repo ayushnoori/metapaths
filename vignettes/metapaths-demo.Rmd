@@ -126,7 +126,7 @@ These tables are used to compute various meta-path based similarity metrics.
 head(mtcars_sim$Similarity)
 ```
 
-Indeed, there are two paths which connect `Camaro Z28` and `Ferrari Dino` via the meta-path `Three-Four-Five`. 
+Indeed, there are two paths which connect `Camaro Z28` and `Ferrari Dino` via the meta-path `Three-Four-Five`.
 
 ```{r show-paths}
 mtcars_sim$OriginPaths[Five == "Ferrari Dino"]
