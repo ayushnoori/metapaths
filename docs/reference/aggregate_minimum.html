@@ -22,7 +22,7 @@
   }
 </script>
 
-<title>Compute meta-path based similarity scores between two sets of nodes. — compare_sets • metapaths</title>
+<title>Use minimum aggregation. — aggregate_minimum • metapaths</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -73,8 +73,8 @@
 
 
 
-<meta property="og:title" content="Compute meta-path based similarity scores between two sets of nodes. — compare_sets" />
-<meta property="og:description" content="Given a specified meta-path, similarity metric(s), and aggregation method(s), compute the meta-path based similarity score between two nodes." />
+<meta property="og:title" content="Use minimum aggregation. — aggregate_minimum" />
+<meta property="og:description" content="Use the minimum aggregation method to aggregate meta-path based similarity scores." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -172,101 +172,44 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Compute meta-path based similarity scores between two sets of nodes.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ayushnoori/metapaths/blob/master/R/compare-sets.R'><code>R/compare-sets.R</code></a></small>
-    <div class="hidden name"><code>compare_sets.Rd</code></div>
+    <h1>Use minimum aggregation.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ayushnoori/metapaths/blob/master/R/aggregation-methods.R'><code>R/aggregation-methods.R</code></a></small>
+    <div class="hidden name"><code>aggregate_minimum.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Given a specified meta-path, similarity metric(s), and aggregation method(s), compute the meta-path based similarity score between two nodes.</p>
+    <p>Use the minimum aggregation method to aggregate meta-path based similarity scores.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>compare_sets</span><span class='op'>(</span>
-  <span class='va'>set1</span>,
-  <span class='va'>set2</span>,
-  <span class='va'>mp</span>,
-  metric <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"pc"</span>, <span class='st'>"pathsim"</span>, <span class='st'>"npc"</span>, <span class='st'>"dwpc"</span><span class='op'>)</span>,
-  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"maximum"</span><span class='op'>)</span>,
-  <span class='va'>node_list</span>,
-  edge_list <span class='op'>=</span> <span class='cn'>NULL</span>,
-  neighbor_list <span class='op'>=</span> <span class='cn'>NULL</span>,
-  check <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>aggregate_minimum</span><span class='op'>(</span><span class='va'>sim_dt</span>, <span class='va'>verbose</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>set1</th>
-      <td><p>IDs of node set #1 as a vector.</p></td>
-    </tr>
-    <tr>
-      <th>set2</th>
-      <td><p>IDs of node set #2 as a vector.</p></td>
-    </tr>
-    <tr>
-      <th>mp</th>
-      <td><p>Meta-path as a vector of node types (e.g., <code><a href='https://rdrr.io/r/base/c.html'>c("TypeA", "TypeB", "TypeC")</a></code>).</p></td>
-    </tr>
-    <tr>
-      <th>metric</th>
-      <td><p>A vector of permissible similarity metrics (e.g., <code><a href='https://rdrr.io/r/base/c.html'>c("npc", "dwpc")</a></code>), see defined metrics below:</p><dl>
-  <dt>Path Count</dt><dd><p>Specify <code>"pc"</code>, corresponding to <code><a href='get_pc.html'>get_pc()</a></code>.</p></dd>
-  <dt>Normalized Path Count</dt><dd><p>Specify <code>"npc"</code>, corresponding to <code><a href='get_npc.html'>get_npc()</a></code>.</p></dd>
-  <dt>Degree-Weighted Path Count</dt><dd><p>Specify <code>"dwpc"</code>, corresponding to <code><a href='get_dwpc.html'>get_dwpc()</a></code>.</p></dd>
-  <dt>PathSim</dt><dd><p>Specify <code>"pathsim"</code>, corresponding to <code><a href='get_pathsim.html'>get_pathsim()</a></code>.</p></dd>
-</dl></td>
-    </tr>
-    <tr>
-      <th>node_list</th>
-      <td><p>Node list as a <code>data.table</code> which must contain the following columns:</p><dl>
-  <dt><code>Node</code></dt><dd><p>Node IDs (corresponding to either <code>Origin</code> or <code>Destination</code> in the edge list).</p></dd>
-  <dt><code>NodeType</code></dt><dd><p>Node types (corresponding to either <code>OriginType</code> or
-  <code>DestinationType</code> in the edge list).</p></dd>
-</dl></td>
-    </tr>
-    <tr>
-      <th>edge_list</th>
-      <td><p>Edge list as a <code>data.table</code> which must contain the following columns:</p><dl>
-  <dt><code>Origin</code></dt><dd><p>IDs of the origin nodes for each edge.</p></dd>
-  <dt><code>Destination</code></dt><dd><p>IDs of the destination nodes for each edge.</p></dd>
-  <dt><code>OriginType</code></dt><dd><p>Types of the origin node for each edge.</p></dd>
-  <dt><code>DestinationType</code></dt><dd><p>Types of the destination node for each edge.</p></dd>
-  <dt><code>EdgeType</code></dt><dd><p>Types of each edge.</p></dd>
-</dl></td>
-    </tr>
-    <tr>
-      <th>neighbor_list</th>
-      <td><p>Neighbor reference object constructed by <code><a href='get_neighbor_list.html'>get_neighbor_list()</a></code>.</p></td>
-    </tr>
-    <tr>
-      <th>check</th>
-      <td><p>Should type checking be performed? Default is <code>TRUE</code>.</p></td>
+      <th>sim_dt</th>
+      <td><p>A <code>data.table</code> containing the collapsed output of multiple <code>get_similarity()$Similarity</code> calls extracted by <code><a href='extract_sim.html'>extract_sim()</a></code>.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
-      <td><p>Should the intermediate calculations be printed to the console?</p></td>
+      <td><p>Should aggregation method be printed to the console?</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list with six elements:</p><dl>
-  <dt>Set1</dt><dd><p>IDs of node set #1 provided (i.e., <code>set1</code>).</p></dd>
-  <dt>Set2</dt><dd><p>ID of node set #2 provided (i.e., <code>set2</code>).</p></dd>
-  <dt>Comparisons</dt><dd><p>List of pairwise comparisons.</p></dd>
-  <dt>Details</dt><dd><p>Intermediate computations produced by <code><a href='get_similarity.html'>get_similarity()</a></code>.</p></dd>
-  <dt>Similarities</dt><dd><p>Pairwise similarity scores.</p></dd>
-  <dt>SetSimilarity</dt><dd><p>Aggregate set similarity score(s).</p></dd>
+    <p>A <code>data.table</code> with multiple columns, including:</p><dl>
+  <dt>Metric</dt><dd><p>The name of the similarity metric used (e.g., <code>"PathSim"</code>).</p></dd>
+  <dt>Method</dt><dd><p>The name of the aggregation method used (i.e., <code>"Minimum"</code>).</p></dd>
+  <dt>SetSimilarity</dt><dd><p>The aggregate set similarity score.</p></dd>
 </dl>
 
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p><cite>Guney, E., Menche, J., Vidal, M. &amp; Barábasi, A.-L. Network-based in silico drug efficacy screening. Nat Commun 7, 10331 (2016).</cite></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='get_neighbor_list.html'>get_neighbor_list()</a></code> for neighbor reference object construction,
-<code><a href='get_similarity_function.html'>get_similarity_function()</a></code> for similarity metrics, and
-<code><a href='get_aggregation_function.html'>get_aggregation_function()</a></code> for aggregation methods. This function is a
-wrapper around <code><a href='get_similarity.html'>get_similarity()</a></code>.</p></div>
+    <div class='dont-index'><p><code><a href='get_similarity.html'>get_similarity()</a></code> for pairwise meta-path based similarity calculation.</p></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

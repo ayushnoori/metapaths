@@ -206,7 +206,7 @@ save(sub_edge_list, file = "data/sub_edge_list.rda")
 save(sub_node_list, file = "data/sub_node_list.rda")
 ```
 
-# Test KG
+# Test Node Similarity
 
 Check possible edge types.
 
@@ -265,4 +265,21 @@ sim_graph = igraph::induced.subgraph(graph = biokg_graph, vids = sim_nodes)
 
 # plot subgraph
 plot(sim_graph, vertex.size = 15, edge.arrow.size = 0.25)
+```
+
+# Test Set Similarity
+
+```{r test-aggregate}
+
+alzheimer_drugs = c("drug_762", "drug_1075", "drug_895", "drug_1406")
+
+alzheimer_pathways = c("function_36342", "function_26258", "function_21333", "function_37883", "function_42901", "function_17601", "function_36167")
+
+test_agg = compare_sets(
+  alzheimer_drugs,
+  alzheimer_pathways,
+  mp = c("drug", "disease", "protein", "function"),
+  node_list = biokg_node_list,
+  edge_list = biokg_edge_list)
+
 ```

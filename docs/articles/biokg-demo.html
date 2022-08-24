@@ -298,9 +298,9 @@ set.</p>
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">sub_edge_list</span>, file <span class="op">=</span> <span class="st">"data/sub_edge_list.rda"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">sub_node_list</span>, file <span class="op">=</span> <span class="st">"data/sub_node_list.rda"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="test-kg" class="section level1">
+<div id="test-node-similarity" class="section level1">
 <h1 class="hasAnchor">
-<a href="#test-kg" class="anchor"></a>Test KG</h1>
+<a href="#test-node-similarity" class="anchor"></a>Test Node Similarity</h1>
 <p>Check possible edge types.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="st">"- "</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique</a></span><span class="op">(</span><span class="va">sub_node_list</span><span class="op">[</span>, <span class="va">NodeType</span><span class="op">]</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"\n- "</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -344,6 +344,22 @@ set.</p>
 
 <span class="co"># plot subgraph</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">sim_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, edge.arrow.size <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="test-set-similarity" class="section level1">
+<h1 class="hasAnchor">
+<a href="#test-set-similarity" class="anchor"></a>Test Set Similarity</h1>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="va">alzheimer_drugs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug_762"</span>, <span class="st">"drug_1075"</span>, <span class="st">"drug_895"</span>, <span class="st">"drug_1406"</span><span class="op">)</span>
+
+<span class="va">alzheimer_pathways</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"function_36342"</span>, <span class="st">"function_26258"</span>, <span class="st">"function_21333"</span>, <span class="st">"function_37883"</span>, <span class="st">"function_42901"</span>, <span class="st">"function_17601"</span>, <span class="st">"function_36167"</span><span class="op">)</span>
+
+<span class="va">test_agg</span> <span class="op">=</span> <span class="fu"><a href="../reference/compare_sets.html">compare_sets</a></span><span class="op">(</span>
+  <span class="va">alzheimer_drugs</span>,
+  <span class="va">alzheimer_pathways</span>,
+  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,
+  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,
+  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span></code></pre></div>
 </div>
   </div>
 

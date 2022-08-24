@@ -64,7 +64,7 @@ map_log = function(res, verbose) {
 #' @export
 compare_sets = function(set1, set2, mp,
                         metric = c("pc", "pathsim", "npc", "dwpc"),
-                        method = c("shortest"), node_list,
+                        method = c("maximum"), node_list,
                         edge_list = NULL, neighbor_list = NULL,
                         check = TRUE, verbose = TRUE) {
 
@@ -121,7 +121,7 @@ compare_sets = function(set1, set2, mp,
 #' @export
 compare_mps = function(set1, set2, mps,
                        metric = c("pc", "pathsim", "npc", "dwpc"),
-                       method = c("shortest"), node_list,
+                       method = c("maximum"), node_list,
                        edge_list = NULL, neighbor_list = NULL,
                        check = TRUE, verbose = TRUE) {
 

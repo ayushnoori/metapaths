@@ -9,7 +9,7 @@ compare_sets(
   set2,
   mp,
   metric = c("pc", "pathsim", "npc", "dwpc"),
-  method = c("shortest"),
+  method = c("maximum"),
   node_list,
   edge_list = NULL,
   neighbor_list = NULL,

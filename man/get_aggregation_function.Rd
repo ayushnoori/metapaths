@@ -9,7 +9,8 @@ get_aggregation_function(method_name, get_verbose, ...)
 \arguments{
 \item{method_name}{Readable description of the desired aggregation method:
 \describe{
-  \item{Shortest}{Use \code{"shortest"}.}}}
+  \item{Minimum}{Use \code{"minimum"}.}
+  \item{Maximum}{Use \code{"maximum"}.}}}
 
 \item{get_verbose}{Should output be printed to console?}
 
@@ -24,5 +25,6 @@ For a desired aggregation method, retrieve the function which aggregates the met
 \seealso{
 See the following aggregation functions:
 \describe{
-  \item{Shortest}{\code{aggregate_shortest()}}}
+  \item{Minimum}{\code{aggregate_minimum()}}
+  \item{Maximum}{\code{aggregate_maximum()}}}
 }
