@@ -229,7 +229,7 @@ cat(paste("HGNC:", candidate_nodes, sep = ""), sep = "\n")
 
 ```
 
-Test similarity based on metapaths.
+Test similarity between an Alzheimer's disease (AD)-related drug (donepezil) and an AD-related pathway ("regulation of amyloid fibril formation").
 
 ```{r test-similarity}
 sim_test = get_similarity(
@@ -239,23 +239,10 @@ sim_test = get_similarity(
   edge_list = biokg_edge_list)
 
 sim_res = sim_test$OriginPaths  %>%
-  .[.[["function"]] == "function_42893", ]
+  .[.[["function"]] == "function_36342", ]
 ```
 
-Test negative similarity
-
-```{r test-negative}
-sim_neg_test = get_similarity(
-  "drug_762", "function_29825",
-  mp = c("drug", "disease", "protein", "function"),
-  node_list = biokg_node_list,
-  edge_list = biokg_edge_list)
-
-sim_neg_res = sim_neg_test$OriginPaths %>%
-  .[.[["function"]] == "function_29825", ]
-```
-
-Visualize results.
+Visualize identified metapaths in the KG.
 
 ```{r visualize-results}
 sim_nodes = unique(unlist(sim_res))
@@ -267,19 +254,82 @@ sim_graph = igraph::induced.subgraph(graph = biokg_graph, vids = sim_nodes)
 plot(sim_graph, vertex.size = 15, edge.arrow.size = 0.25)
 ```
 
+As a negative control, randomly sample 100 pathways (i.e., nodes of type `"function"` likely not AD-related) and compute the similarity.
+
+```{r test-negative}
+set.seed(42)
+
+# sample 100 pathways
+random_neg_pathways = biokg_node_list[NodeType == "function", ] %>%
+    .[sample(1:nrow(.), 100), ] 
+neg_tests = list()
+neg_sims = data.table()
+
+# for each pathway, compute similarity
+for (i in 1:100) {
+  
+  message("Pathway #", i, ": ", random_neg_pathways[i, NodeName])
+  
+  sim_neg_test = get_similarity(
+  "drug_762", random_neg_pathways[i, Node], # "function_29825",
+  mp = c("drug", "disease", "protein", "function"),
+  metric = c("pc", "npc", "dwpc"),
+  node_list = biokg_node_list,
+  edge_list = biokg_edge_list,
+  verbose = F)
+  
+  neg_tests = append(neg_tests, sim_neg_test)
+  neg_sims = rbind(neg_sims, sim_neg_test$Similarity[, Pathway := random_neg_pathways[i, NodeName]])
+  
+}
+
+# calculate statistics (mean, median, SD, etc.)
+neg_sims[, sum(Similarity == 0), by = "Metric"]
+neg_sims[, mean(Similarity), by = "Metric"]
+neg_sims[, median(Similarity), by = "Metric"]
+neg_sims[, sd(Similarity), by = "Metric"]
+
+# saveRDS(neg_tests, "<insert file path>.RDS")
+# fwrite(neg_sims, "<insert file path>.csv")
+
+```
+
 # Test Set Similarity
 
-```{r test-aggregate}
+Again, test set-to-set similarity by computing similarity scores between three AD-related drugs (i.e., donepezil, memantine, and galantamine) and a set of six AD-related pathways.
 
-alzheimer_drugs = c("drug_762", "drug_1075", "drug_895", "drug_1406")
+```{r test-alzheimer}
+# set of three AD drugs
+alzheimer_drugs = c("drug_762", "drug_1075", "drug_895")
 
-alzheimer_pathways = c("function_36342", "function_26258", "function_21333", "function_37883", "function_42901", "function_17601", "function_36167")
+# set of six AD-related pathways
+alzheimer_pathways = c("function_36342", "function_26258", "function_21333", "function_42901", "function_17601", "function_36167")
 
-test_agg = compare_sets(
+# compare sets
+alzheimer_test = compare_sets(
   alzheimer_drugs,
   alzheimer_pathways,
   mp = c("drug", "disease", "protein", "function"),
+  method = c("minimum", "maximum"),
   node_list = biokg_node_list,
   edge_list = biokg_edge_list)
+```
 
+As a negative control, test set-to-set similarity by computing similarity scores between the same three AD-related drugs and a set of six randomly subset pathways.
+
+```{r test-random}
+set.seed(1234) # selecting different seed
+
+# randomly subset pathways
+random_pathways = biokg_node_list[NodeType == "function", ] %>%
+  .[sample(1:nrow(.), 6), ]
+
+# compare sets
+random_test = compare_sets(
+  alzheimer_drugs,
+  random_pathways$Node,
+  mp = c("drug", "disease", "protein", "function"),
+  method = c("minimum", "maximum"),
+  node_list = biokg_node_list,
+  edge_list = biokg_edge_list)
 ```

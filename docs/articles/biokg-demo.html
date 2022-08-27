@@ -315,7 +315,9 @@ set.</p>
   <span class="op">{</span> <span class="va">sub_node_list</span><span class="op">[</span><span class="va">Node</span> <span class="op">%in%</span> <span class="va">.</span>, <span class="va">NodeName</span><span class="op">]</span> <span class="op">}</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"HGNC:"</span>, <span class="va">candidate_nodes</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></code></pre></div>
-<p>Test similarity based on metapaths.</p>
+<p>Test similarity between an Alzheimer’s disease (AD)-related drug
+(donepezil) and an AD-related pathway (“regulation of amyloid fibril
+formation”).</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sim_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span>
   <span class="st">"drug_762"</span>, <span class="st">"function_42893"</span>,
@@ -324,19 +326,9 @@ set.</p>
   edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span>
 
 <span class="va">sim_res</span> <span class="op">=</span> <span class="va">sim_test</span><span class="op">$</span><span class="va">OriginPaths</span>  <span class="op">%&gt;%</span>
-  <span class="va">.</span><span class="op">[</span><span class="va">.</span><span class="op">[[</span><span class="st">"function"</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="st">"function_42893"</span>, <span class="op">]</span></code></pre></div>
-<p>Test negative similarity</p>
+  <span class="va">.</span><span class="op">[</span><span class="va">.</span><span class="op">[[</span><span class="st">"function"</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="st">"function_36342"</span>, <span class="op">]</span></code></pre></div>
+<p>Visualize identified metapaths in the KG.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sim_neg_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span>
-  <span class="st">"drug_762"</span>, <span class="st">"function_29825"</span>,
-  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,
-  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,
-  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span>
-
-<span class="va">sim_neg_res</span> <span class="op">=</span> <span class="va">sim_neg_test</span><span class="op">$</span><span class="va">OriginPaths</span> <span class="op">%&gt;%</span>
-  <span class="va">.</span><span class="op">[</span><span class="va">.</span><span class="op">[[</span><span class="st">"function"</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="st">"function_29825"</span>, <span class="op">]</span></code></pre></div>
-<p>Visualize results.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sim_nodes</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">sim_res</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co"># generate connected subgraph</span>
@@ -344,20 +336,82 @@ set.</p>
 
 <span class="co"># plot subgraph</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">sim_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, edge.arrow.size <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span></code></pre></div>
+<p>As a negative control, randomly sample 100 pathways (i.e., nodes of
+type <code>"function"</code> likely not AD-related) and compute the
+similarity.</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span>
+
+<span class="co"># sample 100 pathways</span>
+<span class="va">random_neg_pathways</span> <span class="op">=</span> <span class="va">biokg_node_list</span><span class="op">[</span><span class="va">NodeType</span> <span class="op">==</span> <span class="st">"function"</span>, <span class="op">]</span> <span class="op">%&gt;%</span>
+    <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="fl">100</span><span class="op">)</span>, <span class="op">]</span> 
+<span class="va">neg_tests</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">neg_sims</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html">data.table</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="co"># for each pathway, compute similarity</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op">{</span>
+  
+  <span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="st">"Pathway #"</span>, <span class="va">i</span>, <span class="st">": "</span>, <span class="va">random_neg_pathways</span><span class="op">[</span><span class="va">i</span>, <span class="va">NodeName</span><span class="op">]</span><span class="op">)</span>
+  
+  <span class="va">sim_neg_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span>
+  <span class="st">"drug_762"</span>, <span class="va">random_neg_pathways</span><span class="op">[</span><span class="va">i</span>, <span class="va">Node</span><span class="op">]</span>, <span class="co"># "function_29825",</span>
+  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,
+  metric <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"pc"</span>, <span class="st">"npc"</span>, <span class="st">"dwpc"</span><span class="op">)</span>,
+  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,
+  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span>,
+  verbose <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
+  
+  <span class="va">neg_tests</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">neg_tests</span>, <span class="va">sim_neg_test</span><span class="op">)</span>
+  <span class="va">neg_sims</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html">rbind</a></span><span class="op">(</span><span class="va">neg_sims</span>, <span class="va">sim_neg_test</span><span class="op">$</span><span class="va">Similarity</span><span class="op">[</span>, <span class="va">Pathway</span> <span class="op">:=</span> <span class="va">random_neg_pathways</span><span class="op">[</span><span class="va">i</span>, <span class="va">NodeName</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
+  
+<span class="op">}</span>
+
+<span class="co"># calculate statistics (mean, median, SD, etc.)</span>
+<span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Similarity</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span>
+<span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Similarity</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span>
+<span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Similarity</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span>
+<span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Similarity</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span>
+
+<span class="co"># saveRDS(neg_tests, "&lt;insert file path&gt;.RDS")</span>
+<span class="co"># fwrite(neg_sims, "&lt;insert file path&gt;.csv")</span></code></pre></div>
 </div>
 <div id="test-set-similarity" class="section level1">
 <h1 class="hasAnchor">
 <a href="#test-set-similarity" class="anchor"></a>Test Set Similarity</h1>
+<p>Again, test set-to-set similarity by computing similarity scores
+between three AD-related drugs (i.e., donepezil, memantine, and
+galantamine) and a set of six AD-related pathways.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">alzheimer_drugs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug_762"</span>, <span class="st">"drug_1075"</span>, <span class="st">"drug_895"</span>, <span class="st">"drug_1406"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="co"># set of three AD drugs</span>
+<span class="va">alzheimer_drugs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug_762"</span>, <span class="st">"drug_1075"</span>, <span class="st">"drug_895"</span><span class="op">)</span>
 
-<span class="va">alzheimer_pathways</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"function_36342"</span>, <span class="st">"function_26258"</span>, <span class="st">"function_21333"</span>, <span class="st">"function_37883"</span>, <span class="st">"function_42901"</span>, <span class="st">"function_17601"</span>, <span class="st">"function_36167"</span><span class="op">)</span>
+<span class="co"># set of six AD-related pathways</span>
+<span class="va">alzheimer_pathways</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"function_36342"</span>, <span class="st">"function_26258"</span>, <span class="st">"function_21333"</span>, <span class="st">"function_42901"</span>, <span class="st">"function_17601"</span>, <span class="st">"function_36167"</span><span class="op">)</span>
 
-<span class="va">test_agg</span> <span class="op">=</span> <span class="fu"><a href="../reference/compare_sets.html">compare_sets</a></span><span class="op">(</span>
+<span class="co"># compare sets</span>
+<span class="va">alzheimer_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/compare_sets.html">compare_sets</a></span><span class="op">(</span>
   <span class="va">alzheimer_drugs</span>,
   <span class="va">alzheimer_pathways</span>,
   mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,
+  method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"minimum"</span>, <span class="st">"maximum"</span><span class="op">)</span>,
+  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,
+  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span></code></pre></div>
+<p>As a negative control, test set-to-set similarity by computing
+similarity scores between the same three AD-related drugs and a set of
+six randomly subset pathways.</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span> <span class="co"># selecting different seed</span>
+
+<span class="co"># randomly subset pathways</span>
+<span class="va">random_pathways</span> <span class="op">=</span> <span class="va">biokg_node_list</span><span class="op">[</span><span class="va">NodeType</span> <span class="op">==</span> <span class="st">"function"</span>, <span class="op">]</span> <span class="op">%&gt;%</span>
+  <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="fl">6</span><span class="op">)</span>, <span class="op">]</span>
+
+<span class="co"># compare sets</span>
+<span class="va">random_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/compare_sets.html">compare_sets</a></span><span class="op">(</span>
+  <span class="va">alzheimer_drugs</span>,
+  <span class="va">random_pathways</span><span class="op">$</span><span class="va">Node</span>,
+  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,
+  method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"minimum"</span>, <span class="st">"maximum"</span><span class="op">)</span>,
   node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,
   edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span></code></pre></div>
 </div>
