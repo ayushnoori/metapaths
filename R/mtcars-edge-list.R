@@ -38,6 +38,7 @@
 #' # plot graph
 #' mtcars_graph = graph.data.frame(mtcars_edge_list, vertices = mtcars, directed = T)
 #' mtcars_col = factor(V(mtcars_graph)$Gear)
-#' plot(mtcars_graph, vertex.size = 15, vertex.label = NA, edge.arrow.size = .25, vertex.color = mtcars_col)
+#' plot(mtcars_graph, vertex.size = 15, vertex.label = NA,
+#'      edge.arrow.size = .25, vertex.color = mtcars_col)
 #'
 "mtcars_edge_list"

@@ -55,7 +55,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">metapaths</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -115,14 +115,32 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="metapaths-meta-path-based-network-similarity-" class="section level1">
+
+<p><img src="reference/figures/logo.png" align="right" height="100"></p>
+<div id="metapaths-similarity-search-in-heterogeneous-knowledge-graphs-via-meta-paths" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#metapaths-meta-path-based-network-similarity-" class="anchor"></a>metapaths: Meta-Path Based Network Similarity
-<img src="reference/figures/logo.png" align="right" height="100">
-</h1></div>
-<p>The <code>metapaths</code> package facilitates the computation of
-meta-path based network similarity metrics in R. Please note that this
-package remains under development.</p>
+<a href="#metapaths-similarity-search-in-heterogeneous-knowledge-graphs-via-meta-paths" class="anchor"></a><code>metapaths</code>: similarity search in heterogeneous knowledge
+graphs via meta paths</h1></div>
+<hr>
+<p><a href="https://www.ayushnoori.com/metapaths"><img src="https://img.shields.io/badge/docs-live-brightgreen?style=for-the-badge" alt="docs"></a> <a href="https://zitniklab.hms.harvard.edu/projects/metapaths/"><img src="https://img.shields.io/badge/website-live-brightgreen?style=for-the-badge" alt="website"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MPL-green.svg?style=for-the-badge" alt="license: MIT"></a></p>
+<p>Large-scale heterogeneous biomedical knowledge graphs (KGs) use graph
+structures to represent and study multi-typed relational information in
+biological systems. Network relationships in a KG can be quantified by
+similarity search methods; however, such methods must consider the
+diversity of node types contained within that KG. To distinguish between
+node types, we leverage meta paths, a general graph-theoretic approach
+for flexible similarity search in large networks. Meta paths are defined
+as sequences of node types which define a walk from the origin node to
+the destination node, and are widely used in biomedical network
+analysis.</p>
+<p>To support meta paths in R, we present <code>metapaths</code>, the
+first R software package to perform meta path-based similarity search in
+heterogeneous KGs. The <code>metapaths</code> package offers various
+in-built similarity metrics for node pair comparison by querying KGs
+represented as either edge or adjacency lists, as well as auxiliary
+aggregation methods to measure set-level relationships. This framework
+facilitates the scalable and flexible modeling of network similarities
+in KGs with applications across biomedical KG learning.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -131,11 +149,85 @@ statistical computing environment. To install the latest version of this
 package, please run the following line in your R console:</p>
 <pre class="{r}"><code><a href="https://devtools.r-lib.org/reference/remote-reexports.html">devtools::install_github("ayushnoori/metapaths")</a></code></pre>
 </div>
+<div id="custom-similarity-metrics" class="section level2">
+<h2 class="hasAnchor">
+<a href="#custom-similarity-metrics" class="anchor"></a>Custom Similarity Metrics</h2>
+<p>In addition to the in-built similarity metrics, users may also define
+their own custom metrics. To define a custom similarity metric, please
+complete the following steps:</p>
+<ol>
+<li><p>Add a new function to <a href="https://github.com/ayushnoori/metapaths/blob/master/R/similarity-metrics.R"><code>similarity-metrics.R</code></a>
+with the <code>get_&lt;similarity-metric&gt;()</code>
+nomenclature.</p></li>
+<li><p>Edit the <code><a href="reference/get_similarity_function.html">get_similarity_function()</a></code> function to add
+your metric to the list of allowed similarity metrics.</p></li>
+<li><p>Submit a pull request for approval.</p></li>
+</ol>
+</div>
+<div id="custom-aggregation-methods" class="section level2">
+<h2 class="hasAnchor">
+<a href="#custom-aggregation-methods" class="anchor"></a>Custom Aggregation Methods</h2>
+<p>Akin to custom similarity metrics, users may also define custom
+aggregation methods for set-level comparison. To define a custom
+aggregation method, please complete the following steps:</p>
+<ol>
+<li><p>Add a new function to <a href="https://github.com/ayushnoori/metapaths/blob/master/R/aggregation-methods.R"><code>aggregation-methods.R</code></a>
+with the <code>get_&lt;aggregation-method&gt;()</code>
+nomenclature.</p></li>
+<li><p>Edit the <code><a href="reference/get_aggregation_function.html">get_aggregation_function()</a></code> function to add
+your metric to the list of allowed aggregation methods.</p></li>
+<li><p>Submit a pull request for approval.</p></li>
+</ol>
+</div>
+<div id="evaluation-on-a-biomedical-kg" class="section level2">
+<h2 class="hasAnchor">
+<a href="#evaluation-on-a-biomedical-kg" class="anchor"></a>Evaluation on a Biomedical KG</h2>
+<p>Evaluation of the <code>metapaths</code> package on
+<code>ogbl-biokg</code>, an open-source biomedical KG available from the
+<a href="https://ogb.stanford.edu">Open Graph Benchmark</a>, recovered
+meaningful drug and disease-associated relationships as quantified by
+high similarity scores. For example, the meta path traversal function
+identified three paths following the specified meta path that connect
+donepezil – a drug used to treat Alzheimer’s disease (AD) – with the
+regulation of amyloid fibril formation pathway, which is implicated in
+AD.</p>
+<p><img src="reference/figures/metapaths_figure.svg"></p>
+<p>Additional usage examples are available in the <a href="https://www.ayushnoori.com/metapaths/articles/biokg-demo.html"><code>ogbl-biokg</code>
+vignette</a>.</p>
+</div>
 <div id="documentation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#documentation" class="anchor"></a>Documentation</h2>
-<p>Please visit <a href="https://www.ayushnoori.com/metapaths">our
-website</a> for the latest documentation.</p>
+<ul>
+<li>The <code>metapaths</code> R package is freely available under MPL
+2.0 <a href="https://github.com/ayushnoori/metapaths">via
+GitHub</a>.</li>
+<li>Package documentation and usage examples are available <a href="https://www.ayushnoori.com/metapaths">here</a>.</li>
+<li>For more information, please visit the <code>metapaths</code> <a href="https://zitniklab.hms.harvard.edu/projects/metapaths/">project
+website</a>.</li>
+</ul>
+</div>
+<div id="citation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#citation" class="anchor"></a>Citation</h2>
+<p>If you find <code>metapaths</code> useful, please cite our
+forthcoming paper:</p>
+<pre><code>@article{noori2022metapaths,
+  title={metapaths: similarity search in heterogeneous knowledge graphs via meta paths},
+  author={Noori, Ayush and Tan, Amelia L.M. and Li, Michelle M. and Zitnik, Marinka},
+  journal={arXiv: 2209.0000},
+  volume={},
+  number={},
+  pages={},
+  year={2022},
+  publisher={}
+}</code></pre>
+</div>
+<div id="contact" class="section level2">
+<h2 class="hasAnchor">
+<a href="#contact" class="anchor"></a>Contact</h2>
+<p>Should any questions arise, please <a href="https://github.com/ayushnoori/metapaths/issues/new">open a GitHub
+issue</a> or contact <a href="anoori@college.harvard.edu">anoori@college.harvard.edu</a>.</p>
 <!-- ## Build Documentation
 
 The documentation for `metapaths` is built using the `roxygen2` package. To build the documentation, run:
@@ -153,6 +245,7 @@ pkgdown::build_site()
 ``` -->
 </div>
 </div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

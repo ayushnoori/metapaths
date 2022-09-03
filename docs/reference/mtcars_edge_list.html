@@ -110,7 +110,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">metapaths</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -234,7 +234,8 @@
 <span class='co'># plot graph</span>
 <span class='va'>mtcars_graph</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html'>graph.data.frame</a></span><span class='op'>(</span><span class='va'>mtcars_edge_list</span>, vertices <span class='op'>=</span> <span class='va'>mtcars</span>, directed <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
 <span class='va'>mtcars_col</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/V.html'>V</a></span><span class='op'>(</span><span class='va'>mtcars_graph</span><span class='op'>)</span><span class='op'>$</span><span class='va'>Gear</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars_graph</span>, vertex.size <span class='op'>=</span> <span class='fl'>15</span>, vertex.label <span class='op'>=</span> <span class='cn'>NA</span>, edge.arrow.size <span class='op'>=</span> <span class='fl'>.25</span>, vertex.color <span class='op'>=</span> <span class='va'>mtcars_col</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>mtcars_graph</span>, vertex.size <span class='op'>=</span> <span class='fl'>15</span>, vertex.label <span class='op'>=</span> <span class='cn'>NA</span>,
+     edge.arrow.size <span class='op'>=</span> <span class='fl'>.25</span>, vertex.color <span class='op'>=</span> <span class='va'>mtcars_col</span><span class='op'>)</span>
 </div><div class='img'><img src='mtcars_edge_list-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>

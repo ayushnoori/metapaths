@@ -1,7 +1,7 @@
 Package: metapaths
 Type: Package
 Title: Meta-Path Based Network Similarity
-Version: 0.1.0
+Version: 1.0.0
 Authors@R: 
   c(person(given = "Ayush",
            family = "Noori",
