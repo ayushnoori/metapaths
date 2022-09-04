@@ -1,7 +1,4 @@
-<img src='man/figures/logo.svg' align="right" height="200"/>
-# `metapaths`: similarity search in heterogeneous knowledge graphs via meta paths
-
----
+# `metapaths`: Meta-Path-Based Network Similarity Search in KGs <a href="https://github.com/ayushnoori/metapaths"><img src='man/figures/logo.svg' align="right" width="170"/></a>
 
 [![docs](https://img.shields.io/badge/docs-live-brightgreen?style=for-the-badge)](https://www.ayushnoori.com/metapaths)
 [![website](https://img.shields.io/badge/website-live-brightgreen?style=for-the-badge)](https://zitniklab.hms.harvard.edu/projects/metapaths/)
