@@ -3,7 +3,7 @@
 [![docs](https://img.shields.io/badge/docs-live-brightgreen?style=for-the-badge)](https://www.ayushnoori.com/metapaths)
 [![website](https://img.shields.io/badge/website-live-brightgreen?style=for-the-badge)](https://zitniklab.hms.harvard.edu/projects/metapaths/)
 [![license: MIT](https://img.shields.io/badge/license-MPL-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.7047210-blue?style=for-the-badge)](https://zenodo.org/badge/latestdoi/382086164)
+[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.7047209-blue?style=for-the-badge)](https://zenodo.org/badge/latestdoi/382086164)
 
 Large-scale heterogeneous biomedical knowledge graphs (KGs) use graph structures to represent and study multi-typed relational information in biological systems. Network relationships in a KG can be quantified by similarity search methods; however, such methods must consider the diversity of node types contained within that KG. To distinguish between node types, we leverage meta paths, a general graph-theoretic approach for flexible similarity search in large networks. Meta paths are defined as sequences of node types which define a walk from the origin node to the destination node, and are widely used in biomedical network analysis.
 
