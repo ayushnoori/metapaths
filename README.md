@@ -1,4 +1,4 @@
-<img src='man/figures/logo.png' align="right" height="100"/>
+<img src='man/figures/logo.svg' align="right" height="200"/>
 # `metapaths`: similarity search in heterogeneous knowledge graphs via meta paths
 
 ---
