@@ -17,7 +17,13 @@ knitr::opts_chunk$set(
 
 # Download BioKG
 
-The following Python script downloads the BioKG knowledge graph from the [Open Graph Benchmark (OGB)](https://ogb.stanford.edu/docs/linkprop/#ogbl-biokg).
+The following Python script downloads the `ogbl-biokg` (*i.e.*, BioKG) knowledge graph from the [Open Graph Benchmark (OGB)](https://ogb.stanford.edu/docs/linkprop/#ogbl-biokg).
+
+The `ogbl-biokg` dataset is described by OGB as follows:
+
+> "The `ogbl-biokg` dataset is a Knowledge Graph (KG), which we created using data from a large number of biomedical data repositories. It contains 5 types of entities: diseases (10,687 nodes), proteins (17,499), drugs (10,533 nodes), side effects (9,969 nodes), and protein functions (45,085 nodes). There are 51 types of directed relations connecting two types of entities, including 38 kinds of drug-drug interactions, 8 kinds of protein-protein interaction, as well as drug-protein, drug-side effect, function-function relations. All relations are modeled as directed edges, among which the relations connecting the same entity types (e.g., protein-protein, drug-drug, function-function) are always symmetric, i.e., the edges are bi-directional.
+>
+> This dataset is relevant to both biomedical and fundamental ML research. On the biomedical side, the dataset allows us to get better insights into human biology and generate predictions that can guide downstream biomedical research. On the fundamental ML side, the dataset presents challenges in handling a noisy, incomplete KG with possible contradictory observations. This is because the `ogbl-biokg` dataset involves heterogeneous interactions that span from the molecular scale (e.g., protein-protein interactions within a cell) to whole populations (e.g., reports of unwanted side effects experienced by patients in a particular country). Further, triplets in the KG come from sources with a variety of confidence levels, including experimental readouts, human-curated annotations, and automatically extracted metadata."
 
 ```{python download-kg}
 import numpy as np
@@ -39,7 +45,7 @@ print(graph.keys())
 edge_index = graph["edge_index_dict"].copy()
 ```
 
-To make the conversion, the dictionary keys must be renamed (i.e., cannot be tuples).
+To make the conversion, the dictionary keys must be renamed (*i.e.*, cannot be tuples).
 
 ```{python rename-key}
 old_keys = list(edge_index.keys())
@@ -72,7 +78,7 @@ Finally, we convert the edge index to JSON and write to a file.
 ```{python convert-json}
 edge_index_json = json.dumps(edge_index, cls = NumpyEncoder)
 
-with open('inst//extdata//edge_index.json', 'a') as f:
+with open('inst/extdata/edge_index.json', 'a') as f:
     f.write(edge_index_json + '\n')
 ```
 
@@ -91,6 +97,7 @@ library(rjson)
 library(metapaths)
 
 # read data
+print(getwd())
 biokg = fromJSON(file = "inst/extdata/edge_index.json")
 ```
 
@@ -232,11 +239,21 @@ cat(paste("HGNC:", candidate_nodes, sep = ""), sep = "\n")
 Test similarity between an Alzheimer's disease (AD)-related drug (donepezil) and an AD-related pathway ("regulation of amyloid fibril formation").
 
 ```{r test-similarity}
-sim_test = get_similarity(
-  "drug_762", "function_42893",
-  mp = c("drug", "disease", "protein", "function"),
-  node_list = biokg_node_list,
-  edge_list = biokg_edge_list)
+total_time = 0
+for (i in 1:100) {
+  start_time = Sys.time()
+  sim_test = get_similarity(
+    "drug_762", "function_42893",
+    mp = c("drug", "disease", "protein", "function"),
+    node_list = biokg_node_list,
+    edge_list = biokg_edge_list,
+    verbose = F)
+  end_time = Sys.time()
+  time_required = end_time - start_time
+  total_time = total_time + time_required
+}
+average_time = total_time/100
+message("Computed in ", as.character(average_time), " seconds.")
 
 sim_res = sim_test$OriginPaths  %>%
   .[.[["function"]] == "function_36342", ]
@@ -266,10 +283,12 @@ neg_tests = list()
 neg_sims = data.table()
 
 # for each pathway, compute similarity
+total_time = 0
 for (i in 1:100) {
   
   message("Pathway #", i, ": ", random_neg_pathways[i, NodeName])
   
+  start_time = Sys.time()
   sim_neg_test = get_similarity(
   "drug_762", random_neg_pathways[i, Node], # "function_29825",
   mp = c("drug", "disease", "protein", "function"),
@@ -277,11 +296,18 @@ for (i in 1:100) {
   node_list = biokg_node_list,
   edge_list = biokg_edge_list,
   verbose = F)
+  end_time = Sys.time()
+  
+  time_required = end_time - start_time
+  total_time = total_time + time_required
   
   neg_tests = append(neg_tests, sim_neg_test)
   neg_sims = rbind(neg_sims, sim_neg_test$Similarity[, Pathway := random_neg_pathways[i, NodeName]])
   
 }
+
+average_time = total_time/100
+message("Computed in ", as.character(average_time), " seconds.")
 
 # calculate statistics (mean, median, SD, etc.)
 neg_sims[, sum(Similarity == 0), by = "Metric"]
@@ -332,4 +358,83 @@ random_test = compare_sets(
   method = c("minimum", "maximum"),
   node_list = biokg_node_list,
   edge_list = biokg_edge_list)
+```
+
+# Package Efficiency
+
+```{r test-efficiency}
+set.seed(42)
+
+# get all node types
+node_types = unique(biokg_node_list$NodeType)
+
+# list possible edge types from unique(biokg_edge_list$EdgeType)
+# excluding "drug-sideeffect" since all sideeffect nodes are terminal
+# excluding "protein-function" and "function-function" to prevent uninformative "function" x n metapaths
+edge_types = c("disease-protein", "drug-disease", "drug-drug", "drug-protein", "protein-protein")
+edge_types = data.table(Origin = map_chr(strsplit(edge_types, "-"), ~.x[1]),
+                        Destination = map_chr(strsplit(edge_types, "-"), ~.x[2]))
+
+# list origin types
+origin_types = unique(edge_types$Origin)
+
+# list destination types
+destination_types = unique(edge_types$Destination)
+
+# define random performance evaluation function
+# meta path length must be at least 2
+random_test = function(mp_length) {
+  
+  # sample random origin node
+  random_origin = biokg_node_list[NodeType %in% origin_types][Node == sample(Node, 1), ]
+  
+  # construct random meta path starting at origin
+  random_mp = c(random_origin$NodeType)
+  for (k in 1:(mp_length - 1)) {
+    next_type = edge_types[Origin == tail(random_mp, 1), Destination] %>% sample(1)
+    random_mp = append(random_mp, next_type)
+  }
+  
+  # sample random destination node
+  random_destination = biokg_node_list %>%
+    .[NodeType == tail(random_mp, 1)] %>%
+    .[Node == sample(Node, 1), ]
+  
+  # time similarity search
+  start_time = Sys.time()
+  sim_result = get_similarity(
+    random_origin$Node, random_destination$Node,
+    mp = random_mp,
+    metric = c("dwpc"),
+    node_list = biokg_node_list,
+    edge_list = biokg_edge_list,
+    verbose = T)
+  end_time = Sys.time()
+  
+  # compute time required
+  time_required = end_time - start_time
+  
+  # construct return object
+  out = list(
+    Origin = random_origin,
+    Destination = random_destination,
+    MP = random_mp,
+    Time = time_required
+  )
+  
+  return(out)
+  
+}
+
+# test meta paths with lengths 2-4
+length_2 = map(1:50, ~random_test(2))
+length_3 = map(1:50, ~random_test(3))
+length_4 = map(1:50, ~random_test(4))
+all_times = c(length_2, length_3, length_4)
+
+# get times
+times_2 =  map_dbl(length_2, ~.x$Time)
+times_3 =  map_dbl(length_3, ~.x$Time)
+times_4 = map_dbl(length_4, ~.x$Time)
+
 ```

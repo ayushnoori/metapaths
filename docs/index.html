@@ -25,12 +25,7 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" media="(prefers-color-scheme: dark)">
-<!-- preferably CSS --><link rel="stylesheet" href="preferably.css">
-<link id="css-code-light" rel="stylesheet" href="code-color-scheme-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<link id="css-code-dark" rel="stylesheet" href="code-color-scheme-dark.css" media="(prefers-color-scheme: dark)">
-<script src="darkswitch.js"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
@@ -40,9 +35,16 @@
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif]--><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" media="(prefers-color-scheme: dark)">
+<!-- preferably CSS --><link rel="stylesheet" href="preferably.css">
+<link id="css-code-light" rel="stylesheet" href="code-color-scheme-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<link id="css-code-dark" rel="stylesheet" href="code-color-scheme-dark.css" media="(prefers-color-scheme: dark)">
+<script src="darkswitch.js"></script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -55,18 +57,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">metapaths</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -78,6 +74,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="articles/arxiv-demo.html">arXiv CS MAG Demonstration</a>
+    </li>
+    <li>
       <a href="articles/biokg-demo.html">BioKG Demonstration</a>
     </li>
     <li>
@@ -94,7 +93,7 @@
         </li>
         
         <li>
-  <a href="https://github.com/ayushnoori/metapaths/">
+  <a href="https://github.com/ayushnoori/metapaths/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -115,102 +114,60 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="metapaths-meta-path-based-network-similarity-search-in-kgs-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#metapaths-meta-path-based-network-similarity-search-in-kgs-" class="anchor"></a><code>metapaths</code>: Meta-Path-Based Network Similarity Search in
-KGs
-<a href="https://github.com/ayushnoori/metapaths"><img src="reference/figures/logo.svg" align="right" width="170"></a>
+<div class="section level1">
+<div class="page-header"><h1 id="metapaths-meta-path-based-network-similarity-search-in-kgs-">
+<code>metapaths</code>: Meta-Path-Based Network Similarity Search in KGs <a href="https://github.com/ayushnoori/metapaths" class="external-link"><img src="reference/figures/logo.svg" align="right" width="170"></a>
+<a class="anchor" aria-label="anchor" href="#metapaths-meta-path-based-network-similarity-search-in-kgs-"></a>
 </h1></div>
 
-<p>Large-scale heterogeneous biomedical knowledge graphs (KGs) use graph
-structures to represent and study multi-typed relational information in
-biological systems. Network relationships in a KG can be quantified by
-similarity search methods; however, such methods must consider the
-diversity of node types contained within that KG. To distinguish between
-node types, we leverage meta paths, a general graph-theoretic approach
-for flexible similarity search in large networks. Meta paths are defined
-as sequences of node types which define a walk from the origin node to
-the destination node, and are widely used in biomedical network
-analysis.</p>
-<p>To support meta paths in R, we present <code>metapaths</code>, the
-first R software package to perform meta path-based similarity search in
-heterogeneous KGs. The <code>metapaths</code> package offers various
-in-built similarity metrics for node pair comparison by querying KGs
-represented as either edge or adjacency lists, as well as auxiliary
-aggregation methods to measure set-level relationships. This framework
-facilitates the scalable and flexible modeling of network similarities
-in KGs with applications across biomedical KG learning.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p><code>metapaths</code> is designed for the <a href="https://www.r-project.org/">R</a> programming language and
-statistical computing environment. To install the latest version of this
-package, please run the following line in your R console:</p>
-<pre class="{r}"><code><a href="https://devtools.r-lib.org/reference/remote-reexports.html">devtools::install_github("ayushnoori/metapaths")</a></code></pre>
+<p>Large-scale heterogeneous biomedical knowledge graphs (KGs) use graph structures to represent and study multi-typed relational information in biological systems. Network relationships in a KG can be quantified by similarity search methods; however, such methods must consider the diversity of node types contained within that KG. To distinguish between node types, we leverage meta paths, a general graph-theoretic approach for flexible similarity search in large networks. Meta paths are defined as sequences of node types which define a walk from the origin node to the destination node, and are widely used in biomedical network analysis.</p>
+<p>To support meta paths in R, we present <code>metapaths</code>, the first R software package to perform meta path-based similarity search in heterogeneous KGs. The <code>metapaths</code> package offers various in-built similarity metrics for node pair comparison by querying KGs represented as either edge or adjacency lists, as well as auxiliary aggregation methods to measure set-level relationships. This framework facilitates the scalable and flexible modeling of network similarities in KGs with applications across biomedical KG learning.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p><code>metapaths</code> is designed for the <a href="https://www.r-project.org/" class="external-link">R</a> programming language and statistical computing environment. To install the latest version of this package, please run the following line in your R console:</p>
+<pre class="{r}"><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ayushnoori/metapaths"</span><span class="op">)</span></span></code></pre>
 </div>
-<div id="custom-similarity-metrics" class="section level2">
-<h2 class="hasAnchor">
-<a href="#custom-similarity-metrics" class="anchor"></a>Custom Similarity Metrics</h2>
-<p>In addition to the in-built similarity metrics, users may also define
-their own custom metrics. To define a custom similarity metric, please
-complete the following steps:</p>
-<ol>
-<li><p>Add a new function to <a href="https://github.com/ayushnoori/metapaths/blob/master/R/similarity-metrics.R"><code>similarity-metrics.R</code></a>
-with the <code>get_&lt;similarity-metric&gt;()</code>
-nomenclature.</p></li>
-<li><p>Edit the <code><a href="reference/get_similarity_function.html">get_similarity_function()</a></code> function to add
-your metric to the list of allowed similarity metrics.</p></li>
+<div class="section level2">
+<h2 id="custom-similarity-metrics">Custom Similarity Metrics<a class="anchor" aria-label="anchor" href="#custom-similarity-metrics"></a>
+</h2>
+<p>In addition to the in-built similarity metrics, users may also define their own custom metrics. To define a custom similarity metric, please complete the following steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Add a new function to <a href="https://github.com/ayushnoori/metapaths/blob/master/R/similarity-metrics.R" class="external-link"><code>similarity-metrics.R</code></a> with the <code>get_&lt;similarity-metric&gt;()</code> nomenclature.</p></li>
+<li><p>Edit the <code><a href="reference/get_similarity_function.html">get_similarity_function()</a></code> function to add your metric to the list of allowed similarity metrics.</p></li>
 <li><p>Submit a pull request for approval.</p></li>
 </ol>
 </div>
-<div id="custom-aggregation-methods" class="section level2">
-<h2 class="hasAnchor">
-<a href="#custom-aggregation-methods" class="anchor"></a>Custom Aggregation Methods</h2>
-<p>Akin to custom similarity metrics, users may also define custom
-aggregation methods for set-level comparison. To define a custom
-aggregation method, please complete the following steps:</p>
-<ol>
-<li><p>Add a new function to <a href="https://github.com/ayushnoori/metapaths/blob/master/R/aggregation-methods.R"><code>aggregation-methods.R</code></a>
-with the <code>get_&lt;aggregation-method&gt;()</code>
-nomenclature.</p></li>
-<li><p>Edit the <code><a href="reference/get_aggregation_function.html">get_aggregation_function()</a></code> function to add
-your metric to the list of allowed aggregation methods.</p></li>
+<div class="section level2">
+<h2 id="custom-aggregation-methods">Custom Aggregation Methods<a class="anchor" aria-label="anchor" href="#custom-aggregation-methods"></a>
+</h2>
+<p>Akin to custom similarity metrics, users may also define custom aggregation methods for set-level comparison. To define a custom aggregation method, please complete the following steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Add a new function to <a href="https://github.com/ayushnoori/metapaths/blob/master/R/aggregation-methods.R" class="external-link"><code>aggregation-methods.R</code></a> with the <code>get_&lt;aggregation-method&gt;()</code> nomenclature.</p></li>
+<li><p>Edit the <code><a href="reference/get_aggregation_function.html">get_aggregation_function()</a></code> function to add your metric to the list of allowed aggregation methods.</p></li>
 <li><p>Submit a pull request for approval.</p></li>
 </ol>
 </div>
-<div id="evaluation-on-a-biomedical-kg" class="section level2">
-<h2 class="hasAnchor">
-<a href="#evaluation-on-a-biomedical-kg" class="anchor"></a>Evaluation on a Biomedical KG</h2>
-<p>Evaluation of the <code>metapaths</code> package on
-<code>ogbl-biokg</code>, an open-source biomedical KG available from the
-<a href="https://ogb.stanford.edu">Open Graph Benchmark</a>, recovered
-meaningful drug and disease-associated relationships as quantified by
-high similarity scores. For example, the meta path traversal function
-identified three paths following the specified meta path that connect
-donepezil – a drug used to treat Alzheimer’s disease (AD) – with the
-regulation of amyloid fibril formation pathway, which is implicated in
-AD.</p>
+<div class="section level2">
+<h2 id="evaluation-on-a-biomedical-kg">Evaluation on a Biomedical KG<a class="anchor" aria-label="anchor" href="#evaluation-on-a-biomedical-kg"></a>
+</h2>
+<p>Evaluation of the <code>metapaths</code> package on <code>ogbl-biokg</code>, an open-source biomedical KG available from the <a href="https://ogb.stanford.edu" class="external-link">Open Graph Benchmark</a>, recovered meaningful drug and disease-associated relationships as quantified by high similarity scores. For example, the meta path traversal function identified three paths following the specified meta path that connect donepezil – a drug used to treat Alzheimer’s disease (AD) – with the regulation of amyloid fibril formation pathway, which is implicated in AD.</p>
 <p><img src="reference/figures/metapaths_figure.svg"></p>
-<p>Additional usage examples are available in the <a href="https://www.ayushnoori.com/metapaths/articles/biokg-demo.html"><code>ogbl-biokg</code>
-vignette</a>.</p>
+<p>Additional usage examples are available in the <a href="https://www.ayushnoori.com/metapaths/articles/biokg-demo.html" class="external-link"><code>ogbl-biokg</code> vignette</a>.</p>
 </div>
-<div id="documentation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#documentation" class="anchor"></a>Documentation</h2>
+<div class="section level2">
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
 <ul>
-<li>The <code>metapaths</code> R package is freely available under MPL
-2.0 <a href="https://github.com/ayushnoori/metapaths">via
-GitHub</a>.</li>
-<li>Package documentation and usage examples are available <a href="https://www.ayushnoori.com/metapaths">here</a>.</li>
-<li>For more information, please visit the <code>metapaths</code> <a href="https://zitniklab.hms.harvard.edu/projects/metapaths/">project
-website</a>.</li>
+<li>The <code>metapaths</code> R package is freely available under MPL 2.0 <a href="https://github.com/ayushnoori/metapaths" class="external-link">via GitHub</a>.</li>
+<li>Package documentation and usage examples are available <a href="https://www.ayushnoori.com/metapaths" class="external-link">here</a>.</li>
+<li>For more information, please visit the <code>metapaths</code> <a href="https://zitniklab.hms.harvard.edu/projects/metapaths/" class="external-link">project website</a>.</li>
 </ul>
 </div>
-<div id="citation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#citation" class="anchor"></a>Citation</h2>
-<p>If you find <code>metapaths</code> useful, please cite our
-forthcoming paper:</p>
+<div class="section level2">
+<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h2>
+<p>If you find <code>metapaths</code> useful, please cite our forthcoming paper:</p>
 <pre><code>@article{noori2022metapaths,
   title={metapaths: similarity search in heterogeneous knowledge graphs via meta paths},
   author={Noori, Ayush and Tan, Amelia L.M. and Li, Michelle M. and Zitnik, Marinka},
@@ -222,11 +179,10 @@ forthcoming paper:</p>
   publisher={}
 }</code></pre>
 </div>
-<div id="contact" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contact" class="anchor"></a>Contact</h2>
-<p>Should any questions arise, please <a href="https://github.com/ayushnoori/metapaths/issues/new">open a GitHub
-issue</a> or contact <a href="anoori@college.harvard.edu">anoori@college.harvard.edu</a>.</p>
+<div class="section level2">
+<h2 id="contact">Contact<a class="anchor" aria-label="anchor" href="#contact"></a>
+</h2>
+<p>Should any questions arise, please <a href="https://github.com/ayushnoori/metapaths/issues/new" class="external-link">open a GitHub issue</a> or contact <a href="anoori@college.harvard.edu">anoori@college.harvard.edu</a>.</p>
 <!-- ## Build Documentation
 
 The documentation for `metapaths` is built using the `roxygen2` package. To build the documentation, run:
@@ -248,49 +204,61 @@ pkgdown::build_site()
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/ayushnoori/metapaths/">https://​github.com/​ayushnoori/​metapaths/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/ayushnoori/metapaths/issues">https://​github.com/​ayushnoori/​metapaths/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL-2.0</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Ayush Noori <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-1420-1236" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Amelia Tan <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-0623-6623" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Michelle M. Li <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-0223-7485" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Marinka Zitnik <br><small class="roles"> Author, research team head </small> <a href="https://orcid.org/0000-0001-8530-7228" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="https://github.com/ayushnoori/metapaths/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/ayushnoori/metapaths/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.ayushnoori.com/metapaths"><img src="https://img.shields.io/badge/docs-live-brightgreen?style=for-the-badge" alt="docs"></a></li>
-<li><a href="https://zitniklab.hms.harvard.edu/projects/metapaths/"><img src="https://img.shields.io/badge/website-live-brightgreen?style=for-the-badge" alt="website"></a></li>
-<li><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MPL-green.svg?style=for-the-badge" alt="license: MIT"></a></li>
-<li><a href="https://zenodo.org/badge/latestdoi/382086164"><img src="https://img.shields.io/badge/DOI-10.5281/zenodo.7047209-blue?style=for-the-badge" alt="DOI"></a></li>
+<li><a href="https://www.mozilla.org/en-US/MPL/2.0/" class="external-link">MPL-2.0</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing metapaths</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Ayush Noori <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-1420-1236" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Amelia Tan <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-0623-6623" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Michelle M. Li <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-0223-7485" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Marinka Zitnik <br><small class="roles"> Author, research team head </small> <a href="https://orcid.org/0000-0001-8530-7228" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://www.ayushnoori.com/metapaths" class="external-link"><img src="https://img.shields.io/badge/docs-live-brightgreen?style=for-the-badge" alt="docs"></a></li>
+<li><a href="https://zitniklab.hms.harvard.edu/projects/metapaths/" class="external-link"><img src="https://img.shields.io/badge/website-live-brightgreen?style=for-the-badge" alt="website"></a></li>
+<li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/license-MPL-green.svg?style=for-the-badge" alt="license: MIT"></a></li>
+<li><a href="https://zenodo.org/badge/latestdoi/382086164" class="external-link"><img src="https://img.shields.io/badge/DOI-10.5281/zenodo.7047209-blue?style=for-the-badge" alt="DOI"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Ayush Noori, Amelia Tan, Michelle M. Li, Marinka Zitnik.</p>
+  <p></p>
+<p>Developed by Ayush Noori, Amelia Tan, Michelle M. Li, Marinka Zitnik.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Made with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1, using <a href="https://preferably.amirmasoudabdol.name/?source=footer">preferably</a> template.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p class="preferably">Using <a href="https://preferably.amirmasoudabdol.name/?source=footer" class="external-link">preferably</a> template.</p>
 </div>
 
       </footer>
@@ -298,6 +266,8 @@ pkgdown::build_site()
 
   
 
+
+  
 
   </body>
 </html>

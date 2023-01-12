@@ -1,0 +1,174 @@
+---
+title: "arXiv CS MAG Demonstration"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{arXiv CS MAG Demonstration}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+# Download arXiv CS MAG
+
+The following Python script downloads the `ogbn-arxiv` (*i.e.*, arXiv CS MAG) knowledge graph from the [Open Graph Benchmark (OGB)](https://ogb.stanford.edu/docs/nodeprop/#ogbn-arxiv).
+
+The `ogbn-arxiv` dataset is described by OGB as follows:
+
+> "The `ogbn-arxiv` dataset is a directed graph, representing the citation network between all Computer Science (CS) arXiv papers indexed by MAG [1]. Each node is an arXiv paper and each directed edge indicates that one paper cites another one. Each paper comes with a 128-dimensional feature vector obtained by averaging the embeddings of words in its title and abstract. The embeddings of individual words are computed by running the skip-gram model [2] over the MAG corpus. We also provide the mapping from MAG paper IDs into the raw texts of titles and abstracts [here](https://snap.stanford.edu/ogb/data/misc/ogbn_arxiv/titleabs.tsv.gz). In addition, all papers are also associated with the year that the corresponding paper was published."
+>
+> The task is to predict the 40 subject areas of arXiv CS papers, e.g., cs.AI, cs.LG, and cs.OS, which are manually determined (i.e., labeled) by the paper\'s authors and arXiv moderators. With the volume of scientific publications doubling every 12 years over the past century, it is practically important to automatically classify each publication\'s areas and topics. Formally, the task is to predict the primary categories of the arXiv papers, which is formulated as a 40-class classification problem.
+
+### References
+
+1.  Kuansan Wang, Zhihong Shen, Chiyuan Huang, Chieh-Han Wu, Yuxiao Dong, and Anshul Kanakia. Microsoft academic graph: When experts are not enough. Quantitative Science Studies, 1(1):396--413, 2020.
+2.  Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. Distributed representationsof words and phrases and their compositionality. In Advances in Neural Information Processing Systems (NeurIPS), pp. 3111--3119, 2013.
+
+```{python download-arxiv}
+import os
+import pandas as pd
+from ogb.nodeproppred import NodePropPredDataset
+
+dataset = NodePropPredDataset(name = "ogbn-arxiv")
+
+split_idx = dataset.get_idx_split()
+train_idx, valid_idx, test_idx = split_idx["train"], split_idx["valid"], split_idx["test"]
+graph, label = dataset[0] 
+```
+
+Read the label ID to arXiv category and node ID to MAG paper ID mappings.
+
+```{python read-mappings}
+label_to_category = pd.read_csv("dataset/ogbn_arxiv/mapping/labelidx2arxivcategeory.csv.gz", compression = "gzip")
+nodeid_to_paperid = pd.read_csv("dataset/ogbn_arxiv/mapping/nodeidx2paperid.csv.gz", compression = "gzip")
+nodeid_to_paperid.head()
+```
+
+Clean arXiv category labels to conform to arXiv notation.
+
+```{python clean-categories}
+label_to_category['arxiv category'] = label_to_category['arxiv category'].str.replace("arxiv ", "")
+label_to_category['arxiv category'] = label_to_category['arxiv category'].str.replace(" ", ".")
+label_to_category['arxiv category'] = label_to_category['arxiv category'].str.upper()
+label_to_category.head()
+```
+
+Read mapping from MAG paper ID to paper titles and abstracts using file provided by OGB in the `ogbn-arxiv` description.
+
+```{python read-titleabs}
+title_abs = pd.read_csv("dataset/titleabs.tsv", sep = "\t", names = ["Node", "NodeTitle", "NodeAbstract"])
+title_abs.head()
+```
+
+Construct the node list as a `DataFrame` (see `graph.keys()` for accessing elements in the `graph` dictionary). Abstracts are not included to save space. Map between OGB node ID and MAG paper ID; then, use the MAG paper ID to retrieve the title and abstract. Also map between OGB category label and arXiv category label.
+
+```{python construct-node}
+node_list_of_lists = []
+
+for node_id in range(graph["num_nodes"]):
+
+    # get node values from graph
+    node_type = label[node_id][0]
+    node_year = graph["node_year"][node_id][0]
+
+    # retrieve MAG ID
+    node_magid = nodeid_to_paperid.loc[nodeid_to_paperid["node idx"] == node_id, "paper id"].values[0]
+
+    # get title and abstract
+    node_title = title_abs.loc[title_abs["Node"] == node_magid, "NodeTitle"].values[0]
+    # node_abstract = title_abs.loc[title_abs["Node"] == node_magid, "NodeAbstract"].values[0]
+
+    # get category
+    node_category = label_to_category.loc[label_to_category["label idx"] == node_type, "arxiv category"].values[0]
+
+    # add row to data frame
+    node_list_of_lists.append([node_id, node_type, node_year, node_magid, node_title, node_category]) # node_abstract, 
+
+node_list = pd.DataFrame(node_list_of_lists, columns=["Node", "NodeType", "NodeYear", "NodeMAGID", "NodeTitle", "NodeCategory"]) # "NodeAbstract", 
+node_list.head()
+```
+
+Similarly, construct the edge list as a `DataFrame`. In addition to origin and destination node IDs, also retrieve origin and destination node types.
+
+```{python construct-edge}
+edge_list_of_lists = []
+
+for edge_index in range(len(graph["edge_index"][0])):
+
+    # get edge values from graph
+    edge_origin = graph["edge_index"][0][edge_index]
+    edge_destination = graph["edge_index"][1][edge_index]
+
+    # get origin and destination types
+    origin_type = label[edge_origin][0]
+    destination_type = label[edge_destination][0]
+
+    # add row to data frame
+    edge_list_of_lists.append([edge_origin, edge_destination, origin_type, destination_type])
+
+edge_list = pd.DataFrame(edge_list_of_lists, columns=["Origin", "Destination", "OriginType", "DestinationType"])
+```
+
+Save node and edge lists as `.csv` files to be read into R.
+
+```{python save-list}
+# save node and edge lists as CSV files
+node_list.to_csv("inst/extdata/arxiv_node_list.csv", index = False)
+edge_list.to_csv("inst/extdata/arxiv_edge_list.csv", index = False)
+```
+
+# Parse KG in R
+
+Read the `.csv` node and edge lists saved previously.
+
+```{r read-kg}
+# load libraries
+library(data.table)
+library(purrr)
+library(magrittr)
+
+# load metapaths library
+library(metapaths)
+
+# read data
+arxiv_node_list = fread("inst/extdata/arxiv_node_list.csv")
+arxiv_edge_list = fread("inst/extdata/arxiv_edge_list.csv")
+head(arxiv_node_list)
+```
+
+Coerce types to character vectors as needed.
+
+```{r coerce-types}
+arxiv_node_list %>%
+  .[, Node := as.character(Node)] %>%
+  .[, NodeType := as.character(NodeType)]
+arxiv_edge_list = map_dfc(arxiv_edge_list, as.character) %>%
+  as.data.table()
+```
+
+Find similar papers; in this case, nodes that share "meta path" in the title. Use the meta path `c(26, 26, 24)`, which corresponds to `CS.SI - CS.SI - CS.AI`.
+
+```{r find-similar}
+# find nodes that share meta path
+metapath_papers = arxiv_node_list[grep("meta path", NodeTitle), ]
+metapath_papers[1:2, .(Node, NodeTitle, NodeCategory)]
+```
+
+Check similarity between two nodes.
+
+```{r test-similarity}
+# test similarity between nodes
+sim_test = get_similarity(
+    "21500", "37908",
+    mp = c("26", "26", "24"),
+    node_list = arxiv_node_list,
+    edge_list = arxiv_edge_list,
+    verbose = T)
+```
+

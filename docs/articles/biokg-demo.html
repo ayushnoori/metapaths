@@ -25,12 +25,7 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" media="(prefers-color-scheme: dark)">
-<!-- preferably CSS --><link rel="stylesheet" href="../preferably.css">
-<link id="css-code-light" rel="stylesheet" href="../code-color-scheme-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<link id="css-code-dark" rel="stylesheet" href="../code-color-scheme-dark.css" media="(prefers-color-scheme: dark)">
-<script src="../darkswitch.js"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -40,9 +35,16 @@
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif]--><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" media="(prefers-color-scheme: dark)">
+<!-- preferably CSS --><link rel="stylesheet" href="../preferably.css">
+<link id="css-code-light" rel="stylesheet" href="../code-color-scheme-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<link id="css-code-dark" rel="stylesheet" href="../code-color-scheme-dark.css" media="(prefers-color-scheme: dark)">
+<script src="../darkswitch.js"></script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -55,18 +57,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">metapaths</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -78,6 +74,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/arxiv-demo.html">arXiv CS MAG Demonstration</a>
+    </li>
+    <li>
       <a href="../articles/biokg-demo.html">BioKG Demonstration</a>
     </li>
     <li>
@@ -94,7 +93,7 @@
         </li>
         
         <li>
-  <a href="https://github.com/ayushnoori/metapaths/">
+  <a href="https://github.com/ayushnoori/metapaths/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -113,25 +112,54 @@
 
       
 
-      </header><script src="biokg-demo_files/header-attrs-2.14/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>BioKG Demonstration</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/ayushnoori/metapaths/blob/master/vignettes/biokg-demo.Rmd"><code>vignettes/biokg-demo.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ayushnoori/metapaths/blob/HEAD/vignettes/biokg-demo.Rmd" class="external-link"><code>vignettes/biokg-demo.Rmd</code></a></small>
       <div class="hidden name"><code>biokg-demo.Rmd</code></div>
 
     </div>
 
     
     
-<div id="download-biokg" class="section level1">
-<h1 class="hasAnchor">
-<a href="#download-biokg" class="anchor"></a>Download BioKG</h1>
-<p>The following Python script downloads the BioKG knowledge graph from
-the <a href="https://ogb.stanford.edu/docs/linkprop/#ogbl-biokg">Open
-Graph Benchmark (OGB)</a>.</p>
+<div class="section level2">
+<h2 id="download-biokg">Download BioKG<a class="anchor" aria-label="anchor" href="#download-biokg"></a>
+</h2>
+<p>The following Python script downloads the <code>ogbl-biokg</code>
+(<em>i.e.</em>, BioKG) knowledge graph from the <a href="https://ogb.stanford.edu/docs/linkprop/#ogbl-biokg" class="external-link">Open Graph
+Benchmark (OGB)</a>.</p>
+<p>The <code>ogbl-biokg</code> dataset is described by OGB as
+follows:</p>
+<blockquote>
+<p>“The <code>ogbl-biokg</code> dataset is a Knowledge Graph (KG), which
+we created using data from a large number of biomedical data
+repositories. It contains 5 types of entities: diseases (10,687 nodes),
+proteins (17,499), drugs (10,533 nodes), side effects (9,969 nodes), and
+protein functions (45,085 nodes). There are 51 types of directed
+relations connecting two types of entities, including 38 kinds of
+drug-drug interactions, 8 kinds of protein-protein interaction, as well
+as drug-protein, drug-side effect, function-function relations. All
+relations are modeled as directed edges, among which the relations
+connecting the same entity types (e.g., protein-protein, drug-drug,
+function-function) are always symmetric, i.e., the edges are
+bi-directional.</p>
+<p>This dataset is relevant to both biomedical and fundamental ML
+research. On the biomedical side, the dataset allows us to get better
+insights into human biology and generate predictions that can guide
+downstream biomedical research. On the fundamental ML side, the dataset
+presents challenges in handling a noisy, incomplete KG with possible
+contradictory observations. This is because the <code>ogbl-biokg</code>
+dataset involves heterogeneous interactions that span from the molecular
+scale (e.g., protein-protein interactions within a cell) to whole
+populations (e.g., reports of unwanted side effects experienced by
+patients in a particular country). Further, triplets in the KG come from
+sources with a variety of confidence levels, including experimental
+readouts, human-curated annotations, and automatically extracted
+metadata.”</p>
+</blockquote>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -146,14 +174,14 @@ Graph Benchmark (OGB)</a>.</p>
 JSON format to be read into R.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(graph.keys())</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>edge_index <span class="op">=</span> graph[<span class="st">"edge_index_dict"</span>].copy()</span></code></pre></div>
-<p>To make the conversion, the dictionary keys must be renamed (i.e.,
-cannot be tuples).</p>
+<p>To make the conversion, the dictionary keys must be renamed
+(<em>i.e.</em>, cannot be tuples).</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>old_keys <span class="op">=</span> <span class="bu">list</span>(edge_index.keys())</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> old_name <span class="kw">in</span> old_keys:</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    new_name <span class="op">=</span> <span class="st">"--"</span>.join(old_name)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    edge_index[new_name] <span class="op">=</span> edge_index[old_name]</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">del</span> edge_index[old_name]</span></code></pre></div>
-<p>A special numpy encoder is defined, borrowed from <a href="https://stackoverflow.com/questions/57269741/typeerror-object-of-type-ndarray-is-not-json-serializable">this
+<p>A special numpy encoder is defined, borrowed from <a href="https://stackoverflow.com/questions/57269741/typeerror-object-of-type-ndarray-is-not-json-serializable" class="external-link">this
 StackOverflow post</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NumpyEncoder(json.JSONEncoder):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Special json encoder for numpy types """</span></span>
@@ -171,69 +199,70 @@ StackOverflow post</a>.</p>
 <p>Finally, we convert the edge index to JSON and write to a file.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>edge_index_json <span class="op">=</span> json.dumps(edge_index, cls <span class="op">=</span> NumpyEncoder)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'inst//extdata//edge_index.json'</span>, <span class="st">'a'</span>) <span class="im">as</span> f:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'inst/extdata/edge_index.json'</span>, <span class="st">'a'</span>) <span class="im">as</span> f:</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    f.write(edge_index_json <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span></code></pre></div>
 </div>
-<div id="parse-kg-in-r" class="section level1">
-<h1 class="hasAnchor">
-<a href="#parse-kg-in-r" class="anchor"></a>Parse KG in R</h1>
+<div class="section level2">
+<h2 id="parse-kg-in-r">Parse KG in R<a class="anchor" aria-label="anchor" href="#parse-kg-in-r"></a>
+</h2>
 <p>Read the JSON dataset saved previously.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># load libraries</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://purrr.tidyverse.org">purrr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">rjson</span><span class="op">)</span>
-
-<span class="co"># load metapaths library</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.ayushnoori.com/metapaths">metapaths</a></span><span class="op">)</span>
-
-<span class="co"># read data</span>
-<span class="va">biokg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/rjson/man/fromJSON.html">fromJSON</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"inst/extdata/edge_index.json"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># load libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com" class="external-link">data.table</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/" class="external-link">purrr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/alexcb/rjson" class="external-link">rjson</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># load metapaths library</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.ayushnoori.com/metapaths" class="external-link">metapaths</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># read data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">biokg</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/rjson/man/fromJSON.html" class="external-link">fromJSON</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"inst/extdata/edge_index.json"</span><span class="op">)</span></span></code></pre></div>
 <p>Read mappings downloaded from OGB.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mapping_dir</span> <span class="op">=</span> <span class="st">"inst/extdata/biokg_mappings"</span>
-
-<span class="va">read_mapping</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">mapping_path</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">mapping</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fread.html">fread</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">mapping_dir</span>, <span class="va">mapping_path</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">mapping</span><span class="op">[</span>, <span class="va">Type</span> <span class="op">:=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/tstrsplit.html">strsplit</a></span><span class="op">(</span><span class="va">mapping_path</span>, <span class="st">"_"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">mapping</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">mappings</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="va">mapping_dir</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"entidx2name"</span>, <span class="va">.</span><span class="op">)</span><span class="op">]</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dfr</a></span><span class="op">(</span><span class="va">read_mapping</span><span class="op">)</span>
-
-<span class="va">mappings</span> <span class="op">=</span> <span class="va">mappings</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/copy.html">copy</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setattr.html">setnames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ent idx"</span>, <span class="st">"ent name"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Index"</span>, <span class="st">"Name"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setcolorder.html">setcolorder</a></span><span class="op">(</span><span class="st">"Type"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="va">.</span><span class="op">[</span>, <span class="va">Label</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">Type</span>, <span class="va">Index</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mapping_dir</span> <span class="op">=</span> <span class="st">"inst/extdata/biokg_mappings"</span></span>
+<span></span>
+<span><span class="va">read_mapping</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">mapping_path</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">mapping</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">fread</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">mapping_dir</span>, <span class="va">mapping_path</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">mapping</span><span class="op">[</span>, <span class="va">Type</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">mapping_path</span>, <span class="st">"_"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">mapping</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">mappings</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">mapping_dir</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"entidx2name"</span>, <span class="va">.</span><span class="op">)</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_dfr</a></span><span class="op">(</span><span class="va">read_mapping</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mappings</span> <span class="op">=</span> <span class="va">mappings</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/copy.html" class="external-link">copy</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setattr.html" class="external-link">setnames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ent idx"</span>, <span class="st">"ent name"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Index"</span>, <span class="st">"Name"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setcolorder.html" class="external-link">setcolorder</a></span><span class="op">(</span><span class="st">"Type"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="va">.</span><span class="op">[</span>, <span class="va">Label</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">Type</span>, <span class="va">Index</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <p>Create a function to convert the edge list to a
 <code>data.table</code>. Note that the node IDs are specific to each
 type, so we must add a type-specific prefix.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">convert_biokg</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">sub_kg</span>, <span class="va">sub_label</span><span class="op">)</span> <span class="op">{</span>
-  
-  <span class="co"># split label</span>
-  <span class="va">split_label</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/tstrsplit.html">strsplit</a></span><span class="op">(</span><span class="va">sub_label</span>, <span class="st">"--"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>
-  <span class="va">origin_label</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">split_label</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">sub_kg</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span>
-  <span class="va">destination_label</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">split_label</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">sub_kg</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span>
-  
-  <span class="co"># create data table</span>
-  <span class="va">kg_dt</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html">data.table</a></span><span class="op">(</span>
-    Origin <span class="op">=</span> <span class="va">origin_label</span>,
-    Destination <span class="op">=</span> <span class="va">destination_label</span>,
-    OriginType <span class="op">=</span> <span class="va">split_label</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,
-    DestinationType <span class="op">=</span> <span class="va">split_label</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,
-    EdgeType <span class="op">=</span> <span class="va">split_label</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span>
-  
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">convert_biokg</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">sub_kg</span>, <span class="va">sub_label</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="co"># split label</span></span>
+<span>  <span class="va">split_label</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">sub_label</span>, <span class="st">"--"</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span>  <span class="va">origin_label</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">split_label</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">sub_kg</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span>
+<span>  <span class="va">destination_label</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">split_label</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">sub_kg</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># create data table</span></span>
+<span>  <span class="va">kg_dt</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html" class="external-link">data.table</a></span><span class="op">(</span></span>
+<span>    Origin <span class="op">=</span> <span class="va">origin_label</span>,</span>
+<span>    Destination <span class="op">=</span> <span class="va">destination_label</span>,</span>
+<span>    OriginType <span class="op">=</span> <span class="va">split_label</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>    DestinationType <span class="op">=</span> <span class="va">split_label</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,</span>
+<span>    EdgeType <span class="op">=</span> <span class="va">split_label</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>Now, map the conversion function over the <code>biokg</code>
 list.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">biokg_edge_list</span> <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/imap.html">imap_dfr</a></span><span class="op">(</span><span class="va">biokg</span>, <span class="va">convert_biokg</span><span class="op">)</span>
-<span class="va">biokg_node_list</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_node_list.html">get_node_list</a></span><span class="op">(</span><span class="va">biokg_edge_list</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">biokg_edge_list</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">biokg_edge_list</span> <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/imap.html" class="external-link">imap_dfr</a></span><span class="op">(</span><span class="va">biokg</span>, <span class="va">convert_biokg</span><span class="op">)</span></span>
+<span><span class="va">biokg_node_list</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_node_list.html">get_node_list</a></span><span class="op">(</span><span class="va">biokg_edge_list</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">biokg_edge_list</span><span class="op">)</span></span></code></pre></div>
 <p>Check that the counts of each node type conform with
 <code>graph["num_nodes_dict"]</code> from the Python script.</p>
 <table class="table">
@@ -253,167 +282,264 @@ list.</p>
 </tr></tbody>
 </table>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">biokg_node_list</span><span class="op">[</span>, <span class="va">.N</span>, by <span class="op">=</span> <span class="va">NodeType</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">biokg_node_list</span><span class="op">[</span>, <span class="va">.N</span>, by <span class="op">=</span> <span class="va">NodeType</span><span class="op">]</span></span></code></pre></div>
 <p>Add node names from <code>mappings</code> table.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># add node names</span>
-<span class="va">biokg_node_list</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/merge.html">merge</a></span><span class="op">(</span><span class="va">biokg_node_list</span>, <span class="va">mappings</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span><span class="va">Label</span>, <span class="va">Name</span><span class="op">)</span><span class="op">]</span>, by.x <span class="op">=</span> <span class="st">"Node"</span>, by.y <span class="op">=</span> <span class="st">"Label"</span>, sort <span class="op">=</span> <span class="cn">F</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setattr.html">setnames</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"NodeName"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># add node names</span></span>
+<span><span class="va">biokg_node_list</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">biokg_node_list</span>, <span class="va">mappings</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span><span class="va">Label</span>, <span class="va">Name</span><span class="op">)</span><span class="op">]</span>, by.x <span class="op">=</span> <span class="st">"Node"</span>, by.y <span class="op">=</span> <span class="st">"Label"</span>, sort <span class="op">=</span> <span class="cn">F</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setattr.html" class="external-link">setnames</a></span><span class="op">(</span><span class="st">"Name"</span>, <span class="st">"NodeName"</span><span class="op">)</span></span></code></pre></div>
 <p>Sample the knowledge graph to generate a small, connected test
 set.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># load igraph library</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://igraph.org">igraph</a></span><span class="op">)</span>
-
-<span class="co"># generate graph</span>
-<span class="va">biokg_graph</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html">graph.data.frame</a></span><span class="op">(</span><span class="va">biokg_edge_list</span>, vertices <span class="op">=</span> <span class="va">biokg_node_list</span>, directed <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-
-<span class="co"># sample random nodes</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span>
-<span class="va">seed_nodes</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">biokg_node_list</span><span class="op">$</span><span class="va">Node</span>, <span class="fl">5000</span><span class="op">)</span>
-
-<span class="co"># generate induced subgraph</span>
-<span class="va">biokg_sample</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/subgraph.html">induced.subgraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">biokg_graph</span>, vids <span class="op">=</span> <span class="va">seed_nodes</span><span class="op">)</span>
-
-<span class="co"># get largest connected component</span>
-<span class="va">comp</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/components.html">components</a></span><span class="op">(</span><span class="va">biokg_sample</span><span class="op">)</span> 
-<span class="va">comp_idx</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">comp</span><span class="op">$</span><span class="va">csize</span><span class="op">)</span>
-<span class="va">lcc</span> <span class="op">=</span> <span class="va">comp</span><span class="op">$</span><span class="va">membership</span> <span class="op">%&gt;%</span>
-  <span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">[</span><span class="va">.</span> <span class="op">==</span> <span class="va">comp_idx</span><span class="op">]</span><span class="op">}</span>
-
-<span class="co"># generate connected subgraph</span>
-<span class="va">biokg_sub</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/subgraph.html">induced.subgraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">biokg_graph</span>, vids <span class="op">=</span> <span class="va">lcc</span><span class="op">)</span>
-
-<span class="co"># generate subsamples node and edge lists</span>
-<span class="va">sub_edge_list</span> <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">[</span><span class="va">Origin</span> <span class="op">%in%</span> <span class="va">lcc</span> <span class="op">&amp;</span> <span class="va">Destination</span> <span class="op">%in%</span> <span class="va">lcc</span><span class="op">]</span>
-<span class="va">sub_node_list</span> <span class="op">=</span> <span class="va">biokg_node_list</span><span class="op">[</span><span class="va">Node</span> <span class="op">%in%</span> <span class="va">lcc</span><span class="op">]</span>
-
-<span class="co"># convenience function</span>
-<span class="va">lookup</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">node</span><span class="op">)</span> <span class="op">{</span>
-  <span class="co"># return(sub_node_list[Node == node, NodeName])</span>
-  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">biokg_node_list</span><span class="op">[</span><span class="va">Node</span> <span class="op">==</span> <span class="va">node</span>, <span class="va">NodeName</span><span class="op">]</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># load igraph library</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://igraph.org" class="external-link">igraph</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># generate graph</span></span>
+<span><span class="va">biokg_graph</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html" class="external-link">graph.data.frame</a></span><span class="op">(</span><span class="va">biokg_edge_list</span>, vertices <span class="op">=</span> <span class="va">biokg_node_list</span>, directed <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># sample random nodes</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
+<span><span class="va">seed_nodes</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">biokg_node_list</span><span class="op">$</span><span class="va">Node</span>, <span class="fl">5000</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># generate induced subgraph</span></span>
+<span><span class="va">biokg_sample</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/subgraph.html" class="external-link">induced.subgraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">biokg_graph</span>, vids <span class="op">=</span> <span class="va">seed_nodes</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># get largest connected component</span></span>
+<span><span class="va">comp</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/components.html" class="external-link">components</a></span><span class="op">(</span><span class="va">biokg_sample</span><span class="op">)</span> </span>
+<span><span class="va">comp_idx</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.min.html" class="external-link">which.max</a></span><span class="op">(</span><span class="va">comp</span><span class="op">$</span><span class="va">csize</span><span class="op">)</span></span>
+<span><span class="va">lcc</span> <span class="op">=</span> <span class="va">comp</span><span class="op">$</span><span class="va">membership</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">[</span><span class="va">.</span> <span class="op">==</span> <span class="va">comp_idx</span><span class="op">]</span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># generate connected subgraph</span></span>
+<span><span class="va">biokg_sub</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/subgraph.html" class="external-link">induced.subgraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">biokg_graph</span>, vids <span class="op">=</span> <span class="va">lcc</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># generate subsamples node and edge lists</span></span>
+<span><span class="va">sub_edge_list</span> <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">[</span><span class="va">Origin</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">lcc</span> <span class="op">&amp;</span> <span class="va">Destination</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">lcc</span><span class="op">]</span></span>
+<span><span class="va">sub_node_list</span> <span class="op">=</span> <span class="va">biokg_node_list</span><span class="op">[</span><span class="va">Node</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">lcc</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># convenience function</span></span>
+<span><span class="va">lookup</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">node</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="co"># return(sub_node_list[Node == node, NodeName])</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">biokg_node_list</span><span class="op">[</span><span class="va">Node</span> <span class="op">==</span> <span class="va">node</span>, <span class="va">NodeName</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>Save node list and edge list to file.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">sub_edge_list</span>, file <span class="op">=</span> <span class="st">"data/sub_edge_list.rda"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">sub_node_list</span>, file <span class="op">=</span> <span class="st">"data/sub_node_list.rda"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">sub_edge_list</span>, file <span class="op">=</span> <span class="st">"data/sub_edge_list.rda"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/save.html" class="external-link">save</a></span><span class="op">(</span><span class="va">sub_node_list</span>, file <span class="op">=</span> <span class="st">"data/sub_node_list.rda"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="test-node-similarity" class="section level1">
-<h1 class="hasAnchor">
-<a href="#test-node-similarity" class="anchor"></a>Test Node Similarity</h1>
+<div class="section level2">
+<h2 id="test-node-similarity">Test Node Similarity<a class="anchor" aria-label="anchor" href="#test-node-similarity"></a>
+</h2>
 <p>Check possible edge types.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="st">"- "</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique</a></span><span class="op">(</span><span class="va">sub_node_list</span><span class="op">[</span>, <span class="va">NodeType</span><span class="op">]</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"\n- "</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"- "</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">sub_node_list</span><span class="op">[</span>, <span class="va">NodeType</span><span class="op">]</span><span class="op">)</span>, collapse <span class="op">=</span> <span class="st">"\n- "</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Find hub genes.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># calculate degree</span>
-<span class="va">sub_degrees</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/degree.html">degree</a></span><span class="op">(</span><span class="va">biokg_sub</span><span class="op">)</span>
-
-<span class="co"># find candidate nodes</span>
-<span class="va">candidate_nodes</span> <span class="op">=</span> <span class="va">sub_degrees</span> <span class="op">%&gt;%</span>
-  <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">.</span> <span class="op">&gt;</span> <span class="fl">20</span> <span class="op">&amp;</span> <span class="va">.</span> <span class="op">&lt;</span> <span class="fl">30</span><span class="op">)</span><span class="op">]</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"protein"</span>, <span class="va">.</span><span class="op">)</span><span class="op">]</span> <span class="op">%&gt;%</span>
-  <span class="op">{</span> <span class="va">sub_node_list</span><span class="op">[</span><span class="va">Node</span> <span class="op">%in%</span> <span class="va">.</span>, <span class="va">NodeName</span><span class="op">]</span> <span class="op">}</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"HGNC:"</span>, <span class="va">candidate_nodes</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># calculate degree</span></span>
+<span><span class="va">sub_degrees</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/degree.html" class="external-link">degree</a></span><span class="op">(</span><span class="va">biokg_sub</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># find candidate nodes</span></span>
+<span><span class="va">candidate_nodes</span> <span class="op">=</span> <span class="va">sub_degrees</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">.</span> <span class="op">&gt;</span> <span class="fl">20</span> <span class="op">&amp;</span> <span class="va">.</span> <span class="op">&lt;</span> <span class="fl">30</span><span class="op">)</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="st">"protein"</span>, <span class="va">.</span><span class="op">)</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="op">{</span> <span class="va">sub_node_list</span><span class="op">[</span><span class="va">Node</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span>, <span class="va">NodeName</span><span class="op">]</span> <span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"HGNC:"</span>, <span class="va">candidate_nodes</span>, sep <span class="op">=</span> <span class="st">""</span><span class="op">)</span>, sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div>
 <p>Test similarity between an Alzheimer’s disease (AD)-related drug
 (donepezil) and an AD-related pathway (“regulation of amyloid fibril
 formation”).</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sim_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span>
-  <span class="st">"drug_762"</span>, <span class="st">"function_42893"</span>,
-  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,
-  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,
-  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span>
-
-<span class="va">sim_res</span> <span class="op">=</span> <span class="va">sim_test</span><span class="op">$</span><span class="va">OriginPaths</span>  <span class="op">%&gt;%</span>
-  <span class="va">.</span><span class="op">[</span><span class="va">.</span><span class="op">[[</span><span class="st">"function"</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="st">"function_36342"</span>, <span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">total_time</span> <span class="op">=</span> <span class="fl">0</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">start_time</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">sim_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span></span>
+<span>    <span class="st">"drug_762"</span>, <span class="st">"function_42893"</span>,</span>
+<span>    mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,</span>
+<span>    node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,</span>
+<span>    edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span>,</span>
+<span>    verbose <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span>  <span class="va">end_time</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">time_required</span> <span class="op">=</span> <span class="va">end_time</span> <span class="op">-</span> <span class="va">start_time</span></span>
+<span>  <span class="va">total_time</span> <span class="op">=</span> <span class="va">total_time</span> <span class="op">+</span> <span class="va">time_required</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">average_time</span> <span class="op">=</span> <span class="va">total_time</span><span class="op">/</span><span class="fl">100</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Computed in "</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">average_time</span><span class="op">)</span>, <span class="st">" seconds."</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">sim_res</span> <span class="op">=</span> <span class="va">sim_test</span><span class="op">$</span><span class="va">OriginPaths</span>  <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="va">.</span><span class="op">[</span><span class="va">.</span><span class="op">[[</span><span class="st">"function"</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="st">"function_36342"</span>, <span class="op">]</span></span></code></pre></div>
 <p>Visualize identified metapaths in the KG.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sim_nodes</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">sim_res</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># generate connected subgraph</span>
-<span class="va">sim_graph</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/subgraph.html">induced.subgraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">biokg_graph</span>, vids <span class="op">=</span> <span class="va">sim_nodes</span><span class="op">)</span>
-
-<span class="co"># plot subgraph</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">sim_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, edge.arrow.size <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">sim_nodes</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">sim_res</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># generate connected subgraph</span></span>
+<span><span class="va">sim_graph</span> <span class="op">=</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/subgraph.html" class="external-link">induced.subgraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">biokg_graph</span>, vids <span class="op">=</span> <span class="va">sim_nodes</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># plot subgraph</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">sim_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, edge.arrow.size <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span></span></code></pre></div>
 <p>As a negative control, randomly sample 100 pathways (i.e., nodes of
 type <code>"function"</code> likely not AD-related) and compute the
 similarity.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span>
-
-<span class="co"># sample 100 pathways</span>
-<span class="va">random_neg_pathways</span> <span class="op">=</span> <span class="va">biokg_node_list</span><span class="op">[</span><span class="va">NodeType</span> <span class="op">==</span> <span class="st">"function"</span>, <span class="op">]</span> <span class="op">%&gt;%</span>
-    <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="fl">100</span><span class="op">)</span>, <span class="op">]</span> 
-<span class="va">neg_tests</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">neg_sims</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html">data.table</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="co"># for each pathway, compute similarity</span>
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op">{</span>
-  
-  <span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="st">"Pathway #"</span>, <span class="va">i</span>, <span class="st">": "</span>, <span class="va">random_neg_pathways</span><span class="op">[</span><span class="va">i</span>, <span class="va">NodeName</span><span class="op">]</span><span class="op">)</span>
-  
-  <span class="va">sim_neg_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span>
-  <span class="st">"drug_762"</span>, <span class="va">random_neg_pathways</span><span class="op">[</span><span class="va">i</span>, <span class="va">Node</span><span class="op">]</span>, <span class="co"># "function_29825",</span>
-  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,
-  metric <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"pc"</span>, <span class="st">"npc"</span>, <span class="st">"dwpc"</span><span class="op">)</span>,
-  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,
-  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span>,
-  verbose <span class="op">=</span> <span class="cn">F</span><span class="op">)</span>
-  
-  <span class="va">neg_tests</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">neg_tests</span>, <span class="va">sim_neg_test</span><span class="op">)</span>
-  <span class="va">neg_sims</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html">rbind</a></span><span class="op">(</span><span class="va">neg_sims</span>, <span class="va">sim_neg_test</span><span class="op">$</span><span class="va">Similarity</span><span class="op">[</span>, <span class="va">Pathway</span> <span class="op">:=</span> <span class="va">random_neg_pathways</span><span class="op">[</span><span class="va">i</span>, <span class="va">NodeName</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
-  
-<span class="op">}</span>
-
-<span class="co"># calculate statistics (mean, median, SD, etc.)</span>
-<span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Similarity</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span>
-<span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Similarity</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span>
-<span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">Similarity</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span>
-<span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Similarity</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span>
-
-<span class="co"># saveRDS(neg_tests, "&lt;insert file path&gt;.RDS")</span>
-<span class="co"># fwrite(neg_sims, "&lt;insert file path&gt;.csv")</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># sample 100 pathways</span></span>
+<span><span class="va">random_neg_pathways</span> <span class="op">=</span> <span class="va">biokg_node_list</span><span class="op">[</span><span class="va">NodeType</span> <span class="op">==</span> <span class="st">"function"</span>, <span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="fl">100</span><span class="op">)</span>, <span class="op">]</span> </span>
+<span><span class="va">neg_tests</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">neg_sims</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html" class="external-link">data.table</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># for each pathway, compute similarity</span></span>
+<span><span class="va">total_time</span> <span class="op">=</span> <span class="fl">0</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Pathway #"</span>, <span class="va">i</span>, <span class="st">": "</span>, <span class="va">random_neg_pathways</span><span class="op">[</span><span class="va">i</span>, <span class="va">NodeName</span><span class="op">]</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">start_time</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">sim_neg_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span></span>
+<span>  <span class="st">"drug_762"</span>, <span class="va">random_neg_pathways</span><span class="op">[</span><span class="va">i</span>, <span class="va">Node</span><span class="op">]</span>, <span class="co"># "function_29825",</span></span>
+<span>  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,</span>
+<span>  metric <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pc"</span>, <span class="st">"npc"</span>, <span class="st">"dwpc"</span><span class="op">)</span>,</span>
+<span>  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,</span>
+<span>  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span>  <span class="va">end_time</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">time_required</span> <span class="op">=</span> <span class="va">end_time</span> <span class="op">-</span> <span class="va">start_time</span></span>
+<span>  <span class="va">total_time</span> <span class="op">=</span> <span class="va">total_time</span> <span class="op">+</span> <span class="va">time_required</span></span>
+<span>  </span>
+<span>  <span class="va">neg_tests</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html" class="external-link">append</a></span><span class="op">(</span><span class="va">neg_tests</span>, <span class="va">sim_neg_test</span><span class="op">)</span></span>
+<span>  <span class="va">neg_sims</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">neg_sims</span>, <span class="va">sim_neg_test</span><span class="op">$</span><span class="va">Similarity</span><span class="op">[</span>, <span class="va">Pathway</span> <span class="op">:=</span> <span class="va">random_neg_pathways</span><span class="op">[</span><span class="va">i</span>, <span class="va">NodeName</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">average_time</span> <span class="op">=</span> <span class="va">total_time</span><span class="op">/</span><span class="fl">100</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/message.html" class="external-link">message</a></span><span class="op">(</span><span class="st">"Computed in "</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">average_time</span><span class="op">)</span>, <span class="st">" seconds."</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># calculate statistics (mean, median, SD, etc.)</span></span>
+<span><span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">Similarity</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span></span>
+<span><span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">Similarity</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span></span>
+<span><span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">Similarity</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span></span>
+<span><span class="va">neg_sims</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">Similarity</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"Metric"</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># saveRDS(neg_tests, "&lt;insert file path&gt;.RDS")</span></span>
+<span><span class="co"># fwrite(neg_sims, "&lt;insert file path&gt;.csv")</span></span></code></pre></div>
 </div>
-<div id="test-set-similarity" class="section level1">
-<h1 class="hasAnchor">
-<a href="#test-set-similarity" class="anchor"></a>Test Set Similarity</h1>
+<div class="section level2">
+<h2 id="test-set-similarity">Test Set Similarity<a class="anchor" aria-label="anchor" href="#test-set-similarity"></a>
+</h2>
 <p>Again, test set-to-set similarity by computing similarity scores
 between three AD-related drugs (i.e., donepezil, memantine, and
 galantamine) and a set of six AD-related pathways.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># set of three AD drugs</span>
-<span class="va">alzheimer_drugs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug_762"</span>, <span class="st">"drug_1075"</span>, <span class="st">"drug_895"</span><span class="op">)</span>
-
-<span class="co"># set of six AD-related pathways</span>
-<span class="va">alzheimer_pathways</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"function_36342"</span>, <span class="st">"function_26258"</span>, <span class="st">"function_21333"</span>, <span class="st">"function_42901"</span>, <span class="st">"function_17601"</span>, <span class="st">"function_36167"</span><span class="op">)</span>
-
-<span class="co"># compare sets</span>
-<span class="va">alzheimer_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/compare_sets.html">compare_sets</a></span><span class="op">(</span>
-  <span class="va">alzheimer_drugs</span>,
-  <span class="va">alzheimer_pathways</span>,
-  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,
-  method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"minimum"</span>, <span class="st">"maximum"</span><span class="op">)</span>,
-  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,
-  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># set of three AD drugs</span></span>
+<span><span class="va">alzheimer_drugs</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"drug_762"</span>, <span class="st">"drug_1075"</span>, <span class="st">"drug_895"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># set of six AD-related pathways</span></span>
+<span><span class="va">alzheimer_pathways</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"function_36342"</span>, <span class="st">"function_26258"</span>, <span class="st">"function_21333"</span>, <span class="st">"function_42901"</span>, <span class="st">"function_17601"</span>, <span class="st">"function_36167"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># compare sets</span></span>
+<span><span class="va">alzheimer_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/compare_sets.html">compare_sets</a></span><span class="op">(</span></span>
+<span>  <span class="va">alzheimer_drugs</span>,</span>
+<span>  <span class="va">alzheimer_pathways</span>,</span>
+<span>  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,</span>
+<span>  method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"minimum"</span>, <span class="st">"maximum"</span><span class="op">)</span>,</span>
+<span>  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,</span>
+<span>  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span></span></code></pre></div>
 <p>As a negative control, test set-to-set similarity by computing
 similarity scores between the same three AD-related drugs and a set of
 six randomly subset pathways.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span> <span class="co"># selecting different seed</span>
-
-<span class="co"># randomly subset pathways</span>
-<span class="va">random_pathways</span> <span class="op">=</span> <span class="va">biokg_node_list</span><span class="op">[</span><span class="va">NodeType</span> <span class="op">==</span> <span class="st">"function"</span>, <span class="op">]</span> <span class="op">%&gt;%</span>
-  <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="fl">6</span><span class="op">)</span>, <span class="op">]</span>
-
-<span class="co"># compare sets</span>
-<span class="va">random_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/compare_sets.html">compare_sets</a></span><span class="op">(</span>
-  <span class="va">alzheimer_drugs</span>,
-  <span class="va">random_pathways</span><span class="op">$</span><span class="va">Node</span>,
-  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,
-  method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"minimum"</span>, <span class="st">"maximum"</span><span class="op">)</span>,
-  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,
-  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span> <span class="co"># selecting different seed</span></span>
+<span></span>
+<span><span class="co"># randomly subset pathways</span></span>
+<span><span class="va">random_pathways</span> <span class="op">=</span> <span class="va">biokg_node_list</span><span class="op">[</span><span class="va">NodeType</span> <span class="op">==</span> <span class="st">"function"</span>, <span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="va">.</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, <span class="fl">6</span><span class="op">)</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="co"># compare sets</span></span>
+<span><span class="va">random_test</span> <span class="op">=</span> <span class="fu"><a href="../reference/compare_sets.html">compare_sets</a></span><span class="op">(</span></span>
+<span>  <span class="va">alzheimer_drugs</span>,</span>
+<span>  <span class="va">random_pathways</span><span class="op">$</span><span class="va">Node</span>,</span>
+<span>  mp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"drug"</span>, <span class="st">"disease"</span>, <span class="st">"protein"</span>, <span class="st">"function"</span><span class="op">)</span>,</span>
+<span>  method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"minimum"</span>, <span class="st">"maximum"</span><span class="op">)</span>,</span>
+<span>  node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,</span>
+<span>  edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="package-efficiency">Package Efficiency<a class="anchor" aria-label="anchor" href="#package-efficiency"></a>
+</h2>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># get all node types</span></span>
+<span><span class="va">node_types</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">biokg_node_list</span><span class="op">$</span><span class="va">NodeType</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># list possible edge types from unique(biokg_edge_list$EdgeType)</span></span>
+<span><span class="co"># excluding "drug-sideeffect" since all sideeffect nodes are terminal</span></span>
+<span><span class="co"># excluding "protein-function" and "function-function" to prevent uninformative "function" x n metapaths</span></span>
+<span><span class="va">edge_types</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"disease-protein"</span>, <span class="st">"drug-disease"</span>, <span class="st">"drug-drug"</span>, <span class="st">"drug-protein"</span>, <span class="st">"protein-protein"</span><span class="op">)</span></span>
+<span><span class="va">edge_types</span> <span class="op">=</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html" class="external-link">data.table</a></span><span class="op">(</span>Origin <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_chr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">edge_types</span>, <span class="st">"-"</span><span class="op">)</span>, <span class="op">~</span><span class="va">.x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>                        Destination <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_chr</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">edge_types</span>, <span class="st">"-"</span><span class="op">)</span>, <span class="op">~</span><span class="va">.x</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># list origin types</span></span>
+<span><span class="va">origin_types</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">edge_types</span><span class="op">$</span><span class="va">Origin</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># list destination types</span></span>
+<span><span class="va">destination_types</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">edge_types</span><span class="op">$</span><span class="va">Destination</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># define random performance evaluation function</span></span>
+<span><span class="co"># meta path length must be at least 2</span></span>
+<span><span class="va">random_test</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">mp_length</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="co"># sample random origin node</span></span>
+<span>  <span class="va">random_origin</span> <span class="op">=</span> <span class="va">biokg_node_list</span><span class="op">[</span><span class="va">NodeType</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">origin_types</span><span class="op">]</span><span class="op">[</span><span class="va">Node</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">Node</span>, <span class="fl">1</span><span class="op">)</span>, <span class="op">]</span></span>
+<span>  </span>
+<span>  <span class="co"># construct random meta path starting at origin</span></span>
+<span>  <span class="va">random_mp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">random_origin</span><span class="op">$</span><span class="va">NodeType</span><span class="op">)</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">mp_length</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">next_type</span> <span class="op">=</span> <span class="va">edge_types</span><span class="op">[</span><span class="va">Origin</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">random_mp</span>, <span class="fl">1</span><span class="op">)</span>, <span class="va">Destination</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span>    <span class="va">random_mp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html" class="external-link">append</a></span><span class="op">(</span><span class="va">random_mp</span>, <span class="va">next_type</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  </span>
+<span>  <span class="co"># sample random destination node</span></span>
+<span>  <span class="va">random_destination</span> <span class="op">=</span> <span class="va">biokg_node_list</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="va">.</span><span class="op">[</span><span class="va">NodeType</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">random_mp</span>, <span class="fl">1</span><span class="op">)</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>    <span class="va">.</span><span class="op">[</span><span class="va">Node</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">Node</span>, <span class="fl">1</span><span class="op">)</span>, <span class="op">]</span></span>
+<span>  </span>
+<span>  <span class="co"># time similarity search</span></span>
+<span>  <span class="va">start_time</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">sim_result</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span></span>
+<span>    <span class="va">random_origin</span><span class="op">$</span><span class="va">Node</span>, <span class="va">random_destination</span><span class="op">$</span><span class="va">Node</span>,</span>
+<span>    mp <span class="op">=</span> <span class="va">random_mp</span>,</span>
+<span>    metric <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dwpc"</span><span class="op">)</span>,</span>
+<span>    node_list <span class="op">=</span> <span class="va">biokg_node_list</span>,</span>
+<span>    edge_list <span class="op">=</span> <span class="va">biokg_edge_list</span>,</span>
+<span>    verbose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span>  <span class="va">end_time</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co"># compute time required</span></span>
+<span>  <span class="va">time_required</span> <span class="op">=</span> <span class="va">end_time</span> <span class="op">-</span> <span class="va">start_time</span></span>
+<span>  </span>
+<span>  <span class="co"># construct return object</span></span>
+<span>  <span class="va">out</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    Origin <span class="op">=</span> <span class="va">random_origin</span>,</span>
+<span>    Destination <span class="op">=</span> <span class="va">random_destination</span>,</span>
+<span>    MP <span class="op">=</span> <span class="va">random_mp</span>,</span>
+<span>    Time <span class="op">=</span> <span class="va">time_required</span></span>
+<span>  <span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># test meta paths with lengths 2-4</span></span>
+<span><span class="va">length_2</span> <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, <span class="op">~</span><span class="fu">random_test</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">length_3</span> <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, <span class="op">~</span><span class="fu">random_test</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">length_4</span> <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, <span class="op">~</span><span class="fu">random_test</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">all_times</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">length_2</span>, <span class="va">length_3</span>, <span class="va">length_4</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># get times</span></span>
+<span><span class="va">times_2</span> <span class="op">=</span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_dbl</a></span><span class="op">(</span><span class="va">length_2</span>, <span class="op">~</span><span class="va">.x</span><span class="op">$</span><span class="va">Time</span><span class="op">)</span></span>
+<span><span class="va">times_3</span> <span class="op">=</span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_dbl</a></span><span class="op">(</span><span class="va">length_3</span>, <span class="op">~</span><span class="va">.x</span><span class="op">$</span><span class="va">Time</span><span class="op">)</span></span>
+<span><span class="va">times_4</span> <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_dbl</a></span><span class="op">(</span><span class="va">length_4</span>, <span class="op">~</span><span class="va">.x</span><span class="op">$</span><span class="va">Time</span><span class="op">)</span></span></code></pre></div>
 </div>
   </div>
 
@@ -428,11 +554,14 @@ six randomly subset pathways.</p>
 
 
       <footer><div class="copyright">
-  <p>Developed by Ayush Noori, Amelia Tan, Michelle M. Li, Marinka Zitnik.</p>
+  <p></p>
+<p>Developed by Ayush Noori, Amelia Tan, Michelle M. Li, Marinka Zitnik.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Made with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1, using <a href="https://preferably.amirmasoudabdol.name/?source=footer">preferably</a> template.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p class="preferably">Using <a href="https://preferably.amirmasoudabdol.name/?source=footer" class="external-link">preferably</a> template.</p>
 </div>
 
       </footer>
@@ -440,6 +569,8 @@ six randomly subset pathways.</p>
 
   
 
+
+  
 
   </body>
 </html>

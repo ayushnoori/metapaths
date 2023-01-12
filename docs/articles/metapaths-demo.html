@@ -25,12 +25,7 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" media="(prefers-color-scheme: dark)">
-<!-- preferably CSS --><link rel="stylesheet" href="../preferably.css">
-<link id="css-code-light" rel="stylesheet" href="../code-color-scheme-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
-<link id="css-code-dark" rel="stylesheet" href="../code-color-scheme-dark.css" media="(prefers-color-scheme: dark)">
-<script src="../darkswitch.js"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -40,9 +35,16 @@
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif]--><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.css" media="(prefers-color-scheme: dark)">
+<!-- preferably CSS --><link rel="stylesheet" href="../preferably.css">
+<link id="css-code-light" rel="stylesheet" href="../code-color-scheme-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<link id="css-code-dark" rel="stylesheet" href="../code-color-scheme-dark.css" media="(prefers-color-scheme: dark)">
+<script src="../darkswitch.js"></script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -55,18 +57,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">metapaths</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -78,6 +74,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/arxiv-demo.html">arXiv CS MAG Demonstration</a>
+    </li>
+    <li>
       <a href="../articles/biokg-demo.html">BioKG Demonstration</a>
     </li>
     <li>
@@ -94,7 +93,7 @@
         </li>
         
         <li>
-  <a href="https://github.com/ayushnoori/metapaths/">
+  <a href="https://github.com/ayushnoori/metapaths/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -113,239 +112,237 @@
 
       
 
-      </header><script src="metapaths-demo_files/header-attrs-2.14/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>mtcars Demonstration</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/ayushnoori/metapaths/blob/master/vignettes/metapaths-demo.Rmd"><code>vignettes/metapaths-demo.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ayushnoori/metapaths/blob/HEAD/vignettes/metapaths-demo.Rmd" class="external-link"><code>vignettes/metapaths-demo.Rmd</code></a></small>
       <div class="hidden name"><code>metapaths-demo.Rmd</code></div>
 
     </div>
 
     
     
-<div id="setup" class="section level1">
-<h1 class="hasAnchor">
-<a href="#setup" class="anchor"></a>Setup</h1>
+<div class="section level2">
+<h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
+</h2>
 <p>First, load the <code>metapaths</code> package, as well as other
 requisite packages.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># load packages</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.ayushnoori.com/metapaths">metapaths</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span>
-<span class="co">#&gt; Warning: package 'data.table' was built under R version 4.1.3</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
-<span class="co">#&gt; Warning: package 'magrittr' was built under R version 4.1.2</span>
-
-<span class="co"># for comparison and visualization</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://igraph.org">igraph</a></span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Attaching package: 'igraph'</span>
-<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     decompose, spectrum</span>
-<span class="co">#&gt; The following object is masked from 'package:base':</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     union</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># load packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.ayushnoori.com/metapaths" class="external-link">metapaths</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com" class="external-link">data.table</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># for comparison and visualization</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://igraph.org" class="external-link">igraph</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'igraph'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     decompose, spectrum</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     union</span></span></code></pre></div>
 <p>Print the example dataset.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_node_list</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_node_list.html">get_node_list</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars_node_list</span><span class="op">)</span>
-<span class="co">#&gt;             Node NodeType</span>
-<span class="co">#&gt; 1: Porsche 914-2     Five</span>
-<span class="co">#&gt; 2:  Lotus Europa     Five</span>
-<span class="co">#&gt; 3:   Merc 450SLC    Three</span>
-<span class="co">#&gt; 4:      Merc 280     Four</span>
-<span class="co">#&gt; 5:    Datsun 710     Four</span>
-<span class="co">#&gt; 6:   Honda Civic     Four</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span><span class="op">)</span>
-<span class="co">#&gt;           Origin    Destination OriginType DestinationType</span>
-<span class="co">#&gt; 1: Porsche 914-2       Merc 230       Five            Four</span>
-<span class="co">#&gt; 2:  Lotus Europa       Fiat 128       Five            Four</span>
-<span class="co">#&gt; 3:   Merc 450SLC        Valiant      Three           Three</span>
-<span class="co">#&gt; 4:      Merc 280     Duster 360       Four           Three</span>
-<span class="co">#&gt; 5:    Datsun 710 Toyota Corolla       Four            Four</span>
-<span class="co">#&gt; 6:   Honda Civic     Volvo 142E       Four            Four</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars_node_list</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_node_list.html">get_node_list</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mtcars_node_list</span><span class="op">)</span></span>
+<span><span class="co">#&gt;             Node NodeType</span></span>
+<span><span class="co">#&gt; 1: Porsche 914-2     Five</span></span>
+<span><span class="co">#&gt; 2:  Lotus Europa     Five</span></span>
+<span><span class="co">#&gt; 3:   Merc 450SLC    Three</span></span>
+<span><span class="co">#&gt; 4:      Merc 280     Four</span></span>
+<span><span class="co">#&gt; 5:    Datsun 710     Four</span></span>
+<span><span class="co">#&gt; 6:   Honda Civic     Four</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span><span class="op">)</span></span>
+<span><span class="co">#&gt;           Origin    Destination OriginType DestinationType</span></span>
+<span><span class="co">#&gt; 1: Porsche 914-2       Merc 230       Five            Four</span></span>
+<span><span class="co">#&gt; 2:  Lotus Europa       Fiat 128       Five            Four</span></span>
+<span><span class="co">#&gt; 3:   Merc 450SLC        Valiant      Three           Three</span></span>
+<span><span class="co">#&gt; 4:      Merc 280     Duster 360       Four           Three</span></span>
+<span><span class="co">#&gt; 5:    Datsun 710 Toyota Corolla       Four            Four</span></span>
+<span><span class="co">#&gt; 6:   Honda Civic     Volvo 142E       Four            Four</span></span></code></pre></div>
 <p>Visualize the network as a graph.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_graph</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html">graph.data.frame</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, vertices <span class="op">=</span> <span class="va">mtcars_node_list</span>, directed <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-<span class="va">mtcars_col</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">mtcars_graph</span><span class="op">)</span><span class="op">$</span><span class="va">NodeType</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mtcars_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, vertex.label <span class="op">=</span> <span class="cn">NA</span>, edge.arrow.size <span class="op">=</span> <span class="fl">.25</span>, vertex.color <span class="op">=</span> <span class="va">mtcars_col</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars_graph</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html" class="external-link">graph.data.frame</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, vertices <span class="op">=</span> <span class="va">mtcars_node_list</span>, directed <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="va">mtcars_col</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html" class="external-link">V</a></span><span class="op">(</span><span class="va">mtcars_graph</span><span class="op">)</span><span class="op">$</span><span class="va">NodeType</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mtcars_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, vertex.label <span class="op">=</span> <span class="cn">NA</span>, edge.arrow.size <span class="op">=</span> <span class="fl">.25</span>, vertex.color <span class="op">=</span> <span class="va">mtcars_col</span><span class="op">)</span></span></code></pre></div>
 <p><img src="metapaths-demo_files/figure-html/plot-network-1.png" width="700"></p>
 <p>Get all node types.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_types</span> <span class="op">=</span> <span class="fu"><a href="../reference/node_types.html">node_types</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, verbose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-<span class="co">#&gt; Node Types:</span>
-<span class="co">#&gt; - Five</span>
-<span class="co">#&gt; - Three</span>
-<span class="co">#&gt; - Four</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars_types</span> <span class="op">=</span> <span class="fu"><a href="../reference/node_types.html">node_types</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, verbose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Node Types:</span></span>
+<span><span class="co">#&gt; - Five</span></span>
+<span><span class="co">#&gt; - Three</span></span>
+<span><span class="co">#&gt; - Four</span></span></code></pre></div>
 <p>Retrieve a list of unique nodes.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_nodes</span> <span class="op">=</span> <span class="fu"><a href="../reference/all_nodes.html">all_nodes</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, verbose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-<span class="co">#&gt; Total Node Count: 32</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars_nodes</span> <span class="op">=</span> <span class="fu"><a href="../reference/all_nodes.html">all_nodes</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, verbose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Total Node Count: 32</span></span></code></pre></div>
 </div>
-<div id="edge-list" class="section level1">
-<h1 class="hasAnchor">
-<a href="#edge-list" class="anchor"></a>Edge List</h1>
+<div class="section level2">
+<h2 id="edge-list">Edge List<a class="anchor" aria-label="anchor" href="#edge-list"></a>
+</h2>
 <p>For a given node, find all neighbors of a specified type.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/get_neighbors.html">get_neighbors</a></span><span class="op">(</span><span class="st">"Cadillac Fleetwood"</span>, <span class="st">"Three"</span>, <span class="va">mtcars_edge_list</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span>
-<span class="co">#&gt; Merc 450SLC</span>
-<span class="co">#&gt; Lincoln Continental</span>
-<span class="co">#&gt; Dodge Challenger</span>
-<span class="co">#&gt; Merc 450SL</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_neighbors.html">get_neighbors</a></span><span class="op">(</span><span class="st">"Cadillac Fleetwood"</span>, <span class="st">"Three"</span>, <span class="va">mtcars_edge_list</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span>sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Merc 450SLC</span></span>
+<span><span class="co">#&gt; Lincoln Continental</span></span>
+<span><span class="co">#&gt; Dodge Challenger</span></span>
+<span><span class="co">#&gt; Merc 450SL</span></span></code></pre></div>
 <p>For a given node, find all neighbors of series of types.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/get_neighbors_type.html">get_neighbors_type</a></span><span class="op">(</span><span class="st">"Cadillac Fleetwood"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Three"</span>, <span class="st">"Four"</span><span class="op">)</span>, <span class="va">mtcars_edge_list</span><span class="op">)</span>
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; [1] "Merc 450SLC"         "Lincoln Continental" "Dodge Challenger"   </span>
-<span class="co">#&gt; [4] "Merc 450SL"         </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt; [1] "Merc 240D"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_neighbors_type.html">get_neighbors_type</a></span><span class="op">(</span><span class="st">"Cadillac Fleetwood"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Three"</span>, <span class="st">"Four"</span><span class="op">)</span>, <span class="va">mtcars_edge_list</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "Merc 450SLC"         "Lincoln Continental" "Dodge Challenger"   </span></span>
+<span><span class="co">#&gt; [4] "Merc 450SL"         </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; [[2]]</span></span>
+<span><span class="co">#&gt; [1] "Merc 240D"</span></span></code></pre></div>
 <p>Construct the neighbor list.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_neighbor_list</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_neighbor_list.html">get_neighbor_list</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, verbose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>
-<span class="co">#&gt; Node Types:</span>
-<span class="co">#&gt; - Five</span>
-<span class="co">#&gt; - Three</span>
-<span class="co">#&gt; - Four</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Total Node Count: 32</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars_neighbor_list</span><span class="op">)</span>
-<span class="co">#&gt;                  Node                                    Five</span>
-<span class="co">#&gt; 1:        AMC Javelin                                      NA</span>
-<span class="co">#&gt; 2: Cadillac Fleetwood              Maserati Bora,Ferrari Dino</span>
-<span class="co">#&gt; 3:         Camaro Z28                           Porsche 914-2</span>
-<span class="co">#&gt; 4:  Chrysler Imperial                           Maserati Bora</span>
-<span class="co">#&gt; 5:         Datsun 710                                      NA</span>
-<span class="co">#&gt; 6:   Dodge Challenger Ferrari Dino,Maserati Bora,Lotus Europa</span>
-<span class="co">#&gt;                                                          Three</span>
-<span class="co">#&gt; 1:                                                 Merc 450SLC</span>
-<span class="co">#&gt; 2: Merc 450SLC,Lincoln Continental,Dodge Challenger,Merc 450SL</span>
-<span class="co">#&gt; 3:                                       Camaro Z28,Merc 450SE</span>
-<span class="co">#&gt; 4:                                            Dodge Challenger</span>
-<span class="co">#&gt; 5:           Dodge Challenger,Merc 450SE,Valiant,Toyota Corona</span>
-<span class="co">#&gt; 6:             Merc 450SE,Cadillac Fleetwood,Chrysler Imperial</span>
-<span class="co">#&gt;                                            Four</span>
-<span class="co">#&gt; 1:                                           NA</span>
-<span class="co">#&gt; 2:                                    Merc 240D</span>
-<span class="co">#&gt; 3:    Merc 240D,Mazda RX4 Wag,Fiat 128,Merc 280</span>
-<span class="co">#&gt; 4:      Honda Civic,Fiat 128,Merc 230,Merc 240D</span>
-<span class="co">#&gt; 5:                               Toyota Corolla</span>
-<span class="co">#&gt; 6: Fiat 128,Merc 240D,Toyota Corolla,Datsun 710</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars_neighbor_list</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_neighbor_list.html">get_neighbor_list</a></span><span class="op">(</span><span class="va">mtcars_edge_list</span>, verbose <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Node Types:</span></span>
+<span><span class="co">#&gt; - Five</span></span>
+<span><span class="co">#&gt; - Three</span></span>
+<span><span class="co">#&gt; - Four</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Total Node Count: 32</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mtcars_neighbor_list</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                  Node                                    Five</span></span>
+<span><span class="co">#&gt; 1:        AMC Javelin                                      NA</span></span>
+<span><span class="co">#&gt; 2: Cadillac Fleetwood              Maserati Bora,Ferrari Dino</span></span>
+<span><span class="co">#&gt; 3:         Camaro Z28                           Porsche 914-2</span></span>
+<span><span class="co">#&gt; 4:  Chrysler Imperial                           Maserati Bora</span></span>
+<span><span class="co">#&gt; 5:         Datsun 710                                      NA</span></span>
+<span><span class="co">#&gt; 6:   Dodge Challenger Ferrari Dino,Maserati Bora,Lotus Europa</span></span>
+<span><span class="co">#&gt;                                                          Three</span></span>
+<span><span class="co">#&gt; 1:                                                 Merc 450SLC</span></span>
+<span><span class="co">#&gt; 2: Merc 450SLC,Lincoln Continental,Dodge Challenger,Merc 450SL</span></span>
+<span><span class="co">#&gt; 3:                                       Camaro Z28,Merc 450SE</span></span>
+<span><span class="co">#&gt; 4:                                            Dodge Challenger</span></span>
+<span><span class="co">#&gt; 5:           Dodge Challenger,Merc 450SE,Valiant,Toyota Corona</span></span>
+<span><span class="co">#&gt; 6:             Merc 450SE,Cadillac Fleetwood,Chrysler Imperial</span></span>
+<span><span class="co">#&gt;                                            Four</span></span>
+<span><span class="co">#&gt; 1:                                           NA</span></span>
+<span><span class="co">#&gt; 2:                                    Merc 240D</span></span>
+<span><span class="co">#&gt; 3:    Merc 240D,Mazda RX4 Wag,Fiat 128,Merc 280</span></span>
+<span><span class="co">#&gt; 4:      Honda Civic,Fiat 128,Merc 230,Merc 240D</span></span>
+<span><span class="co">#&gt; 5:                               Toyota Corolla</span></span>
+<span><span class="co">#&gt; 6: Fiat 128,Merc 240D,Toyota Corolla,Datsun 710</span></span></code></pre></div>
 </div>
-<div id="neighbor-list" class="section level1">
-<h1 class="hasAnchor">
-<a href="#neighbor-list" class="anchor"></a>Neighbor List</h1>
+<div class="section level2">
+<h2 id="neighbor-list">Neighbor List<a class="anchor" aria-label="anchor" href="#neighbor-list"></a>
+</h2>
 <p>Identify the neighbors using the constructed neighbor list rather
 than the edge list.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/search_neighbors.html">search_neighbors</a></span><span class="op">(</span><span class="st">"Cadillac Fleetwood"</span>, <span class="st">"Three"</span>, <span class="va">mtcars_neighbor_list</span><span class="op">)</span><span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span>
-<span class="co">#&gt; Merc 450SLC</span>
-<span class="co">#&gt; Lincoln Continental</span>
-<span class="co">#&gt; Dodge Challenger</span>
-<span class="co">#&gt; Merc 450SL</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_neighbors.html">search_neighbors</a></span><span class="op">(</span><span class="st">"Cadillac Fleetwood"</span>, <span class="st">"Three"</span>, <span class="va">mtcars_neighbor_list</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span>sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Merc 450SLC</span></span>
+<span><span class="co">#&gt; Lincoln Continental</span></span>
+<span><span class="co">#&gt; Dodge Challenger</span></span>
+<span><span class="co">#&gt; Merc 450SL</span></span></code></pre></div>
 <p>Compute degree stratified by node type. Here, degree is defined as
 the number of adjacent nodes (rather than edges).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/search_degrees.html">search_degrees</a></span><span class="op">(</span><span class="st">"Cadillac Fleetwood"</span>, <span class="st">"Three"</span>, <span class="va">mtcars_neighbor_list</span>, <span class="st">"neighbor"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Degree:"</span>, <span class="va">.</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span>sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span>
-<span class="co">#&gt; Degree: 4</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/search_degrees.html">search_degrees</a></span><span class="op">(</span><span class="st">"Cadillac Fleetwood"</span>, <span class="st">"Three"</span>, <span class="va">mtcars_neighbor_list</span>, <span class="st">"neighbor"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Degree:"</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span>sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Degree: 4</span></span></code></pre></div>
 </div>
-<div id="meta-path-based-similarity" class="section level1">
-<h1 class="hasAnchor">
-<a href="#meta-path-based-similarity" class="anchor"></a>Meta-Path Based Similarity</h1>
+<div class="section level2">
+<h2 id="meta-path-based-similarity">Meta-Path Based Similarity<a class="anchor" aria-label="anchor" href="#meta-path-based-similarity"></a>
+</h2>
 <p>Compute similarity between two nodes using a sample meta-path:
 <code>Three-Four-Five</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_sim</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span><span class="st">"Camaro Z28"</span>, <span class="st">"Ferrari Dino"</span>,
-                            <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Three"</span>, <span class="st">"Four"</span>, <span class="st">"Five"</span><span class="op">)</span>,
-                            <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"pc"</span>, <span class="st">"npc"</span>, <span class="st">"dwpc"</span><span class="op">)</span>,
-                            node_list <span class="op">=</span> <span class="va">mtcars_node_list</span>,
-                            neighbor_list <span class="op">=</span> <span class="va">mtcars_neighbor_list</span><span class="op">)</span>
-<span class="co">#&gt; &gt;&gt;&gt; Computing Paths from Origin (Camaro Z28)</span>
-<span class="co">#&gt; Step 1 (Three): 1 Path</span>
-<span class="co">#&gt; Step 2 (Four): 4 Paths</span>
-<span class="co">#&gt; Step 3 (Five): 6 Paths</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; &gt;&gt;&gt; Computing Paths from Destination (Ferrari Dino)</span>
-<span class="co">#&gt; Step 1 (Five): 1 Path</span>
-<span class="co">#&gt; Step 2 (Four): 2 Paths</span>
-<span class="co">#&gt; Step 3 (Three): 7 Paths</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; &gt;&gt;&gt; Computing Similarity</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Similarity Metric: Path Count</span>
-<span class="co">#&gt; X -&gt; Y Paths: 2</span>
-<span class="co">#&gt; Similarity: 2</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Similarity Metric: Normalized Path Count</span>
-<span class="co">#&gt; X -&gt; Y Paths: 2</span>
-<span class="co">#&gt; X -&gt; Type Y Paths: 6</span>
-<span class="co">#&gt; Y -&gt; Type X Paths: 7</span>
-<span class="co">#&gt; Similarity: 0.153846153846154</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Similarity Metric: Degree-Weighted Path Count</span>
-<span class="co">#&gt; X -&gt; Y Paths: 2</span>
-<span class="co">#&gt; Damping Exponent: 0.4</span>
-<span class="co">#&gt; PDP (Mean/SD): 0.289938488846612 [0.056481552587565]</span>
-<span class="co">#&gt; Similarity: 0.579876977693223</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars_sim</span> <span class="op">=</span> <span class="fu"><a href="../reference/get_similarity.html">get_similarity</a></span><span class="op">(</span><span class="st">"Camaro Z28"</span>, <span class="st">"Ferrari Dino"</span>,</span>
+<span>                            <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Three"</span>, <span class="st">"Four"</span>, <span class="st">"Five"</span><span class="op">)</span>,</span>
+<span>                            <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pc"</span>, <span class="st">"npc"</span>, <span class="st">"dwpc"</span><span class="op">)</span>,</span>
+<span>                            node_list <span class="op">=</span> <span class="va">mtcars_node_list</span>,</span>
+<span>                            neighbor_list <span class="op">=</span> <span class="va">mtcars_neighbor_list</span><span class="op">)</span></span>
+<span><span class="co">#&gt; &gt;&gt;&gt; Computing Paths from Origin (Camaro Z28)</span></span>
+<span><span class="co">#&gt; Step 1 (Three): 1 Path</span></span>
+<span><span class="co">#&gt; Step 2 (Four): 4 Paths</span></span>
+<span><span class="co">#&gt; Step 3 (Five): 6 Paths</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; &gt;&gt;&gt; Computing Paths from Destination (Ferrari Dino)</span></span>
+<span><span class="co">#&gt; Step 1 (Five): 1 Path</span></span>
+<span><span class="co">#&gt; Step 2 (Four): 2 Paths</span></span>
+<span><span class="co">#&gt; Step 3 (Three): 7 Paths</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; &gt;&gt;&gt; Computing Similarity</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Similarity Metric: Path Count</span></span>
+<span><span class="co">#&gt; X -&gt; Y Paths: 2</span></span>
+<span><span class="co">#&gt; Similarity: 2</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Similarity Metric: Normalized Path Count</span></span>
+<span><span class="co">#&gt; X -&gt; Y Paths: 2</span></span>
+<span><span class="co">#&gt; X -&gt; Type Y Paths: 6</span></span>
+<span><span class="co">#&gt; Y -&gt; Type X Paths: 7</span></span>
+<span><span class="co">#&gt; Similarity: 0.153846153846154</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Similarity Metric: Degree-Weighted Path Count</span></span>
+<span><span class="co">#&gt; X -&gt; Y Paths: 2</span></span>
+<span><span class="co">#&gt; Damping Exponent: 0.4</span></span>
+<span><span class="co">#&gt; PDP (Mean/SD): 0.289938488846612 [0.056481552587565]</span></span>
+<span><span class="co">#&gt; Similarity: 0.579876977693223</span></span></code></pre></div>
 <p>Let’s inspect the output of the <code><a href="../reference/get_similarity.html">get_similarity()</a></code>
 primitive. <code><a href="../reference/get_similarity.html">get_similarity()</a></code> returns a named list.
 <code>OriginPaths</code> contains the paths from the origin node (i.e.,
 <code>Camaro Z28</code>) to the destination node (i.e.,
 <code>Ferrari Dino</code>) following the specified meta-path.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">OriginPaths</span>
-<span class="co">#&gt;         Three          Four           Five</span>
-<span class="co">#&gt; 1: Camaro Z28     Merc 240D   Ferrari Dino</span>
-<span class="co">#&gt; 2: Camaro Z28 Mazda RX4 Wag Ford Pantera L</span>
-<span class="co">#&gt; 3: Camaro Z28 Mazda RX4 Wag  Maserati Bora</span>
-<span class="co">#&gt; 4: Camaro Z28      Fiat 128   Lotus Europa</span>
-<span class="co">#&gt; 5: Camaro Z28      Merc 280   Ferrari Dino</span>
-<span class="co">#&gt; 6: Camaro Z28      Merc 280  Porsche 914-2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">OriginPaths</span></span>
+<span><span class="co">#&gt;         Three          Four           Five</span></span>
+<span><span class="co">#&gt; 1: Camaro Z28     Merc 240D   Ferrari Dino</span></span>
+<span><span class="co">#&gt; 2: Camaro Z28 Mazda RX4 Wag Ford Pantera L</span></span>
+<span><span class="co">#&gt; 3: Camaro Z28 Mazda RX4 Wag  Maserati Bora</span></span>
+<span><span class="co">#&gt; 4: Camaro Z28      Fiat 128   Lotus Europa</span></span>
+<span><span class="co">#&gt; 5: Camaro Z28      Merc 280   Ferrari Dino</span></span>
+<span><span class="co">#&gt; 6: Camaro Z28      Merc 280  Porsche 914-2</span></span></code></pre></div>
 <p>Similarly, <code>DestinationPaths</code> contains the paths from the
 destination node to the origin node following the reverse of the
 specified meta-path.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">DestinationPaths</span>
-<span class="co">#&gt;            Five      Four              Three</span>
-<span class="co">#&gt; 1: Ferrari Dino  Merc 280         Camaro Z28</span>
-<span class="co">#&gt; 2: Ferrari Dino  Merc 280         Duster 360</span>
-<span class="co">#&gt; 3: Ferrari Dino  Merc 280   Pontiac Firebird</span>
-<span class="co">#&gt; 4: Ferrari Dino Merc 240D         Camaro Z28</span>
-<span class="co">#&gt; 5: Ferrari Dino Merc 240D  Chrysler Imperial</span>
-<span class="co">#&gt; 6: Ferrari Dino Merc 240D   Dodge Challenger</span>
-<span class="co">#&gt; 7: Ferrari Dino Merc 240D Cadillac Fleetwood</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">DestinationPaths</span></span>
+<span><span class="co">#&gt;            Five      Four              Three</span></span>
+<span><span class="co">#&gt; 1: Ferrari Dino  Merc 280         Camaro Z28</span></span>
+<span><span class="co">#&gt; 2: Ferrari Dino  Merc 280         Duster 360</span></span>
+<span><span class="co">#&gt; 3: Ferrari Dino  Merc 280   Pontiac Firebird</span></span>
+<span><span class="co">#&gt; 4: Ferrari Dino Merc 240D         Camaro Z28</span></span>
+<span><span class="co">#&gt; 5: Ferrari Dino Merc 240D  Chrysler Imperial</span></span>
+<span><span class="co">#&gt; 6: Ferrari Dino Merc 240D   Dodge Challenger</span></span>
+<span><span class="co">#&gt; 7: Ferrari Dino Merc 240D Cadillac Fleetwood</span></span></code></pre></div>
 <p>These tables are used to compute various meta-path based similarity
 metrics.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">Similarity</span><span class="op">)</span>
-<span class="co">#&gt;                        Metric Similarity</span>
-<span class="co">#&gt; 1:                 Path Count  2.0000000</span>
-<span class="co">#&gt; 2:      Normalized Path Count  0.1538462</span>
-<span class="co">#&gt; 3: Degree-Weighted Path Count  0.5798770</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">Similarity</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                        Metric Similarity</span></span>
+<span><span class="co">#&gt; 1:                 Path Count  2.0000000</span></span>
+<span><span class="co">#&gt; 2:      Normalized Path Count  0.1538462</span></span>
+<span><span class="co">#&gt; 3: Degree-Weighted Path Count  0.5798770</span></span></code></pre></div>
 <p>Indeed, there are two paths which connect <code>Camaro Z28</code> and
 <code>Ferrari Dino</code> via the meta-path
 <code>Three-Four-Five</code>.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">OriginPaths</span><span class="op">[</span><span class="va">Five</span> <span class="op">==</span> <span class="st">"Ferrari Dino"</span><span class="op">]</span>
-<span class="co">#&gt;         Three      Four         Five</span>
-<span class="co">#&gt; 1: Camaro Z28 Merc 240D Ferrari Dino</span>
-<span class="co">#&gt; 2: Camaro Z28  Merc 280 Ferrari Dino</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mtcars_sim</span><span class="op">$</span><span class="va">OriginPaths</span><span class="op">[</span><span class="va">Five</span> <span class="op">==</span> <span class="st">"Ferrari Dino"</span><span class="op">]</span></span>
+<span><span class="co">#&gt;         Three      Four         Five</span></span>
+<span><span class="co">#&gt; 1: Camaro Z28 Merc 240D Ferrari Dino</span></span>
+<span><span class="co">#&gt; 2: Camaro Z28  Merc 280 Ferrari Dino</span></span></code></pre></div>
 <p>Those paths are shown on the graph below.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">keep</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html">V</a></span><span class="op">(</span><span class="va">mtcars_graph</span><span class="op">)</span><span class="op">$</span><span class="va">name</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Camaro Z28"</span>, <span class="st">"Merc 240D"</span>, <span class="st">"Merc 280"</span>, <span class="st">"Ferrari Dino"</span><span class="op">)</span>
-<span class="va">mtcars_col_rem</span> <span class="op">=</span> <span class="va">mtcars_col</span>
-<span class="va">mtcars_col_rem</span><span class="op">[</span><span class="op">!</span><span class="va">keep</span><span class="op">]</span> <span class="op">=</span> <span class="cn">NA</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mtcars_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, vertex.label <span class="op">=</span> <span class="cn">NA</span>, edge.arrow.size <span class="op">=</span> <span class="fl">0.25</span>, vertex.color <span class="op">=</span> <span class="va">mtcars_col_rem</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">keep</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html" class="external-link">V</a></span><span class="op">(</span><span class="va">mtcars_graph</span><span class="op">)</span><span class="op">$</span><span class="va">name</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Camaro Z28"</span>, <span class="st">"Merc 240D"</span>, <span class="st">"Merc 280"</span>, <span class="st">"Ferrari Dino"</span><span class="op">)</span></span>
+<span><span class="va">mtcars_col_rem</span> <span class="op">=</span> <span class="va">mtcars_col</span></span>
+<span><span class="va">mtcars_col_rem</span><span class="op">[</span><span class="op">!</span><span class="va">keep</span><span class="op">]</span> <span class="op">=</span> <span class="cn">NA</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">mtcars_graph</span>, vertex.size <span class="op">=</span> <span class="fl">15</span>, vertex.label <span class="op">=</span> <span class="cn">NA</span>, edge.arrow.size <span class="op">=</span> <span class="fl">0.25</span>, vertex.color <span class="op">=</span> <span class="va">mtcars_col_rem</span><span class="op">)</span></span></code></pre></div>
 <p><img src="metapaths-demo_files/figure-html/plot-paths-1.png" width="700"></p>
 </div>
   </div>
@@ -361,11 +358,14 @@ metrics.</p>
 
 
       <footer><div class="copyright">
-  <p>Developed by Ayush Noori, Amelia Tan, Michelle M. Li, Marinka Zitnik.</p>
+  <p></p>
+<p>Developed by Ayush Noori, Amelia Tan, Michelle M. Li, Marinka Zitnik.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Made with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1, using <a href="https://preferably.amirmasoudabdol.name/?source=footer">preferably</a> template.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+  <p class="preferably">Using <a href="https://preferably.amirmasoudabdol.name/?source=footer" class="external-link">preferably</a> template.</p>
 </div>
 
       </footer>
@@ -373,6 +373,8 @@ metrics.</p>
 
   
 
+
+  
 
   </body>
 </html>

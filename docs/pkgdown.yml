@@ -1,8 +1,9 @@
-pandoc: '2.18'
-pkgdown: 1.6.1
+pandoc: 2.19.2
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
+  arxiv-demo: arxiv-demo.html
   biokg-demo: biokg-demo.html
   metapaths-demo: metapaths-demo.html
-last_built: 2022-09-04T03:03Z
+last_built: 2023-01-12T08:26Z
 

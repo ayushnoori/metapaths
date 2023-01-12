@@ -1,6 +1,10 @@
+.DS_Store
+*/.DS_Store
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 inst/doc
 inst/extdata/edge_index.json
+inst/extdata/arxiv_node_list.csv
+inst/extdata/arxiv_edge_list.csv
