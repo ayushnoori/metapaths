@@ -362,16 +362,249 @@ random_test = compare_sets(
 
 # Package Efficiency
 
-```{r test-efficiency}
+Example utility function to generate random meta paths of specified lengths; variants are used below.
+
+```{r random-mp}
 set.seed(42)
 
+# generate random metapath of specified length
+random_mp = function(origin_type, mp_length, edge_types, verbose = T) {
+  
+  # construct random meta path starting at origin
+  gen_mp = c(origin_type)
+  if(verbose) { cat(origin_type) }
+  
+  # construct meta path
+  for (k in 1:(mp_length - 1)) {
+      possible_types = edge_types[OriginType == tail(gen_mp, 1), unique(DestinationType)]
+      if(length(possible_types) == 0) {
+        return(random_mp(origin_type, mp_length, edge_types, verbose))
+      }
+      next_type = sample(possible_types, 1)
+      if(verbose) { cat(" >", next_type) }
+      gen_mp = append(gen_mp, next_type)
+    }
+  
+  if(verbose) { cat("\n") }
+  
+  # return meta path
+  return(gen_mp)
+  
+}
+```
+
+Randomly subsample BioKG by starting at a randomly sampled node and adding all neighbors (irrespective of edge direction) until the desired graph size is reached.
+
+```{r subsample-biokg}
+# generate connnected BioKG subgraph of specific size
+subsample_biokg = function(sample_size, origin_types = NULL, verbose = F) {
+  
+  # sample seed node
+  if(!is.null(origin_types)) {
+    subgraph_nodes = sample(biokg_node_list[NodeType %in% origin_types, Node], 1)
+  } else {
+    subgraph_nodes = sample(biokg_node_list[, Node], 1)
+  }
+  subgraph_size = 1
+  if(verbose) { message("Subgraph Size: ", subgraph_size) }
+  sub_index = 1
+  
+  # augment subgraph until subgraph is as large as desired
+  while (subgraph_size < sample_size) {
+      
+      # augment subgraph by appending neighbors of i-th node in subgraph
+      # take neighbors irrespective of destination
+      new_neighbors = biokg_edge_list %>%
+        .[Origin == subgraph_nodes[sub_index] | Destination == subgraph_nodes[sub_index]] %>% .[, c(Origin, Destination)]
+      
+      # append nodes to subgraph
+      subgraph_nodes = c(subgraph_nodes, new_neighbors) %>% unique()
+      subgraph_size = length(subgraph_nodes)
+      if(verbose) { message("Subgraph Size: ", subgraph_size) }
+      
+      # increment index
+      sub_index = sub_index + 1
+      
+  }
+  
+  # subset nodes to size
+  subgraph_nodes = subgraph_nodes[1:sample_size]
+  subgraph_size = length(subgraph_nodes)
+  if(verbose) { message("Final Subgraph Size: ", subgraph_size) }
+  
+  # generate node and edge lists of subgraph
+  sub_edge_list = biokg_edge_list[Origin %in% subgraph_nodes & Destination %in% subgraph_nodes]
+  sub_node_list = biokg_node_list[Node %in% subgraph_nodes]
+  
+  # return node and edge list
+  return(list(Nodes = sub_node_list, Edges = sub_edge_list))
+  
+}
+```
+
+Write function to evaluate how execution time of the `get_similarity()` function scales with graph size. Generate `n_graphs` number of random subgraphs of size `graph_size`; for each subgraph, run `n_trials` trials (where, in each trial, a random metapath of length `mp_length` is evaluated.
+
+```{r test-size}
+# run experiments on graph of given size
+test_size = function(graph_size, mp_length = 3, n_graphs = 10, n_trials = 10, origin_types = NULL, verbose = F) {
+  
+  # test with the parameters:
+  # graph_size = 500
+  # mp_length = 3
+  # n_graphs = 10
+  # n_trials = 10
+  
+  # define overall averages
+  graph_total_time = 0
+  graph_average_times = rep(NA, times = n_graphs)
+  graph_trial_times = list()
+  
+  # time trial
+  for (graph_number in 1:n_graphs) {
+    
+    # print graph number
+    if(verbose) { message("\nGraph Number: ", graph_number) }
+    
+    # subsample graph
+    random_graph = subsample_biokg(graph_size, origin_types = origin_types, 
+                                   verbose = verbose)
+    sample_node_list = random_graph$Nodes
+    sample_edge_list = random_graph$Edges
+    
+    # generate possible edge types
+    sample_edge_types = sample_edge_list[, .(OriginType, DestinationType)] %>% unique()
+    
+    # remove terminal types
+    sample_edge_types = sample_edge_types[DestinationType %in% OriginType]
+    if(is.null(origin_types)) {
+      origin_types = sample_edge_types$OriginType
+    } else {
+      origin_types = origin_types[origin_types %in% sample_edge_types$OriginType]
+    }
+    if(verbose) { 
+      message("-- Origin Types: ", origin_types)
+      # print(sample_edge_types)
+    }
+    
+    # total time variable
+    total_time = 0
+    trial_times = rep(NA, times = n_trials)
+    
+    # time trial
+    for (trial_number in 1:n_trials) {
+    
+      # sample random origin node
+      random_origin = sample_edge_list[OriginType %in% origin_types, Origin] %>% unique() %>% sample(1)
+      random_origin_type = sample_node_list[Node == random_origin, NodeType]
+      
+      # print trial number
+      if(verbose) { message("-- Trial Number: ", trial_number, " (", random_origin_type, ")") }
+      
+      # construct random meta path starting at origin
+      test_mp = random_mp(random_origin_type, mp_length, sample_edge_types, verbose = verbose)
+      
+      # sample random destination node
+      random_destination = sample_node_list %>%
+        .[NodeType == tail(test_mp, 1)] %>%
+        .[Node == sample(Node, 1), Node]
+      
+      # time similarity search
+      start_time = Sys.time()
+      sim_result = get_similarity(
+        random_origin, random_destination,
+        mp = test_mp,
+        metric = c("dwpc"),
+        node_list = sample_node_list,
+        edge_list = sample_edge_list,
+        verbose = F)
+      end_time = Sys.time()
+      
+      # compute time required
+      time_required = end_time - start_time
+      trial_times[trial_number] = time_required
+      total_time = total_time + time_required
+      
+    }
+    
+    # compute average time
+    average_time = total_time / n_trials
+    
+    # append to graph list
+    graph_total_time = graph_total_time + average_time
+    graph_average_times[graph_number] = average_time
+    graph_trial_times = append(graph_trial_times, list(trial_times))
+  
+  }
+  
+  # generate return object
+  graph_average_time = graph_total_time / n_graphs
+  names(graph_trial_times) = paste("Graph", 1:n_graphs)
+  
+  return(list(Average = graph_average_time,
+              `Graph Averages` = graph_average_times,
+              Trials = graph_trial_times))
+  
+}
+```
+
+Test on randomly generated graphs of various sizes.
+
+```{r size-tests}
+# map over sizes
+# size_list = c(128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536)
+size_list = c(128, 256, 512, 1024, 2048, 4096, 8192, 16384)
+time_test = map(size_list, ~test_size(.x, mp_length = 3, n_graphs = 10, n_trials = 10, origin_types = c("disease", "protein", "function"), verbose = T))
+```
+
+Plot execution time by graph size.
+
+```{r plot-times}
+library(ggplot2)
+
+# parse times
+time_vals = data.table(
+  Size = rep(size_list, each = 10),
+  Time = unlist(map(time_test, ~.x$`Graph Averages`)))
+
+# generate statistics
+time_stats = time_vals[, .(Mean = mean(Time), SD = sd(Time)), by = Size] %>%
+  .[, Upper := Mean + SD] %>%
+  .[, Lower := Mean - SD]
+
+# generate plot
+p = ggplot(time_stats, aes(x = Size, y = Mean, fill = log2(Size))) +
+  geom_bar(stat = "identity", color = "black") +
+  geom_errorbar(data = time_stats, aes(x = Size, ymin = Lower, ymax = Upper),
+                width = 0.2, inherit.aes = FALSE) +
+  scale_fill_gradientn(colors = c("#FFDAB9", "#FBC4AB", "#F8AD9D", "#F4978E", "#F08080")) +
+  labs(x = "Graph Size", y = "Mean Running Time (seconds)") +
+  scale_x_continuous(trans = "log2", n.breaks = length(size_list)) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.06))) +
+  theme_bw() +
+  theme(
+    axis.title = element_text(face = "bold", size = 14),
+    axis.text = element_text(size = 12),
+    legend.position = "None"
+  )
+
+# save plot
+ggsave(filename = "../Figures/size_runtime.pdf", p, width = 8, height = 5, units = "in")
+ggsave(filename = "../Figures/size_runtime.svg", p, width = 8, height = 5, units = "in")
+ggsave(filename = "../Figures/size_runtime.png", p, width = 8, height = 5, units = "in")
+
+```
+
+Test how execution time scales with meta path length.
+
+```{r test-length}
 # get all node types
 node_types = unique(biokg_node_list$NodeType)
 
 # list possible edge types from unique(biokg_edge_list$EdgeType)
 # excluding "drug-sideeffect" since all sideeffect nodes are terminal
 # excluding "protein-function" and "function-function" to prevent uninformative "function" x n metapaths
-edge_types = c("disease-protein", "drug-disease", "drug-drug", "drug-protein", "protein-protein")
+edge_types = c("disease-protein", "drug-disease", "drug-drug", "drug-protein", "protein-protein", "protein-function", "function-function")
+  
 edge_types = data.table(Origin = map_chr(strsplit(edge_types, "-"), ~.x[1]),
                         Destination = map_chr(strsplit(edge_types, "-"), ~.x[2]))
 

@@ -145,6 +145,14 @@ the MAG corpus. We also provide the mapping from MAG paper IDs into the
 raw texts of titles and abstracts <a href="https://snap.stanford.edu/ogb/data/misc/ogbn_arxiv/titleabs.tsv.gz" class="external-link">here</a>.
 In addition, all papers are also associated with the year that the
 corresponding paper was published.”</p>
+<p>The task is to predict the 40 subject areas of arXiv CS papers, e.g.,
+cs.AI, cs.LG, and cs.OS, which are manually determined (i.e., labeled)
+by the paper’s authors and arXiv moderators. With the volume of
+scientific publications doubling every 12 years over the past century,
+it is practically important to automatically classify each publication’s
+areas and topics. Formally, the task is to predict the primary
+categories of the arXiv papers, which is formulated as a 40-class
+classification problem.</p>
 </blockquote>
 <div class="section level4">
 <h4 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
@@ -291,7 +299,7 @@ corresponds to <code>CS.SI - CS.SI - CS.AI</code>.</p>
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Ayush Noori, Amelia Tan, Michelle M. Li, Marinka Zitnik.</p>
+<p>Developed by Ayush Noori, Michelle M. Li, Amelia L. M. Tan, Marinka Zitnik.</p>
 </div>
 
 <div class="pkgdown">
